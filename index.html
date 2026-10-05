@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>one-x（ワンネックス）｜沖縄のコミュニケーション研修・採用支援</title>
+<meta name="description" content="沖縄の one-x（ワンネックス）は、企業や学校向けの体験型コミュニケーション研修と、中小企業の採用支援を行っています。代表は大手メーカーグループ会社で約16年、人事として採用と育成に携わってきました。40分の無料体験あり。">
+<link rel="canonical" href="https://onex-ri.jp/">
+<meta name="theme-color" content="#F5F5F5">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="one-x">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="one-x（ワンネックス）｜沖縄のコミュニケーション研修・採用支援">
+<meta property="og:description" content="沖縄の one-x（ワンネックス）は、企業や学校向けの体験型コミュニケーション研修と、中小企業の採用支援を行っています。代表は大手メーカーグループ会社で約16年、人事として採用と育成に携わってきました。40分の無料体験あり。">
+<meta property="og:url" content="https://onex-ri.jp/">
+<meta property="og:image" content="https://onex-ri.jp/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="one-x 誰かと働くって、楽しい。">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="/img/mv_pc.webp" imagesrcset="/img/mv_pc-sm.webp 800w, /img/mv_pc.webp 2880w" imagesizes="110vw" fetchpriority="high">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://onex-ri.jp/#organization",
+   "name": "one-x",
+   "alternateName": "ワンネックス",
+   "url": "https://onex-ri.jp/",
+   "email": "t.okuhira@onex-ri.jp",
+   "description": "沖縄の企業や学校で、体験型のコミュニケーション研修と、企業の採用支援を行っています。",
+   "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "沖縄県"
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "沖縄県",
+    "addressCountry": "JP"
+   },
+   "founder": {
+    "@id": "https://onex-ri.jp/#founder"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://onex-ri.jp/#founder",
+   "name": "奥平 哲矢",
+   "alternateName": "Tetsuya Okuhira",
+   "jobTitle": "代表",
+   "worksFor": {
+    "@id": "https://onex-ri.jp/#organization"
+   },
+   "image": "https://onex-ri.jp/img/founder_full.webp"
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://onex-ri.jp/#website",
+   "url": "https://onex-ri.jp/",
+   "name": "one-x",
+   "inLanguage": "ja",
+   "publisher": {
+    "@id": "https://onex-ri.jp/#organization"
+   }
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Red+Hat+Display:wght@600;700;800;900&family=Roboto+Slab:wght@800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Red+Hat+Display:wght@600;700;800;900&family=Roboto+Slab:wght@800&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=optional"></noscript>
+<style>
+/* 参考サイト（gaaboo.jp）の数値をそのまま変数にしたもの。1rem = 画面幅÷144（PC）／画面幅÷40（スマホ）。
+   値の出どころは ONE-X_HP/参考サイト分析_gaaboo.md。単色の明るい見た目に決めているため、暗い表示用の色は持たない。 */
+:root{
+  color-scheme:light;
+  --vw:100vw;
+  /* 色（取得値） */
+  --color-base:#1A1A1A; --color-dark:#262626; --color-charcoal:#2E2E2E;
+  --color-smoke:#666666; --color-muted:#9E9E9E; --color-border:#EBEBEB;
+  --color-cloud:#F2F2F2; --color-snow:#F5F5F5; --color-white:#FFFFFF;
+  --color-01:#F5533E; --color-02:#009B82; --color-03:#30ABE6; --color-04:#EE2237; --color-05:#FBBB04; --color-06:#7F56F0;
+  --color-bg:var(--color-snow);
+  /* 書体（取得値。--font-slab だけ代替値） */
+  --font-base:Inter,"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --font-red-hat:"Red Hat Display",Inter,sans-serif;
+  --font-slab:"Roboto Slab",Georgia,serif;
+  /* 行の高さ・字間（取得値） */
+  --leading-none:1; --leading-normal:1.3; --leading-half:1.5; --leading-loose:1.75; --leading-wide:2;
+  --tracking-base:0.02em;
+  /* 角丸・線（取得値） */
+  --radius-full:9999px; --radius:1.6rem; --radius-inner:.4rem; --border-width:.2rem;
+  /* 余白（取得値） */
+  --spacing-m:8rem; --spacing-l:16rem;
+  --ease-back-out:cubic-bezier(0.175,0.885,0.32,1.275);
+  --ease-power2-out:cubic-bezier(0.215,0.61,0.355,1);
+}
+@media (max-width:767px){:root{--spacing-m:3.2rem;--spacing-l:6.4rem}}
+html{font-size:calc(var(--vw)/144)}
+@media (max-width:767px){html{font-size:calc(var(--vw)/40)}}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--color-bg);color:var(--color-base);font-family:var(--font-base);font-feature-settings:"palt";font-size:1.5rem;line-height:var(--leading-wide);-webkit-font-smoothing:antialiased;overflow-x:clip}
+@media (max-width:767px){body{font-size:1.5rem;line-height:var(--leading-loose)}}
+h1,h2,h3,p{margin:0;font-weight:inherit;font-size:inherit}
+a{color:inherit;text-decoration:none}
+ul{list-style:none;margin:0;padding:0}
+.sp{display:none}
+@media (max-width:767px){.sp{display:inline}.pc{display:none}}
+:focus-visible{outline:.3rem solid var(--color-03);outline-offset:.3rem}
+
+.proto{position:relative;z-index:600;background:var(--color-base);color:var(--color-white);font-size:12px;line-height:1.6;text-align:center;padding:6px 16px}
+
+/* ===== ヘッダー（1fr 5fr 1fr、左右 3.2rem。ナビは 69.4rem の位置から上 3.2rem に止まる） ===== */
+.page{position:relative}
+.l-header{position:absolute;inset:0 0 0 0;z-index:500;display:grid;grid-template-columns:1fr 5fr 1fr;align-items:start;padding-inline:3.2rem;pointer-events:none}
+.l-header>*{pointer-events:auto}
+.hd-logo{position:sticky;top:3.2rem;margin-top:3.2rem;height:6rem;display:flex;align-items:center}
+.hd-logo .tag{visibility:hidden;font-size:1.6rem;font-weight:700;letter-spacing:var(--tracking-base);line-height:1;transition:opacity .3s}
+.hd-logo .mini{position:absolute;left:0;top:50%;transform:translateY(-50%);font-family:var(--font-red-hat);font-weight:800;font-size:3rem;letter-spacing:-.02em;line-height:1;opacity:0;transition:opacity .3s}
+.is-scrolled .hd-logo .tag{opacity:0}
+.is-scrolled .hd-logo .mini{opacity:1}
+.l-nav{position:sticky;top:3.2rem;margin-top:69.4rem;display:flex;justify-content:center}
+.l-nav ul{display:flex}
+.l-nav ul{gap:2rem}
+.l-nav-link{display:flex;align-items:center;height:6rem;padding:.8rem 2.8rem;background:var(--color-white);border:var(--border-width) solid var(--color-border);border-radius:var(--radius-full);font-size:1.8rem;font-weight:700;line-height:1.1;white-space:nowrap;transition:background-color .2s}
+.l-nav-link:hover{background:var(--color-cloud)}
+.hd-contact{position:sticky;top:3.2rem;margin-top:69.4rem;justify-self:end}
+.hd-contact a{display:flex;align-items:center;gap:.8rem;height:6rem;padding:.8rem 2.8rem;background:var(--color-base);color:var(--color-white);border-radius:var(--radius-full);font-size:1.8rem;font-weight:700;white-space:nowrap}
+.hd-contact svg{width:1.4rem;height:1.4rem;fill:currentColor}
+.burger{display:none}
+@media (max-width:767px){
+  .l-header{display:flex;justify-content:space-between;padding-inline:2rem;inset:0 0 auto 0;height:100%}
+  .hd-logo{margin-top:2rem;top:2rem;height:3.2rem}
+  .hd-logo .tag{display:none}
+  .hd-logo .mini{opacity:1;font-size:3rem;position:static;transform:none;display:flex;align-items:center;height:3.2rem}
+  .hd-contact{display:none}
+  .burger{display:flex;position:sticky;top:2rem;margin-top:2rem;align-items:center;justify-content:center;gap:.6rem;width:7.8rem;height:3.2rem;background:var(--color-base);color:var(--color-white);border:0;border-radius:var(--radius-full);font:700 1.4rem/1 var(--font-base);cursor:pointer}
+  .l-nav{position:fixed;inset:0;margin:0;top:0;background:var(--color-snow);flex-direction:column;justify-content:center;padding:0 3.2rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+  .l-nav.open{opacity:1;visibility:visible}
+  .l-nav ul{flex-direction:column;gap:1.2rem}
+  .l-nav-link{height:5.6rem;font-size:1.8rem;padding:0 2.4rem;width:max-content}
+  .l-nav .close{position:absolute;top:2rem;right:2rem;width:7.8rem;height:3.2rem;border:0;border-radius:var(--radius-full);background:var(--color-base);color:var(--color-white);font:700 1.4rem/1 var(--font-base)}
+}
+@media (min-width:768px){.l-nav .close{display:none}}
+
+/* ===== 最初の画面（76.8rem／59.2rem） ===== */
+.mv{position:relative;height:80rem;overflow:clip}
+.mv-copy{position:absolute;left:0;right:0;top:9.1rem;text-align:center;font-size:4.2rem;font-weight:500;line-height:1;letter-spacing:.04em;z-index:2;transform:translateX(.94rem)}
+.mv-mark{position:absolute;left:0;right:0;top:9.6rem;text-align:center;font-family:var(--font-red-hat);font-weight:900;font-size:22rem;line-height:1;letter-spacing:-.045em;z-index:2}
+.mv-img{position:absolute;inset:0;z-index:1}
+.mv-img img{position:absolute;left:50%;bottom:0;width:110%;max-width:none;height:auto;transform:translateX(-50%)}
+@media (max-width:767px){
+  .mv{height:36.4rem}
+  .mv-copy{top:9.4rem;font-size:1.9rem;transform:translateX(.45rem)}
+  .mv-mark{top:10.6rem;font-size:9.6rem}
+  .mv-img img{width:104%}
+}
+
+/* ===== 共通部品 ===== */
+.page-balloon{position:relative;width:max-content;background:var(--color-white);border-radius:var(--radius-full);font-family:var(--font-red-hat);font-weight:800;font-size:1.8rem;line-height:var(--leading-none);padding:1.2rem 2rem}
+.page-balloon::before{content:"";position:absolute;left:0;right:0;top:100%;margin:0 auto;width:1rem;height:.8rem;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%)}
+.page-balloon.on-white{background:var(--color-cloud)}
+.c-strong{display:inline-block;background:var(--color-white);border-radius:var(--radius-inner);padding:0 .7rem;font-weight:700;line-height:1.8}
+.c-button{display:inline-flex;align-items:center;gap:1.6rem;height:6.4rem;padding:2rem 2rem 2rem 2.7rem;background:var(--color-base);color:var(--color-white);border-radius:var(--radius-full);font-size:1.4rem;font-weight:700;letter-spacing:var(--tracking-base);line-height:1;white-space:nowrap}
+.c-button[hidden]{display:none}
+.dash{display:inline-block;transform:scaleX(.55);margin-inline:-.06em}
+.c-button-icon{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--color-white);color:var(--color-base);transition:transform .32s var(--ease-back-out)}
+.c-button:hover .c-button-icon{transform:scale(1.15)}
+.arrow{width:1.1rem;height:1.1rem}
+.dots{font-weight:700;letter-spacing:.1em;line-height:1;margin-top:2.6rem}
+.c-title{display:flex;align-items:center;gap:2.4rem;line-height:var(--leading-none)}
+.c-title-en{font-family:var(--font-slab);font-weight:800;font-size:10rem;line-height:1.1;letter-spacing:-.02em;white-space:nowrap}
+.c-title-ja{font-size:2.4rem;font-weight:700;letter-spacing:var(--tracking-base)}
+@media (max-width:767px){
+  .c-title{gap:1.6rem}
+  .c-title-en{font-size:6.9rem}
+  .c-title-ja{font-size:1.8rem;white-space:nowrap}
+  .c-strong{line-height:1.75}
+  .page-balloon{font-size:1.5rem;padding:1rem 1.6rem}
+}
+/* 文字ごとに6色を回してから黒に戻る（色の順は取得値、時間は推定値） */
+.c-colorful-child{display:inline-block;transform-origin:10% 90%}
+.c-colorful-child[data-i="1"]{--index-color:var(--color-01)}
+.c-colorful-child[data-i="2"]{--index-color:var(--color-02)}
+.c-colorful-child[data-i="3"]{--index-color:var(--color-03)}
+.c-colorful-child[data-i="4"]{--index-color:var(--color-04)}
+.c-colorful-child[data-i="5"]{--index-color:var(--color-05)}
+.c-colorful-child[data-i="6"]{--index-color:var(--color-06)}
+.c-colorful-child.is-enter{animation:colorful 2s var(--ease-power2-out) both}
+@keyframes colorful{0%{color:var(--index-color);transform:rotate(-8deg) translateY(.15em)}35%{color:var(--index-color);transform:none}100%{color:var(--color-base);transform:none}}
+@media (prefers-reduced-motion:reduce){.c-colorful-child.is-enter{animation:none}}
+/* セクションの境目：上にふくらむ弧 */
+.c-separator{position:absolute;left:0;bottom:-1px;width:100%;height:8rem;pointer-events:none}
+.c-separator path{fill:var(--sep,var(--color-white))}
+@media (max-width:767px){.c-separator{height:3.2rem}}
+
+/* ===== About ===== */
+.about{position:relative;padding:8rem 12rem 5rem}
+.about-heading{margin-top:2.6rem;font-size:4.8rem;font-weight:700;line-height:var(--leading-half)}
+.about-body{position:relative;margin-top:5.1rem;padding-left:53rem;min-height:56rem}
+.about-illust{position:absolute;left:0;top:-1.6rem;width:45rem;height:58rem;object-fit:cover;object-position:50% 100%;display:block}
+.about-message{display:grid;row-gap:2.4rem}
+.about-message p{font-size:1.8rem;line-height:var(--leading-wide);letter-spacing:var(--tracking-base)}
+.about-action{display:flex;justify-content:flex-end;margin-top:4.8rem}
+@media (max-width:767px){
+  .about{padding:2.4rem var(--spacing-m) 12.7rem}
+  .about-heading{margin-top:2.1rem;font-size:3.2rem}
+  .about-body{padding-left:0;margin-top:0;min-height:0}
+  .about-illust{position:relative;top:auto;margin:1.6rem auto 0;width:86%;height:auto;aspect-ratio:716/930;object-fit:cover;object-position:50% 100%}
+  .about-message{margin-top:2.4rem}
+  .about-message p{font-size:1.5rem}
+  .about-action{justify-content:flex-start;margin-top:4.7rem}
+}
+
+/* ===== 名前に込めたこと（白、2列 1fr＋48rem） ===== */
+.why{position:relative;background:var(--color-white);padding:6.4rem var(--spacing-l) 18.7rem;--sep:var(--color-snow)}
+.why-container{display:grid;grid-template-columns:1fr 58rem;column-gap:4rem}
+.why-heading{margin-top:2.6rem;font-size:4.8rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
+.why-intro-heading{margin-top:3.2rem;font-size:2.8rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
+.why .c-strong{background:var(--color-cloud)}
+.why-intro-value{margin-top:2rem;font-size:1.8rem;letter-spacing:var(--tracking-base)}
+.why-intro-description{margin-top:2.4rem;font-size:1.8rem;letter-spacing:var(--tracking-base);max-width:64rem}
+.why-item{margin-top:7.2rem;max-width:64rem}
+.why-item-header{display:flex;align-items:flex-end;line-height:var(--leading-none)}
+.why-item-number{font-family:var(--font-red-hat);font-weight:700;font-size:4.4rem;color:var(--index-color)}
+.why-item-label{position:relative;margin-left:1.4rem;padding-left:1.6rem;font-family:var(--font-red-hat);font-weight:700;font-size:3rem;color:var(--color-muted)}
+.why-item-label::before{content:"";position:absolute;left:0;top:0;height:100%;width:var(--border-width);background-image:linear-gradient(to bottom,var(--color-border) 0 .4rem,#0000 .4rem .6rem);background-size:var(--border-width) .6rem}
+.why-item-heading{margin-top:2.4rem;font-size:4.8rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
+.why-key{--key:var(--index-color);color:var(--key);font-family:"Red Hat Display","Noto Sans JP",sans-serif;font-weight:900;font-size:1.5em;line-height:1;margin-right:.06em}
+.why-key.is-ja{font-size:1.15em}
+.why-item-description{margin-top:2rem;font-size:1.8rem;letter-spacing:var(--tracking-base)}
+.why-visual{position:sticky;top:calc(50vh - 29rem);width:58rem;height:58rem;margin-top:7.2rem;display:block}
+@media (max-width:767px){
+  .why{padding:6.5rem var(--spacing-m) 6.3rem}
+  .why-container{display:block}
+  .why-intro{text-align:center}
+  .why-intro .page-balloon{margin-inline:auto}
+  .why-heading{margin-top:2.9rem;font-size:3.2rem;letter-spacing:0}
+  .why-intro-heading{font-size:2.4rem}
+  .why-intro-description{font-size:1.5rem}
+  .why-intro-value{font-size:1.5rem}
+  .why-item{margin-top:0;padding:4rem 0 1.6rem}
+  .why-item-header{justify-content:center}
+  .why-item-number{font-size:3.6rem}
+  .why-item-label{margin-left:1rem;padding-left:1.2rem;font-size:2.4rem}
+  .why-item-heading{margin-top:1.6rem;font-size:3.2rem;text-align:center}
+  .why-item-description{margin-top:3.4rem;font-size:1.5rem;text-align:justify}
+  .why-visual{display:none}
+}
+
+/* ===== 事業内容 ===== */
+.service{position:relative;padding:8rem var(--spacing-m) 16rem;overflow-x:clip}
+.service-header{display:flex;justify-content:space-between;align-items:flex-end;gap:4rem}
+.service-header-main{max-width:96rem}
+.service-description{margin-top:2rem;font-size:1.5rem;letter-spacing:var(--tracking-base)}
+.service-list{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;margin-top:3.2rem}
+.service-item{position:relative;display:block;height:25rem;padding:3.4rem 3.8rem;background:var(--color-white);border:var(--border-width) solid var(--color-border);border-radius:var(--radius);overflow:clip}
+.service-item:nth-child(1){--index-color:var(--color-01)}
+.service-item:nth-child(2){--index-color:var(--color-02)}
+.service-item:nth-child(3){--index-color:var(--color-03)}
+.service-item:nth-child(4){--index-color:var(--color-04)}
+.service-item-heading,.service-item-description,.service-item .soon{position:relative;z-index:1}
+.service-item-heading{white-space:nowrap;font-size:2.4rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
+.nb{white-space:nowrap}
+.service-item-description{max-width:26rem;margin-top:1.8rem;font-size:1.5rem;line-height:var(--leading-loose);letter-spacing:var(--tracking-base);color:var(--color-muted)}
+.service-item-icon{position:absolute;z-index:2;right:3.4rem;top:3.4rem;width:4rem;height:4rem;border-radius:50%;background:var(--index-color);color:var(--color-white);display:grid;place-items:center;transition:transform .32s var(--ease-back-out)}
+.service-item:hover .service-item-icon{transform:scale(1.15)}
+.service-item-icon .arrow{width:25%;height:25%}
+.service-item-illust{position:absolute;right:2rem;bottom:0;width:auto;height:21rem;max-width:30rem;object-fit:contain;object-position:right bottom;display:block;pointer-events:none}
+.service-item:nth-child(n+2) .service-item-illust{height:auto;max-width:none}
+.service-item:nth-child(2) .service-item-illust{width:31rem}
+.service-item:nth-child(3) .service-item-illust{width:40rem}
+.service-item:nth-child(4) .service-item-illust{width:40rem}
+.service-item .soon{display:inline-block;margin-top:1.2rem;font-size:1.2rem;font-weight:700;color:var(--color-smoke)}
+@media (max-width:767px){
+  .service{padding:9.6rem var(--spacing-m) 9.6rem}
+  .service-header{display:block}
+  .service-description{font-size:1.5rem;text-align:justify}
+  .service-header .c-button{margin-top:4rem}
+  .service-list{grid-template-columns:1fr;gap:1.6rem;margin-top:5.6rem}
+  .service-item{height:auto;min-height:0;padding:3.2rem 3rem 15rem}
+  .service-item-heading{white-space:normal;font-size:2rem;padding-right:4.6rem}
+  .service-item:nth-child(4){padding-bottom:11rem}
+  .service-item-description{max-width:none}
+  .service-item-icon{right:3rem;top:3rem}
+  .service-item-illust{right:1.6rem;height:13rem;max-width:22rem}
+  .service-item:nth-child(2) .service-item-illust{width:24rem}
+  .service-item:nth-child(3) .service-item-illust,.service-item:nth-child(4) .service-item-illust{width:28rem}
+  .service-item-description{font-size:1.4rem}
+}
+
+/* ===== 代表（白いカード） ===== */
+.group{margin-top:8rem;padding-top:8rem;background-image:linear-gradient(to right,var(--color-border) 0 .4rem,#0000 .4rem .6rem);background-size:.6rem var(--border-width);background-repeat:repeat-x;background-position:top}
+.group-card{position:relative;display:grid;grid-template-columns:1fr 48rem;column-gap:6rem;align-items:center;background:var(--color-white);border-radius:var(--radius);padding:8rem 8rem 12.4rem}
+.group-heading{font-family:var(--font-slab);font-weight:800;font-size:7.2rem;line-height:.95;letter-spacing:-.02em}
+.group-copy{margin-top:3.4rem;font-size:2.8rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
+.group-message{display:grid;row-gap:1.6rem;margin-top:2.4rem}
+.group-message p{font-size:1.5rem;letter-spacing:var(--tracking-base)}
+.founder-name{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:1.6rem;row-gap:.6rem;margin-top:3.2rem;padding-bottom:2rem;border-bottom:var(--border-width) solid var(--color-border)}
+.founder-name-ja{font-size:2.6rem;font-weight:700;line-height:1.3;letter-spacing:.1em}
+.founder-name-en{font-family:var(--font-slab);font-size:1.6rem;font-weight:700;letter-spacing:.02em;color:var(--color-smoke)}
+.founder-name-meta{display:flex;flex-wrap:wrap;column-gap:1.2rem;flex-basis:100%;font-size:1.4rem;font-weight:700;letter-spacing:var(--tracking-base)}
+.founder-name-meta span+span::before{content:"";display:inline-block;width:.2rem;height:1.2rem;margin-right:1.2rem;background:var(--color-border);vertical-align:-.1rem}
+@media (max-width:767px){.founder-name{margin-top:2.4rem}.founder-name-ja{font-size:2.2rem}.founder-name-en{font-size:1.4rem}}
+.group-card .c-button{margin-top:4.8rem}
+.group-photo{justify-self:center;width:40rem;height:auto;aspect-ratio:3/4;border-radius:var(--radius);object-fit:cover;object-position:50% 70%;display:block}
+@media (max-width:767px){
+  .group{margin-top:6.4rem;padding-top:6.4rem}
+  .group-card{display:block;padding:4.8rem var(--spacing-m)}
+  .group-heading{font-size:5.2rem}
+  .group-copy{margin-top:1.8rem;font-size:2rem}
+  .group-message p{font-size:1.5rem}
+  .group-photo{width:100%;height:auto;aspect-ratio:3/4;margin-top:4rem}
+}
+
+/* ===== 研修（Recruit の型） ===== */
+.training{position:relative;padding:10.5rem var(--spacing-m) 16rem}
+.training-sep-top{position:relative;height:8rem;background:var(--color-white);--sep:var(--color-snow)}
+.training-contents{display:grid;grid-template-columns:1fr 1.35fr;column-gap:5rem;align-items:center;padding:0 4rem}
+.training-copy{margin-top:3.2rem;font-size:2.8rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
+.training-message{display:grid;row-gap:1.6rem;margin-top:2.4rem}
+.training-message p{font-size:1.5rem;letter-spacing:var(--tracking-base)}
+.training-illust{width:100%;height:auto;display:block;margin-top:8rem}
+.training-banner{display:grid;grid-template-columns:1fr 1fr;gap:2.8rem;margin-top:8rem}
+.banner{position:relative;display:block;background:var(--color-white);border:var(--border-width) solid var(--color-border);border-radius:var(--radius);padding:3.8rem 12rem 3.5rem 3.8rem}
+.banner:nth-child(1){--index-color:var(--color-01)}
+.banner:nth-child(2){--index-color:var(--color-02)}
+.banner-en{font-family:var(--font-red-hat);font-weight:700;font-size:1.1rem;line-height:1}
+.banner-ja{margin-top:1.3rem;font-size:2.8rem;font-weight:700;line-height:1;letter-spacing:var(--tracking-base)}
+.banner-desc{margin-top:2.2rem;font-size:1.3rem;line-height:var(--leading-loose);letter-spacing:var(--tracking-base);color:var(--color-muted)}
+.banner .service-item-icon{right:3.8rem;top:50%;margin-top:-2rem}
+.banner:hover .service-item-icon{transform:scale(1.15)}
+@media (max-width:767px){
+  .training{padding:7.2rem var(--spacing-m) 9.6rem}
+  .training-sep-top{height:3.2rem}
+  .training-contents{display:block;padding:0}
+  .training-copy{font-size:2.4rem}
+  .training-message p{font-size:1.5rem}
+  .training-illust{margin-top:4rem}
+  .training-banner{grid-template-columns:1fr;gap:1.6rem;margin-top:5.6rem}
+  .banner{padding:3rem 7rem 3rem 3rem}
+  .banner-ja{font-size:2.2rem}
+  .banner-desc{font-size:1.4rem}
+  .banner .service-item-icon{right:3rem}
+}
+
+/* ===== フッター ===== */
+.footer-sep{position:relative;height:8rem;--sep:var(--color-white)}
+.l-footer{background:var(--color-white);color:var(--color-base);padding:6.2rem var(--spacing-m) 4rem}
+.l-footer-contact{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem}
+.l-footer-contact-item{position:relative;display:block;background:var(--color-snow);border:var(--border-width) solid var(--color-border);transition:background-color .2s;border-radius:var(--radius);padding:7rem 5.8rem;min-height:20.1rem}
+.l-footer-contact-en{font-family:var(--font-slab);font-weight:800;font-size:1.3rem;line-height:1;letter-spacing:.01em}
+.l-footer-contact-ja{display:block;margin-top:1.8rem;font-size:2.4rem;font-weight:700;line-height:1;letter-spacing:var(--tracking-base)}
+.l-footer-contact-item .c-button-icon{position:absolute;right:5.8rem;top:50%;width:4rem;height:4rem;margin-top:-2rem}
+.l-footer-contact-item:nth-child(1){--index-color:var(--color-01)}
+.l-footer-contact-item:nth-child(2){--index-color:var(--color-02)}
+.l-footer-contact-item .c-button-icon{background:var(--index-color);color:var(--color-white)}
+.l-footer-contact-item:hover{background:var(--color-cloud)}
+.l-footer-contact-item:hover .c-button-icon{transform:scale(1.15)}
+.l-footer-bottom{display:flex;flex-wrap:wrap;gap:1.2rem 2rem;align-items:center;margin-top:3.6rem;padding-bottom:3.6rem;border-bottom:var(--border-width) dashed var(--color-border);font-family:var(--font-red-hat);font-weight:600;font-size:1.2rem}
+.l-footer-copy{color:var(--color-muted)}
+.l-footer-note{margin-top:2.4rem;font-size:1.4rem;letter-spacing:var(--tracking-base);color:var(--color-smoke)}
+.l-footer-note a,.l-footer-bottom a{text-decoration:underline;text-underline-offset:.2em}
+.l-footer-mark{margin-top:4rem;font-family:var(--font-red-hat);font-weight:900;font-size:4rem;letter-spacing:-.03em;line-height:1}
+.l-footer-mark small{display:block;margin-top:1rem;font-family:var(--font-base);font-size:1.3rem;font-weight:700;letter-spacing:var(--tracking-base);color:var(--color-muted)}
+@media (max-width:767px){
+  .footer-sep{height:3.2rem}
+  .l-footer{padding:4.8rem var(--spacing-m) 3.2rem}
+  .l-footer-contact{grid-template-columns:1fr;gap:1.6rem}
+  .l-footer-contact-item{min-height:14rem;padding:3.6rem 6.4rem 3.2rem 3rem}
+  .l-footer-contact-ja{font-size:1.8rem;white-space:nowrap}
+  .l-footer .c-title-en{font-size:5.6rem}
+  .l-footer-contact-item .c-button-icon{right:3rem}
+  .l-footer-bottom{font-size:1.1rem}
+}
+.l-footer-copy,.l-footer-mark small,.l-footer-ref{color:#767676}
+</style>
+</head>
+<body>
+
+<div class="page" id="top">
+  <header class="l-header">
+    <div class="hd-logo">
+      <a class="tag" href="#top">誰かと働くって、楽しい。</a>
+      <a class="mini" href="#top" aria-label="one-x トップへ">one<span class="dash">-</span>x</a>
+    </div>
+    <nav class="l-nav" id="nav" aria-label="メニュー">
+      <button class="close" type="button" id="navClose">Close</button>
+      <ul>
+        <li><a class="l-nav-link" href="#top">ホーム</a></li>
+        <li><a class="l-nav-link" href="#about">one-x について</a></li>
+        <li><a class="l-nav-link" href="#service">事業内容</a></li>
+        <li><a class="l-nav-link" href="#training">研修</a></li>
+        <li><a class="l-nav-link" href="#founder">代表</a></li>
+      </ul>
+    </nav>
+    <div class="hd-contact">
+      <a href="#contact"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M15.6.4a.6.6 0 0 0-.6-.1L.7 6a.6.6 0 0 0 0 1.1l5.6 2.2 2.2 5.6a.6.6 0 0 0 1.1 0L15.7 1a.6.6 0 0 0-.1-.6ZM6.9 8.3 3 6.8l9.6-3.8-5.7 5.3Zm2.3 4.7-1.5-3.9 5.3-5.7L9.2 13Z"/></svg>お問い合わせ</a>
+    </div>
+    <button class="burger" type="button" id="burger" aria-controls="nav" aria-expanded="false">Menu<span aria-hidden="true">=</span></button>
+  </header>
+
+  <main>
+    <!-- 最初の画面：大きな名前＋イラストの場所 -->
+    <section class="mv" aria-label="one-x">
+      <p class="mv-copy">誰かと働くって、楽しい。</p>
+      <h1 class="mv-mark" aria-label="one-x">one<span class="dash">-</span>x</h1>
+      <picture class="mv-img">
+        <img src="/img/mv_pc.webp" fetchpriority="high" srcset="/img/mv_pc-sm.webp 800w, /img/mv_pc.webp 2880w" sizes="110vw" alt="ベンチに集まって話す、さまざまな人たちのイラスト" width="1440" height="768">
+      </picture>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <p class="page-balloon">About Us</p>
+      <h2 class="about-heading c-colorful">人と人のあいだを<br class="sp">つないで、<br>「誰かと働くって、<br class="sp">楽しい。」を沖縄に</h2>
+      <div class="about-body">
+        <img class="about-illust" src="/img/about.webp" srcset="/img/about-sm.webp 800w, /img/about.webp 1432w" sizes="(max-width:767px) 86vw, 32vw" alt="" width="716" height="1078" loading="lazy">
+        <div class="about-contents">
+          <div class="about-message">
+            <p>one-x（ワンネックス）は、沖縄の企業や学校で、<br class="pc">人と人の関係性をデザインしています。</p>
+            <p>大手メーカーグループ会社で約16年、人と組織に関わってきた経験をもとに、<br class="pc"><strong class="c-strong">体験型のコミュニケーション研修</strong>、<strong class="c-strong">企業の採用支援</strong>、<strong class="c-strong">学生向けアプリ</strong>で、<br class="pc">人が自然と力を発揮できる環境をつくります。</p>
+          </div>
+          <p class="about-action"><a class="c-button" href="#why">one-x の名前に込めたこと<span class="c-button-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></p>
+        </div>
+      </div>
+      <svg class="c-separator" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V64C240 22 480 0 720 0s480 22 720 64v16Z"/></svg>
+    </section>
+
+    <!-- 名前に込めたこと（参考の「選ばれ続ける理由」の型） -->
+    <section class="why" id="why">
+      <div class="why-container">
+        <div>
+          <div class="why-intro">
+            <p class="page-balloon on-white">one-x is...</p>
+            <h2 class="why-heading c-colorful">名前に込めたこと</h2>
+            <p class="dots">…</p>
+            <h3 class="why-intro-heading">ひとりの一歩から、<br>無限の広がりへ。</h3>
+            <p class="why-intro-description">人は、生まれながらにそれぞれ違うたねを持っています。<br class="pc">考え方、感じ方、強み。比べて優劣をつけるものではなく、<br class="pc">その人らしさです。one-x は人を変えようとはせず、<br class="pc">人が自然と力を発揮できる関係性をデザインします。</p>
+            <p class="why-intro-value">one-x の原動力は、<br class="pc"><strong class="c-strong">「一歩を踏み出す勇気を持ち続ける」</strong>姿勢です。</p>
+          </div>
+          <div class="why-item" style="--index-color:var(--color-01)">
+            <p class="why-item-header"><span class="why-item-number">01</span><span class="why-item-label">One</span></p>
+            <h3 class="why-item-heading"><span class="why-key">one</span> は、はじまり</h3>
+            <p class="why-item-description">わたし、ひとり、ひとつ。どんなことも、one から始まります。<br class="pc">自分を知り、自分から一歩目を踏み出す。<br class="pc">そこから、すべてが動き出します。</p>
+          </div>
+          <div class="why-item" style="--index-color:var(--color-02)">
+            <p class="why-item-header"><span class="why-item-number">02</span><span class="why-item-label">Cross</span></p>
+            <h3 class="why-item-heading"><span class="why-key">x</span> は、「無限」と<br>「掛け合わせる」</h3>
+            <p class="why-item-description">ひとりから始まったことも、誰かや何かと掛け合わせると、<br class="pc">可能性が広がっていきます。掛け合わせる相手が増えるほど、<br class="pc">広がる先も増えていく。だから one-x は、<br class="pc">人と人の関係性とコミュニケーションを大切にしています。</p>
+          </div>
+          <div class="why-item" style="--index-color:var(--color-03)">
+            <p class="why-item-header"><span class="why-item-number">03</span><span class="why-item-label">Wan</span></p>
+            <h3 class="why-item-heading"><span class="why-key is-ja">わん</span>は、<br>沖縄の言葉で「わたし」</h3>
+            <p class="why-item-description">誰かがやってくれるのを待つのではなく、<br class="pc">わん（わたし）から動く。<br class="pc">one という音に、その想いも重ねています。</p>
+          </div>
+        </div>
+        <div><img class="why-visual" src="/img/why_jump.webp" srcset="/img/why_jump-sm.webp 800w, /img/why_jump.webp 1920w" sizes="40vw" alt="" width="960" height="960" loading="lazy"></div>
+      </div>
+      <svg class="c-separator" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V64C240 22 480 0 720 0s480 22 720 64v16Z"/></svg>
+    </section>
+
+    <!-- 事業内容 -->
+    <section class="service" id="service">
+      <div class="service-header">
+        <div class="service-header-main">
+          <h2 class="c-title"><span class="c-title-en c-colorful">Service</span><span class="c-title-ja">事業内容</span></h2>
+          <p class="dots">…</p>
+          <p class="service-description">体験型のコミュニケーション研修を中心に、企業の採用支援、学生の就活を支えるアプリの開発に取り組んでいます。<br class="pc">企業、学校、家庭。それぞれの現場に合わせて、関係性をデザインします。</p>
+        </div>
+        <a class="c-button" href="/training/">研修のページを見る<span class="c-button-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+      <div class="service-list">
+        <a class="service-item" href="/training/">
+          <h3 class="service-item-heading">コミュニケーション研修</h3>
+          <p class="service-item-description"><span class="nb">カラー通訳／</span><span class="nb">第一印象／</span><span class="nb">話し方／</span><span class="nb">40分の無料体験あり</span></p>
+          <span class="service-item-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <img class="service-item-illust" src="/img/card_training.webp" srcset="/img/card_training-sm.webp 800w, /img/card_training.webp 1040w" sizes="(max-width:767px) 60vw, 21vw" alt="" width="520" height="400" loading="lazy">
+        </a>
+        <a class="service-item" href="#contact">
+          <h3 class="service-item-heading">企業の採用支援</h3>
+          <p class="service-item-description"><span class="nb">求める人物像の整理／</span><span class="nb">説明会・面接の見直し／</span><span class="nb">面接官・採用担当の研修／</span><span class="nb">求人票・採用ページの言葉／</span><span class="nb">新卒・中途どちらも</span></p>
+          <span class="service-item-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <img class="service-item-illust" src="/img/card_recruit.webp" srcset="/img/card_recruit-sm.webp 800w, /img/card_recruit.webp 1120w" sizes="(max-width:767px) 64vw, 22vw" alt="" width="560" height="300" loading="lazy">
+        </a>
+        <a class="service-item" href="#contact">
+          <h3 class="service-item-heading">親子・スポーツ向け<br class="sp">プログラム</h3>
+          <p class="service-item-description"><span class="nb">親子の対話のセッション／</span><span class="nb">部活動・クラブチームのチームづくり</span></p>
+          <span class="service-item-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <img class="service-item-illust" src="/img/card_family_team.webp" srcset="/img/card_family_team-sm.webp 800w, /img/card_family_team.webp 2200w" sizes="(max-width:767px) 75vw, 28vw" alt="" width="1100" height="420" loading="lazy">
+        </a>
+        <a class="service-item" href="#contact">
+          <h3 class="service-item-heading">学生の就活を<br class="sp">支えるアプリ</h3>
+          <p class="service-item-description"><span class="nb">就活の予定と準備が、先に見える／</span><span class="nb">学生が自分で動けるように支える</span></p>
+          <span class="soon">開発中</span>
+          <span class="service-item-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <img class="service-item-illust" src="/img/card_app_full.webp" srcset="/img/card_app_full-sm.webp 800w, /img/card_app_full.webp 2000w" sizes="(max-width:767px) 75vw, 28vw" alt="" width="1000" height="290" loading="lazy">
+        </a>
+      </div>
+
+      <!-- 代表（参考の「グループ」の白いカードの型） -->
+      <div class="group" id="founder">
+        <div class="group-card">
+          <div>
+            <p class="group-heading c-colorful">Founder</p>
+            <p class="group-copy">がんばりや正しさだけでは、<br>人は動かない。</p>
+            <div class="founder-name">
+              <p class="founder-name-ja">奥平 哲矢</p>
+              <p class="founder-name-en">Tetsuya Okuhira</p>
+              <p class="founder-name-meta"><span>one-x 代表</span><span>沖縄県那覇市出身</span></p>
+            </div>
+            <div class="group-message">
+              <p>大手メーカーグループ会社で約16年、現場のリーダー、新しい業務の立ち上げ、人事として採用と育成に携わりました。</p>
+              <p>自分のやり方を押しつけて、チームがばらばらになった経験から、人と人の関係性に目を向けるようになりました。</p>
+              <p>優しい人にこそ、コミュニケーションを知ってほしい。相手を思う気持ちを、自分も大切にしながら届けられるように。</p>
+            </div>
+            <a class="c-button" href="#founder" hidden>代表と想いを読む（準備中）<span class="c-button-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+          <img class="group-photo" src="/img/founder_full.webp" srcset="/img/founder_full-sm.webp 800w, /img/founder_full.webp 1108w" sizes="(max-width:767px) 85vw, 28vw" alt="代表 奥平哲矢の写真" width="1108" height="1477" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 研修（参考の「Recruit」の型） -->
+    <div class="training-sep-top" aria-hidden="true"><svg class="c-separator" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 80V64C240 22 480 0 720 0s480 22 720 64v16Z"/></svg></div>
+    <section class="training" id="training">
+      <div class="training-contents">
+        <div>
+          <h2 class="c-title"><span class="c-title-en c-colorful">Training</span><span class="c-title-ja">研修</span></h2>
+          <p class="dots">…</p>
+          <p class="training-copy">コミュニケーションは、<br>トレーニングで伸ばせる。</p>
+          <div class="training-message">
+            <p>才能や経験、出会った人だけで決まるものではありません。<br class="pc"><strong class="c-strong">カラー通訳</strong>、<strong class="c-strong">第一印象</strong>、<strong class="c-strong">話し方</strong>の3回で、<br class="pc">体験とワークを中心に進めます。</p>
+            <p>専門学校での実施では、参加した113名全員が回答し、<br class="pc"><strong class="c-strong">満足 100%</strong>でした（1校での結果です）。</p>
+          </div>
+        </div>
+        <img class="training-illust" src="/img/training_home.webp" srcset="/img/training_home-sm.webp 800w, /img/training_home.webp 2280w" sizes="(max-width:767px) 90vw, 50vw" alt="" width="1140" height="760" loading="lazy">
+      </div>
+      <div class="training-banner">
+        <a class="banner" href="/training/#trial">
+          <p class="banner-en">Free Trial</p>
+          <p class="banner-ja">40分の無料体験</p>
+          <p class="banner-desc">研修を検討中の方に、<br>講座1の一部を体験していただけます。</p>
+          <span class="service-item-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="banner" href="/training/#course">
+          <p class="banner-en">Program</p>
+          <p class="banner-ja">コミュニケーションパーク</p>
+          <p class="banner-desc">3つの講座をめぐる全3回。1つの講座5万円・3つすべて13.5万円（税抜）。<br>1回90分、学校は50分×3回が基本です。</p>
+          <span class="service-item-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="footer-sep" aria-hidden="true"><svg class="c-separator" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 80V64C240 22 480 0 720 0s480 22 720 64v16Z"/></svg></div>
+<footer class="l-footer" id="contact">
+  <h2 class="c-title"><span class="c-title-en c-colorful">Contact</span><span class="c-title-ja">お問い合わせ</span></h2>
+  <div class="l-footer-contact">
+    <a class="l-footer-contact-item" href="https://forms.office.com/r/GCkGUij28E" target="_blank" rel="noopener">
+      <span class="l-footer-contact-en">Apply for a Free Trial</span>
+      <span class="l-footer-contact-ja">40分の無料体験を申し込む</span>
+      <span class="c-button-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2h6v6M10 2 2.5 9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <a class="l-footer-contact-item" href="https://forms.office.com/r/GCkGUij28E" target="_blank" rel="noopener">
+      <span class="l-footer-contact-en">Contact Us</span>
+      <span class="l-footer-contact-ja">まずはお気軽にご相談から</span>
+      <span class="c-button-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2h6v6M10 2 2.5 9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+  </div>
+  <p class="l-footer-note">どちらも、お問い合わせフォーム（Microsoft Forms）が別のタブで開きます。メールでも受け付けています：<a href="mailto:t.okuhira@onex-ri.jp">t.okuhira@onex-ri.jp</a></p>
+  <div class="l-footer-bottom">
+    <span class="l-footer-copy">© one-x</span>
+    <a href="/privacy/">プライバシーポリシー</a>
+    <a href="mailto:t.okuhira@onex-ri.jp">t.okuhira@onex-ri.jp</a>
+  </div>
+  <p class="l-footer-mark">one<span class="dash">-</span>x<small>誰かと働くって、楽しい。　Okinawa, Japan</small></p>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setVw(){root.style.setProperty('--vw',root.clientWidth+'px');}
+  setVw(); addEventListener('resize',setVw);
+
+  // 見出しを1文字ずつに分け、6色を順に割り当てる
+  document.querySelectorAll('.c-colorful').forEach(function(el){
+    var n=0;
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(c){
+        if(c.nodeType===3){
+          // 日本語の禁則：句読点・閉じかっこは前の字に、開きかっこは次の字にくっつけて1つの塊にする
+          var frag=document.createDocumentFragment(),units=[],chars=Array.from(c.textContent);
+          chars.forEach(function(ch){
+            if(/[、。」』）\)！？]/.test(ch)&&units.length&&units[units.length-1].trim()){units[units.length-1]+=ch;}
+            else if(units.length&&/[「『（\(]$/.test(units[units.length-1])){units[units.length-1]+=ch;}
+            else units.push(ch);
+          });
+          units.forEach(function(u){
+            if(!u.trim()){frag.appendChild(document.createTextNode(u));return;}
+            var s=document.createElement('span');s.className='c-colorful-child';s.textContent=u;
+            s.dataset.i=(n%6)+1;s.style.animationDelay=(n*0.04)+'s';n++;frag.appendChild(s);
+          });
+          c.replaceWith(frag);
+        } else if(c.nodeType===1 && c.tagName!=='BR'){walk(c);}
+      });
+    })(el);
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.querySelectorAll('.c-colorful-child').forEach(function(s){s.classList.add('is-enter');});io.unobserve(e.target);}
+    });},{threshold:.4});
+    document.querySelectorAll('.c-colorful').forEach(function(el){io.observe(el);});
+  }
+
+  // 最初の画面を過ぎたら、左上を小さな名前に切りかえる
+  var mv=document.querySelector('.mv');
+  function onScroll(){document.body.classList.toggle('is-scrolled',scrollY>mv.offsetHeight*0.6);}
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // スマホのメニュー
+  var nav=document.getElementById('nav'),bg=document.getElementById('burger');
+  function setNav(open){nav.classList.toggle('open',open);bg.setAttribute('aria-expanded',open);}
+  bg.addEventListener('click',function(){setNav(true);});
+  document.getElementById('navClose').addEventListener('click',function(){setNav(false);});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setNav(false);});});
+})();
+</script>
+</body>
+</html>
