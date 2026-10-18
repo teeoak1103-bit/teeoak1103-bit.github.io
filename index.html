@@ -937,7 +937,17 @@ ul{list-style:none;margin:0;padding:0}
     }else{visible=true;play();}
   }
   // 書体が届いてから始める（届かないときは 2秒で始める）
-  if(document.fonts&&document.fonts.load){document.fonts.load('900 100px "Red Hat Display"').then(start,start);setTimeout(start,2000);}else start();
+  // 公開版は書体の読み込みが後から始まるので、はじめの load は空振りすることがある。
+  // そのときは端末の書体で測って始め、Red Hat Display（900）が届いたら測り直す（10/18 iPhone で最後の one-x が重なったため）
+  function rhReady(){var ok=false;document.fonts.forEach(function(f){if(f.family.replace(/["']/g,'')==='Red Hat Display'&&/900/.test(f.weight)&&f.status==='loaded')ok=true;});return ok;}
+  function refit(){if(!ready)return;measure();plan();draw(clock);if(capNow>=0)cap.style.top=L.cap[CAPS[capNow].at]+'%';}
+  var tries=0,fitted=false;
+  function waitFont(){
+    if(rhReady()){start();if(!fitted){fitted=true;refit();}return;}
+    document.fonts.load('900 100px "Red Hat Display"').catch(function(){});
+    if(++tries<60)setTimeout(waitFont,250);       // 15秒まで待つ
+  }
+  if(document.fonts&&document.fonts.load){waitFont();setTimeout(start,2000);}else start();
   // さわる：途中なら最後へ、終わっていればもう一度はじめから
   function tap(){if(!ready||reduce)return;
     if(clock<T.END){clock=T.END;stop();draw(clock);setCap(clock);}else{clock=0;draw(0);setCap(0);if(visible)play();}}
