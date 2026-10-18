@@ -222,13 +222,14 @@ ul{list-style:none;margin:0;padding:0}
   .about-action{justify-content:flex-start;margin-top:4.7rem}
 }
 
-/* ===== 名前に込めたこと（白、2列 1fr＋48rem） ===== */
+/* ===== 名前に込めた想い（白、2列 1fr＋48rem） ===== */
 .why{position:relative;background:var(--color-white);padding:6.4rem var(--spacing-l) 18.7rem;--sep:var(--color-snow)}
 .why-container{display:grid;grid-template-columns:1fr 58rem;column-gap:4rem}
 .why-heading{margin-top:2.6rem;font-size:4.8rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
 .why-intro-heading{margin-top:3.2rem;font-size:2.8rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
 .why .c-strong{background:var(--color-cloud)}
 .why-intro-value{margin-top:2rem;font-size:1.8rem;letter-spacing:var(--tracking-base)}
+.why-closing{margin-top:7.2rem;max-width:64rem}
 .why-intro-description{margin-top:2.4rem;font-size:1.8rem;letter-spacing:var(--tracking-base);max-width:64rem}
 .why-item{margin-top:7.2rem;max-width:64rem}
 .why-item-header{display:flex;align-items:flex-end;line-height:var(--leading-none)}
@@ -249,6 +250,7 @@ ul{list-style:none;margin:0;padding:0}
   .why-intro-heading{font-size:2.4rem}
   .why-intro-description{font-size:1.5rem}
   .why-intro-value{font-size:1.5rem}
+  .why-closing{margin-top:2.4rem;text-align:center}
   .why-item{margin-top:0;padding:4rem 0 1.6rem}
   .why-item-header{justify-content:center}
   .why-item-number{font-size:3.6rem}
@@ -383,6 +385,21 @@ ul{list-style:none;margin:0;padding:0}
   .l-footer-contact-item .c-button-icon{right:3rem}
   .l-footer-bottom{font-size:1.1rem}
 }
+/* ===== 名前に込めた想い：動くロゴ（C8 の型。元は ONE-X_HP/ロゴの動き/onex_logo_c8_v0.9.html） ===== */
+.why-logo{container-type:inline-size;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:0}
+.why-visual.why-logo{margin-left:4rem}         /* PC：少しだけ右へ（10/18 本人「やや中央に寄っている」）。スマホは下の指定で中央 */
+.why-logo:focus-visible{box-shadow:0 0 0 .2rem var(--color-base)}
+.why-logo canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.why-logo-cap{position:absolute;left:0;right:0;top:71%;margin:0;display:flex;flex-direction:column;align-items:center;gap:1.4cqw;text-align:center;opacity:0;transform:translate3d(0,.5em,0);transition:opacity .9s cubic-bezier(.165,.84,.44,1),transform 1s cubic-bezier(.165,.84,.44,1);pointer-events:none}
+.why-logo-cap.is-on{opacity:1;transform:none}
+.why-logo-cap-label{display:flex;align-items:flex-end;gap:1.6cqw;font-family:var(--font-red-hat);font-weight:700;line-height:1;font-size:3.4cqw;color:var(--color-muted)}
+.why-logo-cap-label b{font-weight:700;font-size:1.3em;color:var(--cap-color,var(--color-base))}
+.why-logo-cap-label:empty{display:none}
+.why-logo-cap-text{font-family:var(--font-base);font-weight:700;font-size:4.6cqw;line-height:1.5;letter-spacing:var(--tracking-base);color:var(--color-base)}
+@media (max-width:767px){.why-logo-cap-text{font-size:max(14px,4.6cqw)}.why-logo-cap-label{font-size:max(12px,3.4cqw)}}
+@media (max-width:767px){
+  .why-visual.why-logo{display:block;position:relative;top:auto;width:100%;max-width:34rem;height:auto;aspect-ratio:1;margin:3.2rem auto 0}
+}
 .l-footer-copy,.l-footer-mark small,.l-footer-ref{color:#767676}
 </style>
 </head>
@@ -431,23 +448,22 @@ ul{list-style:none;margin:0;padding:0}
             <p>one-x（ワンネックス）は、沖縄の企業や学校で、<br class="pc">人と人の関係性をデザインしています。</p>
             <p>大手メーカーグループ会社で約16年、人と組織に関わってきた経験をもとに、<br class="pc"><strong class="c-strong">体験型のコミュニケーション研修</strong>、<strong class="c-strong">企業の採用支援</strong>、<strong class="c-strong">学生向けアプリ</strong>で、<br class="pc">人が自然と力を発揮できる環境をつくります。</p>
           </div>
-          <p class="about-action"><a class="c-button" href="#why">one-x の名前に込めたこと<span class="c-button-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></p>
+          <p class="about-action"><a class="c-button" href="#why">one-x の名前に込めた想い<span class="c-button-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></p>
         </div>
       </div>
       <svg class="c-separator" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V64C240 22 480 0 720 0s480 22 720 64v16Z"/></svg>
     </section>
 
-    <!-- 名前に込めたこと（参考の「選ばれ続ける理由」の型） -->
+    <!-- 名前に込めた想い（参考の「選ばれ続ける理由」の型） -->
     <section class="why" id="why">
       <div class="why-container">
         <div>
           <div class="why-intro">
             <p class="page-balloon on-white">one-x is...</p>
-            <h2 class="why-heading c-colorful">名前に込めたこと</h2>
+            <h2 class="why-heading c-colorful">名前に込めた想い</h2>
             <p class="dots">…</p>
             <h3 class="why-intro-heading">ひとりの一歩から、<br>無限の広がりへ。</h3>
             <p class="why-intro-description">人は、生まれながらにそれぞれ違うたねを持っています。<br class="pc">考え方、感じ方、強み。比べて優劣をつけるものではなく、<br class="pc">その人らしさです。one-x は人を変えようとはせず、<br class="pc">人が自然と力を発揮できる関係性をデザインします。</p>
-            <p class="why-intro-value">one-x の原動力は、<br class="pc"><strong class="c-strong">「一歩を踏み出す勇気を持ち続ける」</strong>姿勢です。</p>
           </div>
           <div class="why-item" style="--index-color:var(--color-01)">
             <p class="why-item-header"><span class="why-item-number">01</span><span class="why-item-label">One</span></p>
@@ -464,8 +480,12 @@ ul{list-style:none;margin:0;padding:0}
             <h3 class="why-item-heading"><span class="why-key is-ja">わん</span>は、<br>沖縄の言葉で「わたし」</h3>
             <p class="why-item-description">誰かがやってくれるのを待つのではなく、<br class="pc">わん（わたし）から動く。<br class="pc">one という音に、その想いも重ねています。</p>
           </div>
+          <p class="why-intro-value why-closing">one-x の原動力は、<br class="pc"><strong class="c-strong">「一歩を踏み出す勇気を持ち続ける」</strong>姿勢です。</p>
         </div>
-        <div><img class="why-visual" src="/img/why_jump.webp" srcset="/img/why_jump-sm.webp 800w, /img/why_jump.webp 1920w" sizes="40vw" alt="" width="960" height="960" loading="lazy"></div>
+        <div><div class="why-visual why-logo" id="whyLogo" role="img" tabindex="0" aria-label="one-x のロゴ。one-x から -x が消えて one が残り（one は、はじまり）、つぎに ∞ が描かれ（x は、無限）、∞ が x に変わって（掛け合わせる）、wan（わん＝わたし）が one に変わり、最後に one-x ｜ ∞ が並ぶアニメーション">
+  <canvas></canvas>
+  <p class="why-logo-cap" aria-hidden="true"><span class="why-logo-cap-label"></span><span class="why-logo-cap-text"></span></p>
+</div></div>
       </div>
       <svg class="c-separator" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80V64C240 22 480 0 720 0s480 22 720 64v16Z"/></svg>
     </section>
@@ -635,6 +655,281 @@ ul{list-style:none;margin:0;padding:0}
   bg.addEventListener('click',function(){setNav(true);});
   document.getElementById('navClose').addEventListener('click',function(){setNav(false);});
   nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setNav(false);});});
+})();
+</script>
+<script>
+(function(){
+  var box=document.getElementById('whyLogo'); if(!box) return;
+  var cv=box.querySelector('canvas'), ctx=cv.getContext('2d');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var css=getComputedStyle(document.documentElement);
+  function token(n,f){var v=css.getPropertyValue(n).trim();return v||f;}
+  var INK=token('--color-base','#1A1A1A'), GUIDE='#D6D6D6', FONT='"Red Hat Display",Inter,sans-serif';
+  var C=['--color-01','--color-02','--color-03','--color-04','--color-05','--color-06'].map(function(n,i){
+    var h=token(n,['#F5533E','#009B82','#30ABE6','#EE2237','#FBBB04','#7F56F0'][i]).replace('#','');
+    return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)];
+  });
+  var O=C[0],G=C[1],B=C[2],R=C[3],Y=C[4],P=C[5];
+
+  // ---- 動きの曲線 ----
+  function cl(t){return t<0?0:t>1?1:t;}
+  function qOut(t){t=cl(t);return 1-Math.pow(1-t,4);}
+  function qInOut(t){t=cl(t);return t<.5?8*t*t*t*t:1-Math.pow(-2*t+2,4)/2;}
+  function sInOut(t){t=cl(t);return -(Math.cos(Math.PI*t)-1)/2;}
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function backOut(t,k){t=cl(t);k=k||1.2;return 1+(k+1)*Math.pow(t-1,3)+k*Math.pow(t-1,2);}  // 少し行きすぎて戻る（強）
+  function expoInOut(t){t=cl(t);return t===0?0:t===1?1:t<.5?Math.pow(2,20*t-10)/2:(2-Math.pow(2,-20*t+10))/2;} // ためて一気に（速）
+  function widen(t){return sInOut(Math.pow(cl(t),1.35));}  // ゆっくり書き出し、だんだん速く広がり、閉じるところでゆるむ
+  function span(t,a,b){return (t-a)/(b-a);}
+  // 一筆書き用：はじめと終わりの 2割でなめらかに加速・減速し、あいだは一定の速さ（途中で止まらない）
+  function glide(p,a){p=cl(p);a=a||.2;var v=1/(1-a);
+    function up(q){return v*(q/2-a/(2*Math.PI)*Math.sin(Math.PI*q/a));}
+    if(p<a)return up(p);if(p>1-a)return 1-up(1-p);return v*(a/2+(p-a));}
+
+  // ---- 流れ（秒）。本人の指定の順番どおり ----
+  // 強弱（v0.9）：静（one-x が入る・-x を手ばなす）→ one を見せつづける → 加速（∞ だけを一筆で）→ 強（x に）
+  //            → wan（わたし）→ wan が one に → 静（one-x ｜ ∞ がそろい、言葉が届く）
+  var T={
+    show:[.3,2.8],      // 静：one-x がフェードインで、ゆっくり入ってくる
+    xOut:[3.6,5.8],     // 静：一呼吸おいて、-x がゆっくり手ばなされる（全体も少し上へ）
+    oneC:[5.4,7.0],     // one が真ん中へ寄りながら、少し大きくなって止まる（強）
+    oneOut:[12.6,13.4], // one を見せつづけたあと、すっと消える
+    dot:[13.6,14.1],    // ∞ の書き始めの点（真ん中に、∞ だけ）
+    draw:[14.1,17.6],   // 加速：ゆっくり書き出し、交わるころから速く広がって、閉じる
+    mix:[15.4,17.5],    // 交わったところから色が生まれる
+    pulse:[17.6,18.2],  // 強：∞ が閉じた瞬間に弾む
+    open:[19.8,20.8],   // ∞ の輪が、ぐっと交わりへ集まる
+    toX:[20.8,21.3],
+    swap:[21.2,21.6],   // 強：x がしっかり置かれる
+    xAway:[24.4,25.2],  // x がすっと消える
+    wanIn:[25.4,26.8],  // wan（わん＝わたし）がフェードインで入ってくる
+    toOne:[29.4,30.8],  // wan が1文字ずつ one に変わる（w→o・a→n・n→e）
+    home:[32.6,33.8],   // one が「one-x ｜ ∞」の one の位置へ
+    together:[33.2,34.2], // -・x・｜・∞ が一緒に出てくる（∞ は描かない）
+    END:35.8
+  };
+  // ロゴの下に出す言葉（HP の「名前に込めた想い」の言葉をそのまま使う）。t＝[出す, 消す]、at＝置く場所
+  var CAPS=[
+    {t:[6.4,9.4],n:'01',l:'One',c:'--color-01',x:'one は、はじまり',at:'one'},
+    {t:[9.7,12.8],n:'01',l:'One',c:'--color-01',x:'わたし、ひとり、ひとつ。',at:'one'},
+    {t:[13.4,19.6],n:'02',l:'Cross',c:'--color-02',x:'x は、「無限」と',at:'mid'},
+    {t:[19.8,24.4],n:'02',l:'Cross',c:'--color-02',x:'「掛け合わせる」',at:'mid'},
+    {t:[25.8,32.4],n:'03',l:'Wan',c:'--color-03',x:'わん（わたし）から動く。',at:'one'},   // wan が one に変わるあいだも出しておく（10/18 本人：2つ目の言葉はなし）
+    {t:[34.6,1e9],n:'',l:'',c:'',x:'ひとりの一歩から、無限の広がりへ。',at:'end'}
+  ];
+
+  // ---- 文字の寸法（100 の大きさで測っておく） ----
+  var M={};
+  function measure(){
+    var c=document.createElement('canvas').getContext('2d');c.font='900 100px '+FONT;
+    'one-xwa'.split('').forEach(function(ch){var m=c.measureText(ch);
+      M[ch]={adv:m.width,cx:(m.actualBoundingBoxRight-m.actualBoundingBoxLeft)/2,cy:(m.actualBoundingBoxDescent-m.actualBoundingBoxAscent)/2,
+        w:m.actualBoundingBoxRight+m.actualBoundingBoxLeft,h:m.actualBoundingBoxAscent+m.actualBoundingBoxDescent};});
+  }
+  // one-x の並び（大きさ F、左端 x0、x の高さの真ん中 yc）。文字ごとの中心を返す
+  function word(F,x0,yc,str){
+    var s=F/100, ls=-.045*F, x=x0, out=[], base=yc-M.o.cy*s;
+    (str||'one-x').split('').forEach(function(ch){
+      // - は HP のロゴと同じ：幅はそのまま、見た目だけ横に 0.55 倍（真ん中を軸に）、左右を 0.06 ずつ詰める
+      var sx=ch==='-'?.55:1, adv=M[ch].adv*s;
+      if(ch==='-')x+=-.06*F;
+      out.push({ch:ch,sx:sx,F:F,x:x+adv/2+(M[ch].cx*s-adv/2)*sx,y:base+M[ch].cy*s,left:x,adv:adv});
+      x+=adv+(ch==='-'?-.06*F:0)+ls;
+    });
+    out.width=x-ls-x0; return out;
+  }
+  function glyph(ch,x,y,F,sx,a){
+    if(a<=.001)return;var s=F/100;
+    ctx.save();ctx.globalAlpha=Math.min(a,1);ctx.fillStyle=INK;ctx.setTransform(K,0,0,K,0,0);
+    ctx.translate(x,y);ctx.scale(sx*s,s);ctx.font='900 100px '+FONT;ctx.textBaseline='alphabetic';
+    ctx.fillText(ch,-M[ch].cx,-M[ch].cy);ctx.restore();
+  }
+
+  // ---- ∞ の形（外の高さ h。o と同じ高さにする）。左の輪から書き始め、交わって右の輪へ ----
+  function makeInf(h){
+    var W=.22*h, r=(h-W)/2, D=r*Math.SQRT2, phi=Math.PI/4, c=Math.cos(phi), s=Math.sin(phi);
+    var ARC=r*(2*Math.PI-2*phi), LIN=2*Math.sqrt(D*D-r*r);
+    var f={h:h,W:W,r:r,D:D,phi:phi,ARC:ARC,LIN:LIN,TOTAL:2*ARC+2*LIN,a:r*c,
+      Pu:[-D+r*c,-r*s],Pd:[-D+r*c,r*s],Qu:[D-r*c,-r*s],Qd:[D-r*c,r*s],ow:2*(D+r)+W,bw:2*(D+r)+2*W,bh:h+W};
+    var p=new Path2D();p.moveTo(f.Pu[0],f.Pu[1]);p.arc(-D,0,r,-phi,phi,true);p.lineTo(f.Qu[0],f.Qu[1]);
+    p.arc(D,0,r,Math.PI+phi,3*Math.PI-phi,false);p.closePath();f.path=p;
+    f.head=function(l){var a,k;
+      if(l<=ARC){a=-phi-l/r;return[-D+r*Math.cos(a),r*Math.sin(a)];}l-=ARC;
+      if(l<=LIN){k=l/LIN;return[lerp(f.Pd[0],f.Qu[0],k),lerp(f.Pd[1],f.Qu[1],k)];}l-=LIN;
+      if(l<=ARC){a=Math.PI+phi+l/r;return[D+r*Math.cos(a),r*Math.sin(a)];}l-=ARC;
+      k=Math.min(l/LIN,1);return[lerp(f.Qd[0],f.Pu[0],k),lerp(f.Qd[1],f.Pu[1],k)];};
+    return f;
+  }
+  function drawInf(f,len){return function(c){
+    if(len<=0)return;c.lineWidth=f.W;c.lineCap='butt';c.lineJoin='round';
+    if(len>=f.TOTAL-.01)c.setLineDash([]);else{c.setLineDash([len,f.TOTAL*2]);c.lineDashOffset=0;}
+    c.stroke(f.path);c.setLineDash([]);};}
+  // ∞ → x：輪の遠い側が開いて、交わった線へ巻きとられる（m1）→ 線が x の形へ伸びる（m2）
+  function morphInf(f,m1,m2,ex,ey,Wx){return function(c){
+    var r=f.r,D=f.D,phi=f.phi,half=(Math.PI-phi)*(1-m1),w=lerp(f.W,Wx,m2);
+    function e(p){return[lerp(p[0],Math.sign(p[0])*ex,m2),lerp(p[1],Math.sign(p[1])*ey,m2)];}
+    var Pu=e(f.Pu),Pd=e(f.Pd),Qu=e(f.Qu),Qd=e(f.Qd);
+    c.lineWidth=w;c.lineCap='butt';c.lineJoin='round';c.setLineDash([]);c.beginPath();
+    if(m1<1){
+      var a0=phi+half;c.moveTo(-D+r*Math.cos(a0),r*Math.sin(a0));c.arc(-D,0,r,a0,phi,true);
+      c.lineTo(Qu[0],Qu[1]);c.arc(D,0,r,Math.PI+phi,Math.PI+phi+half,false);
+      var b0=3*Math.PI-phi-half;c.moveTo(D+r*Math.cos(b0),r*Math.sin(b0));c.arc(D,0,r,b0,3*Math.PI-phi,false);
+      c.lineTo(Pu[0],Pu[1]);c.arc(-D,0,r,-phi,-phi-half,true);
+    }else{c.moveTo(Pd[0],Pd[1]);c.lineTo(Qu[0],Qu[1]);c.moveTo(Qd[0],Qd[1]);c.lineTo(Pu[0],Pu[1]);}
+    c.stroke();};}
+
+  // ---- ∞ の中の色：8つの色の点が円を描きながら混ざる（距離の2乗で重みづけ） ----
+  var FW=64,FH=30,fcv=document.createElement('canvas');fcv.width=FW;fcv.height=FH;
+  var fctx=fcv.getContext('2d'),fimg=fctx.createImageData(FW,FH),SAT=1.3;
+  var BASE=[[.15,.85],[.85,.85],[.85,.15],[.15,.15],[.3,.7],[.7,.7],[.7,.3],[.3,.3]];
+  var ring=[Y,O,R,P,B,G], PAL=[ring[0],ring[4],ring[5],ring[1],ring[1],ring[3],ring[4],ring[2]]; // 左の輪は暖かい色、右の輪は涼しい色
+  function field(tp){
+    var pts=[],i,x,y,d=fimg.data,n=0;
+    for(i=0;i<8;i++)pts.push([BASE[i][0]+Math.cos(tp*2+i*1.5)*.25,BASE[i][1]+Math.sin(tp*2+i*2)*.25]);
+    for(y=0;y<FH;y++){var v=1-(y+.5)/FH;
+      for(x=0;x<FW;x++){var u=(x+.5)/FW,r=0,g=0,b=0,tw=0;
+        for(i=0;i<8;i++){var dx=u-pts[i][0],dy=v-pts[i][1],w=1/((dx*dx+dy*dy)*300+1);r+=PAL[i][0]*w;g+=PAL[i][1]*w;b+=PAL[i][2]*w;tw+=w;}
+        r/=tw;g/=tw;b/=tw;var l=.3*r+.59*g+.11*b;d[n++]=l+(r-l)*SAT;d[n++]=l+(g-l)*SAT;d[n++]=l+(b-l)*SAT;d[n++]=255;}}
+    fctx.putImageData(fimg,0,0);
+  }
+  var scv=document.createElement('canvas'),sctx=scv.getContext('2d'),K=1;
+  function paint(fn,cx,cy,bw,bh,mix,a,tp,sc){    // fn の線を、黒（1-mix）と色（mix）で描く。sc は大きさ（弾むとき）
+    if(a<=.001)return;sc=sc||1;var k=K*sc;bw*=sc;bh*=sc;
+    if(mix<1){ctx.save();ctx.globalAlpha=a*(1-mix);ctx.strokeStyle=INK;ctx.setTransform(k,0,0,k,cx*K,cy*K);fn(ctx);ctx.restore();}
+    if(mix>0){field(tp);
+      sctx.setTransform(1,0,0,1,0,0);sctx.globalCompositeOperation='source-over';sctx.clearRect(0,0,scv.width,scv.height);
+      sctx.strokeStyle='#fff';sctx.setTransform(k,0,0,k,cx*K,cy*K);fn(sctx);
+      sctx.setTransform(1,0,0,1,0,0);sctx.globalCompositeOperation='source-in';sctx.drawImage(fcv,(cx-bw/2)*K,(cy-bh/2)*K,bw*K,bh*K);
+      ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.globalAlpha=a*mix;ctx.drawImage(scv,0,0);ctx.restore();}
+  }
+  function pen(f,len,cx,cy,a,sc){if(a<=.001)return;var h=f.head(len),k=K*(sc||1);
+    ctx.save();ctx.globalAlpha=Math.min(a,1);ctx.fillStyle=INK;ctx.setTransform(k,0,0,k,cx*K,cy*K);
+    ctx.beginPath();ctx.arc(h[0],h[1],f.W/2,0,Math.PI*2);ctx.fill();ctx.restore();}
+  function guide(x1,y1,x2,y2,a){if(a<=.001)return;
+    ctx.save();ctx.globalAlpha=a;ctx.strokeStyle=GUIDE;ctx.lineWidth=Math.max(1,1.5*K);ctx.setLineDash([3*K,4*K]);
+    ctx.beginPath();ctx.moveTo(x1*K,y1*K);ctx.lineTo(x2*K,y2*K);ctx.stroke();ctx.restore();}
+
+  // ---- 並び方（ステージは 600×600。ロゴと下の言葉のまとまりを、目で見た真ん中 290 にそろえる） ----
+  var L={}, CAPH=.046*600*1.5+.034*600*1.3+.014*600;   // 言葉のかたまりの高さ（2行目＋1行目＋すき間）
+  function plan(){
+    var w1=word(100,0,0).width, oh=M.o.h/100, inf1=makeInf(1);
+    // ∞ だけの場面：幅 380。下に言葉が入るので、まとまりの真ん中を 290 に
+    var h=380/inf1.ow, Y0=290-(.22*h+CAPH)/2; L.Y0=Y0; L.h=h;
+    L.inf=makeInf(h); L.infC=[300,Y0];
+    var xs=(h/oh)/100; L.Fx=h/oh;                 // x の文字は、高さを ∞ にそろえる
+    L.ex=M.x.w*xs/2;L.ey=M.x.h*xs/2;L.Wx=.25*M.x.h*xs;L.ex-=L.Wx*.42;L.ey-=L.Wx*.12;
+    // はじめの one-x（幅 340、真ん中 300）。-x が消えるあいだに Y0 の高さへ上がる
+    L.F1=340/w1*100; L.w1=word(L.F1,300-340/2,Y0); L.drift=300-Y0;
+    // one を見せつづける場面：one を真ん中に、1.3倍
+    var Fc=L.F1*1.3, tmp=word(Fc,0,Y0), oneW=tmp[2].left+tmp[2].adv; L.wc=word(Fc,300-oneW/2,Y0);
+    var tw=word(Fc,0,Y0,'wan'); L.ww=word(Fc,300-tw.width/2,Y0,'wan');   // wan も同じ大きさで真ん中に
+    // 最後の「one-x ｜ ∞」（幅 520）
+    var gap=.32; L.Ff=520/(w1/100+gap*2+oh*inf1.ow);
+    var barH=1.25*oh*L.Ff, Yf=290-(.55*barH+.046*600*1.5)/2; L.Yf=Yf;
+    var left=300-260; L.wf=word(L.Ff,left,Yf);
+    L.barX=left+L.wf.width+gap*L.Ff; L.barH=barH; L.barW=Math.max(2,.03*L.Ff);
+    L.inf2=makeInf(oh*L.Ff); L.inf2C=[L.barX+gap*L.Ff+L.inf2.ow/2,Yf];
+    // 言葉の上端（％）：one＝one の下、mid＝∞ の下、end＝｜ の下端から ｜ の高さの半分ほどあける
+    var ohc=oh*Fc;
+    L.cap={one:(Y0+ohc/2+.8*ohc)/6, mid:(Y0+h/2+.22*h)/6, end:(Yf+barH/2+.55*barH)/6};
+  }
+
+  // ---- 1コマを描く ----
+  function draw(t){
+    ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,cv.width,cv.height);
+    var tp=t*.35;
+    var show=sInOut(span(t,T.show[0],T.show[1])), xo=sInOut(span(t,T.xOut[0],T.xOut[1]));
+    var cen=backOut(span(t,T.oneC[0],T.oneC[1]),.8), oneA=1-qOut(span(t,T.oneOut[0],T.oneOut[1]));
+    var home=qInOut(span(t,T.home[0],T.home[1])), tog=sInOut(span(t,T.together[0],T.together[1]));
+    var drift=L.drift*(1-sInOut(span(t,T.xOut[0],T.xOut[1]+.6)));
+    var f=L.inf,cx=L.infC[0],cy=L.infC[1];
+    var dp=widen(span(t,T.draw[0],T.draw[1]));      // ∞ の一筆の進み具合（背景の点線は v0.8 で消した）
+    // 文字（one-x）
+    for(var i=0;i<5;i++){
+      var a0=L.w1[i], ac=L.wc[i], af=L.wf[i], ch=a0.ch, x, y, F, a=0;
+      if(ch==='o'||ch==='n'||ch==='e'){
+        if(t<T.oneOut[1]){x=lerp(a0.x,ac.x,cen);y=lerp(a0.y,ac.y,cen)+drift+14*(1-show);F=lerp(a0.F,ac.F,cen);a=show*oneA;}
+        else if(t>=T.toOne[0]){                    // wan の i 文字目が、one の i 文字目に入れかわる（下から入る）
+          var q=sInOut(span(t,T.toOne[0]+i*.2+.4,T.toOne[0]+i*.2+1.1));   // wan の同じ文字が上へぬけてから入る
+          x=lerp(ac.x,af.x,home);y=lerp(ac.y+.22*ac.F*(1-q),af.y,home);F=lerp(ac.F,af.F,home);a=q;
+        }
+      }else if(ch==='-'){
+        if(t<T.together[0]){x=a0.x;y=a0.y+drift+14*(1-show);F=a0.F;a=show*(1-xo);}
+        else{x=af.x;y=af.y+10*(1-tog);F=af.F;a=tog;}
+      }else{                                       // x
+        if(t<T.swap[0]){x=a0.x;y=a0.y+drift+14*(1-show);F=a0.F;a=show*(1-xo);}
+        else if(t<T.together[0]){var sw=sInOut(span(t,T.swap[0],T.swap[1])),xa=sInOut(span(t,T.xAway[0],T.xAway[1]));
+          x=cx;y=cy;F=L.Fx*(1+.09*Math.sin(Math.PI*cl(span(t,T.swap[0]+.05,T.swap[0]+.55))))*(1-.08*xa);a=sw*(1-xa);}
+        else{x=af.x;y=af.y+10*(1-tog);F=af.F;a=tog;}
+      }
+      if(x!==undefined)glyph(ch,x,y,F,a0.sx,a);
+    }
+    // 文字（wan）：入ってきて、1文字ずつ上へぬけながら one に変わる
+    if(t>=T.wanIn[0]&&t<T.toOne[1]+.6){
+      var wi=sInOut(span(t,T.wanIn[0],T.wanIn[1]));
+      for(var k=0;k<3;k++){var w=L.ww[k],q2=sInOut(span(t,T.toOne[0]+k*.2,T.toOne[0]+k*.2+.6));
+        glyph(w.ch,w.x,w.y+14*(1-wi)-.22*w.F*q2,w.F,1,wi*(1-q2));}
+    }
+    // ∞ だけを描いて、x に変える
+    if(t>=T.dot[0]&&t<T.swap[1]){
+      var len=f.TOTAL*dp, mix=sInOut(span(t,T.mix[0],T.mix[1]));
+      var m1=qInOut(span(t,T.open[0],T.open[1])), m2=qOut(span(t,T.toX[0],T.toX[1]));
+      var aX=1-sInOut(span(t,T.swap[0],T.swap[1]));
+      var bump=1+.06*Math.sin(Math.PI*cl(span(t,T.pulse[0],T.pulse[1])))*(1-cl(span(t,T.pulse[0],T.pulse[1]))*.3);
+      if(t<T.open[0])paint(drawInf(f,len),cx,cy,f.bw,f.bh,mix,1,tp,bump);
+      else paint(morphInf(f,m1,m2,L.ex,L.ey,L.Wx),cx,cy,f.bw,f.bh,mix*(1-m1),aX,tp);
+      pen(f,len,cx,cy,t<T.draw[1]?sInOut(span(t,T.dot[0],T.dot[1])):1-qOut(span(t,T.draw[1],T.draw[1]+.2)),bump);
+    }
+    // 最後：｜ と ∞ も、one と一緒に出す（∞ は描かず、できあがった形のまま）
+    if(t>=T.together[0]){
+      var ry=10*(1-tog);
+      ctx.save();ctx.globalAlpha=tog;ctx.fillStyle=INK;ctx.setTransform(K,0,0,K,0,0);ctx.fillRect(L.barX-L.barW/2,L.Yf-L.barH/2+ry,L.barW,L.barH);ctx.restore();
+      var g=L.inf2;paint(drawInf(g,g.TOTAL),L.inf2C[0],L.inf2C[1]+ry,g.bw,g.bh,1,tog,tp);
+    }
+  }
+
+  // ---- ロゴの下の言葉 ----
+  var cap=box.querySelector('.why-logo-cap'),capL=cap.firstElementChild,capX=cap.lastElementChild,capNow=-1,capTimer=0;
+  function setCap(t){
+    var idx=-1;CAPS.forEach(function(c,i){if(t>=c.t[0]&&t<c.t[1])idx=i;});
+    if(idx===capNow)return;
+    var wasOn=cap.classList.contains('is-on');capNow=idx;clearTimeout(capTimer);cap.classList.remove('is-on');
+    if(idx<0)return;var c=CAPS[idx];
+    capTimer=setTimeout(function(){             // 前の言葉が消えてから、次の言葉を出す
+      capL.innerHTML=c.n?'<b>'+c.n+'</b>'+c.l:'';cap.style.setProperty('--cap-color',c.c?'var('+c.c+')':'');capX.textContent=c.x;
+      cap.style.top=L.cap[c.at]+'%';
+      cap.classList.add('is-on');},wasOn?300:0);
+  }
+
+  // ---- 動かす ----
+  var SPEED=1;                                    // 全体の速さ（1＝表の秒数どおり。v0.6 で秒数そのものを組み直した）
+  var clock=0,last=0,running=false,visible=false,speed=SPEED,ready=false;
+  function size(){var dpr=Math.min(window.devicePixelRatio||1,2),w=Math.max(1,Math.round(box.clientWidth*dpr));
+    cv.width=cv.height=scv.width=scv.height=w;K=w/600;}
+  function frame(now){
+    if(!running)return;
+    clock+=Math.min((now-last)/1000,1/30)*speed;last=now;
+    if(clock>=T.END){clock=T.END;running=false;}   // 「one-x ｜ ∞」で止まって終わる
+    draw(clock);setCap(clock);if(running)requestAnimationFrame(frame);
+  }
+  function play(){if(!ready||running||reduce||clock>=T.END)return;running=true;last=performance.now();requestAnimationFrame(frame);}
+  function stop(){running=false;}
+  function start(){
+    if(ready)return;ready=true;measure();plan();size();
+    if(reduce)clock=T.END;draw(clock);setCap(clock);
+    addEventListener('resize',function(){size();draw(clock);});
+    if(!reduce&&'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){visible=e.isIntersecting;visible?play():stop();});},{threshold:.35}).observe(box);
+    }else{visible=true;play();}
+  }
+  // 書体が届いてから始める（届かないときは 2秒で始める）
+  if(document.fonts&&document.fonts.load){document.fonts.load('900 100px "Red Hat Display"').then(start,start);setTimeout(start,2000);}else start();
+  // さわる：途中なら最後へ、終わっていればもう一度はじめから
+  function tap(){if(!ready||reduce)return;
+    if(clock<T.END){clock=T.END;stop();draw(clock);setCap(clock);}else{clock=0;draw(0);setCap(0);if(visible)play();}}
+  box.addEventListener('click',tap);
+  box.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tap();}});
+  window.onexLogo={replay:function(){if(!ready)return;clock=0;speed=SPEED;draw(0);setCap(0);running=false;play();}};
 })();
 </script>
 </body>
