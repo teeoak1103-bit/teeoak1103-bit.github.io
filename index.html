@@ -275,7 +275,8 @@ ul{list-style:none;margin:0;padding:0}
 .service-item-heading{white-space:nowrap;font-size:2.4rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
 .nb{white-space:nowrap}
 .service-item-description{max-width:26rem;margin-top:1.8rem;font-size:1.5rem;line-height:var(--leading-loose);letter-spacing:var(--tracking-base);color:var(--color-muted)}
-.service-item-brand{font-family:"Red Hat Display",sans-serif;font-weight:800;letter-spacing:-.01em}
+.service-item-brand{font-family:"Red Hat Display",sans-serif;font-weight:800;letter-spacing:-.01em;font-size:2.9rem}
+.service-item-description.is-lines span{display:block}
 .service-item-sub{margin-top:.8rem;font-size:1.5rem;font-weight:700;line-height:var(--leading-half);letter-spacing:var(--tracking-base)}
 .service-item-icon{position:absolute;z-index:2;right:3.4rem;top:3.4rem;width:4rem;height:4rem;border-radius:50%;background:var(--index-color);color:var(--color-white);display:grid;place-items:center;transition:transform .32s var(--ease-back-out)}
 .service-item:hover .service-item-icon{transform:scale(1.15)}
@@ -294,6 +295,7 @@ ul{list-style:none;margin:0;padding:0}
   .service-list{grid-template-columns:1fr;gap:1.6rem;margin-top:5.6rem}
   .service-item{height:auto;min-height:0;padding:3.2rem 3rem 15rem}
   .service-item-heading{white-space:normal;font-size:2rem;padding-right:4.6rem}
+.service-item-brand{font-size:2.4rem}
   .service-item:nth-child(4){padding-bottom:11rem}
   .service-item-description{max-width:none}
   .service-item-icon{right:3rem;top:3rem}
@@ -514,7 +516,7 @@ ul{list-style:none;margin:0;padding:0}
         <a class="service-item" href="/lab/">
           <h3 class="service-item-heading"><span class="service-item-brand">AI shikumi LAB.</span></h3>
           <p class="service-item-sub">企業の採用支援 / AI活用支援</p>
-          <p class="service-item-description"><span class="nb">AI の活用アイデア相談（無料）／</span><span class="nb">課題抽出ワークショップ／</span><span class="nb">AI 活用の実践研修／</span><span class="nb">しくみづくりの伴走</span></p>
+          <p class="service-item-description is-lines"><span>AI の活用アイデア相談（無料）</span><span>課題抽出ワークショップ</span><span>AI 活用の実践研修</span><span>しくみづくりの伴走</span></p>
           <span class="service-item-icon"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <img class="service-item-illust" src="/img/card_recruit.webp" srcset="/img/card_recruit-sm.webp 800w, /img/card_recruit.webp 1120w" sizes="(max-width:767px) 64vw, 22vw" alt="" width="560" height="300" loading="lazy">
         </a>
