@@ -140,6 +140,9 @@
   .approach_in { padding: 40px 0 120px; }
   @media (min-width: 769px) { .approach_in { padding: 60px 0 160px; } }
   .ap_h { margin-top: 14px; width: max-content; max-width: min(var(--right), calc(100vw - var(--gutter) * 2)); }
+  @media (max-width: 768px) { .ap_h .g-mask_in { font-size: .94em; } }
+  /* 予備：どうしても1行に収まらないかたまりは、言葉の途中でも折り返して切れないように（2026-10-21） */
+  .sec_h, .ja_title, .ja_h, .issue_txt, .now_problem, .hero_msg { overflow-wrap: anywhere; }
   .ap_txt { font-size: var(--t-body-l); line-height: 1.8; margin-top: 28px; }
   .ap_fig { display: block; width: min(100%, 420px); margin: 48px 0; }
   .ap_fig .ring { fill: none; stroke: #f1f1f1; stroke-opacity: .6; stroke-width: 1; }
@@ -845,6 +848,9 @@ addEventListener('load',function(){setTimeout(function(){var s=document.createEl
     { scene: "リサーチ・分析", problem: "リサーチや分析が苦手。<span class=\"nb\">何から調べればいいのか</span>分からない", name: "しらbell", ja: "", can: "仕事に合った確かな情報集めから、<span class=\"nb\">直感的に分かる</span>データ化・グラフ化までを AI でサポート。", tag: "AI＋人の手", img: "shots/shirabell_sample.webp", svg: fig.shira }
   ];
 
+  // Safari では「、」「。」のあとでも折り返さないことがあるので、折り返してよい印（目に見えない）を入れる
+  CARDS.forEach(c => { c.problem = c.problem.replace(/([、。])(?!​)/g, "$1​"); });
+
   const pad = n => String(n).padStart(2, "0");
   const $ = id => document.getElementById(id);
   const EASE = "cubic-bezier(.19,1,.22,1)";
@@ -998,6 +1004,15 @@ addEventListener('load',function(){setTimeout(function(){var s=document.createEl
     if (e.key === "ArrowLeft") go(-1);
   });
 })();
+</script>
+<script>
+  // 見出しは「言葉の途中で折り返さない」設定（keep-all）。iPhone の Safari では「、」「。」のあとでも折り返さず、はみ出して切れることがある
+  // → 「、」「。」のあとに、折り返してよい印（目に見えないゼロ幅スペース）を入れる（2026-10-21）
+  document.querySelectorAll(".sec_h, .ja_title, .ja_h, .issue_txt, .hero_msg, .g-mission_title").forEach(el => {
+    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [];
+    while (w.nextNode()) nodes.push(w.currentNode);
+    nodes.forEach(n => { n.nodeValue = n.nodeValue.replace(/([、。])(?!​)/g, "$1​"); });
+  });
 </script>
 <script src="gnmd.js"></script>
 <!-- なめらかスクロール（Lenis、MIT・無料）は後から読む。外の配信が遅くても、中身の表示を止めない。公開のときは自分のフォルダに置く -->
