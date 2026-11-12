@@ -1,0 +1,36 @@
+/* LP v0.4 の上書き：AI shikumi LAB. の形（左の列に番号とタイトル、読み終えるまで画面の上に止まる）。PC だけ。このファイルは make_v04.py が毎回書き出す（直接直さない） */
+.head { position: relative; padding-top: 14px; }
+.head::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease); }
+.head.is-in::before { transform: scaleX(1); }
+/* 番号とタイトルの大きさは、スポンサーのページの見出しとそろえる（11/11 本人） */
+.head h2 { font-size: var(--fs-h2); font-weight: 900; line-height: 1.3; }
+.head h2 .no { font-size: 1.5em; line-height: 1; letter-spacing: -.04em; }
+.sec-lead { margin: 0 0 28px; font-size: 18px; max-width: 36em; }
+/* 01 ZINEの種類：for ○○ は6個ずつ2段。入りきらない幅では横に動かせる */
+.band .sec-lead { margin-bottom: 0; }
+.band .chips { display: grid; grid-template-columns: repeat(6, max-content); gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 20px -16px 0; padding: 0 16px 4px; }
+.band .chips::-webkit-scrollbar { display: none; }
+.band .chips button { white-space: nowrap; }
+.band .stage { margin: 16px -16px 0; overflow: hidden; }
+.band .track { padding: 28px 16px 24px; scroll-padding-inline: 16px; }
+.band .ctrl { margin-top: 8px; }
+@media (min-width: 960px) {
+  section.block > .wrap { display: grid; grid-template-columns: minmax(0, 22%) minmax(0, 1fr); column-gap: 56px; align-items: start; }
+  /* 左の列の番号とタイトルは、そのセクションを読み終えるまで画面の上に止まってついてくる（AI shikumi LAB. と同じ。11/11 本人） */
+  section.block .head { position: sticky; top: calc(var(--head) + 24px); margin: 0; }
+  .head .stick h2 { display: block; font-size: var(--fs-h2); line-height: 1.3; }
+  .head .stick h2 .no { display: block; font-size: 1.5em; line-height: 1; margin-bottom: 10px; }
+  .sec-lead { font-size: 20px; margin-bottom: 36px; }
+  .band .sec-lead { margin-bottom: 0; }
+  .band .chips { grid-template-columns: repeat(6, minmax(0, 1fr)); overflow: visible; margin: 24px 0 0; padding: 0; }
+  .band .chips button { width: 100%; padding: 0 8px; font-size: 14px; }
+  .band .stage { margin: 24px -32px 0 0; }
+  .band .track { padding: 40px 32px 32px 0; gap: 4vw; scroll-padding-inline: 0; }
+  .band .track li { width: min(26vw, 400px); }
+  .band .bgtext { font-size: 13vw; }
+  .toc { border-top: 1px solid var(--ink); }
+  /* 05 申込みの流れ：v0.4 は右の列がせまいので、ボタンは流れの下に置く */
+  .flow-row { display: block; }
+  .flow-row .steps { max-width: 880px; margin-bottom: 32px; }
+  .flow-cta .btn-xl { width: auto; }
+}

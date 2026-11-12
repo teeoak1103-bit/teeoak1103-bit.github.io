@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>スポンサー募集｜new yai been</title>
+<meta name="description" content="沖縄の業種別 ZINE「new yai been」のスポンサー（Sプラン・Mプラン・Lプラン）の料金、空き枠、申込みの流れ。">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Noto+Sans+JP:wght@500;700;900&family=Red+Hat+Display:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* スポンサー向けページ（2026-11-11）。LP と同じ値（style.css）を使い、このページだけの部品をここに置く。 */
+.sp { padding: 40px 0 88px; }
+.sp .wrap { max-width: 1120px; }
+.sp h1 { font-size: var(--fs-h1); font-weight: 900; line-height: 1.3; margin: 0; letter-spacing: .02em; }
+.sp .lead { font-size: var(--fs-h4); font-weight: 700; margin: 14px 0 0; max-width: 46em; }
+.sp .lead-hl { font-size: clamp(18px, 1.45vw, 20px); font-weight: 900; line-height: 1.75; margin: 18px 0 0; }
+.sp .lead-hl .hl { background: linear-gradient(transparent 58%, rgba(255,90,60,.38) 44%, rgba(255,90,60,.38) 94%, transparent 94%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.sp section { margin-top: 64px; border-top: 1px solid var(--ink); padding-top: 18px; }
+.sp h2 { font-size: var(--fs-h2); font-weight: 900; line-height: 1.3; margin: 0 0 8px; display: flex; gap: 18px; align-items: center; }
+.sp h2 .no { font-family: var(--en); font-weight: 600; font-size: 1.5em; line-height: 1; letter-spacing: -.04em; }
+.sp h2 .tt small { display: block; font-size: var(--fs-small); font-weight: 700; color: var(--gray); letter-spacing: .04em; margin-bottom: 2px; }
+.sp .sub { color: var(--gray); margin: 0 0 22px; }
+.sp .catch { font-size: clamp(26px, 3.4vw, 46px); font-weight: 900; line-height: 1.35; margin: 6px 0 26px; letter-spacing: .01em; }
+.demo-bar { display: none; background: #FFE98A; font-weight: 700; padding: 10px 16px; text-align: center; font-size: var(--fs-small); }
+.demo .demo-bar { display: block; }
+
+/* プラン */
+.adplans { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--lgray); }
+.adplan { padding: 20px 0; border-bottom: 1px solid var(--lgray); }
+/* 掲載イメージを各プランの上に（11/11 本人：画像と料金を近づける） */
+.adplan .adimg { margin: 0 0 16px; }
+.adplan .adimg .pg2 { display: block; } .adplan .adimg img { width: 100%; height: auto; display: block; }
+.adplan .adname { font-size: var(--fs-h3); font-weight: 900; margin: 0; }
+.adplan .adname small { font-size: var(--fs-small); color: var(--gray); font-weight: 700; margin-left: 10px; }
+.adplan .adfig { font-family: var(--en); font-weight: 600; font-size: clamp(44px, 6vw, 72px); line-height: 1; letter-spacing: -.04em; margin: 12px 0 0; }
+.adplan .adfig span { font-family: var(--jp); font-size: .32em; font-weight: 700; letter-spacing: 0; margin-left: .2em; }
+.adplan dl { margin: 14px 0 0; display: grid; grid-template-columns: 1fr; gap: 0; font-size: var(--fs-small); }
+.adplan dt { font-size: 13px; color: var(--gray); margin-top: 10px; }
+@media (min-width: 900px) { .adplan dd { font-size: 15px; } }
+.adplan dt:first-child { margin-top: 0; }
+.adplan dt { font-weight: 700; }
+.adplan dd { margin: 0; }
+@media (min-width: 900px) {
+  .adplans { grid-template-columns: repeat(3, 1fr); }
+  .adplan { padding: 22px 26px 22px; border-bottom: 0; border-left: 1px solid var(--lgray); }
+  .adplan:first-child { padding-left: 0; border-left: 0; }
+  /* 3列の画像・名前・金額・内容の高さをそろえる */
+  .adplans { grid-template-rows: auto auto auto auto; }
+  .adplan { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; }
+  .adplan dl { align-self: start; align-content: start; }
+  /* 3つの見本の画像を同じ大きさに（1列目は左の余白がない分、右をあける。11/11 本人） */
+  .adplan:first-child .adimg { margin-right: 26px; }
+}
+.small-note { font-size: var(--fs-small); color: var(--gray); margin: 16px 0 0; }
+
+/* 掲載のイメージ */
+.look { margin-top: 40px; }
+.look h3 { font-size: var(--fs-h3); font-weight: 900; margin: 0; }
+.look .sub2 { color: var(--gray); margin: 6px 0 20px; font-size: var(--fs-small); }
+.looks { display: grid; grid-template-columns: 1fr; gap: 36px; }
+@media (min-width: 900px) { .looks { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+.looks figure { margin: 0; }
+.looks .pg { display: block; filter: var(--shadow-s); }
+.looks .pg img { width: 100%; height: auto; }
+.looks .pg2 { display: block; } .looks .pg2 img { width: 100%; height: auto; }
+.looks figcaption { margin-top: 12px; font-size: var(--fs-small); line-height: 1.6; }
+.looks figcaption b { display: block; font-size: var(--fs-h4); font-weight: 900; }
+.looks figcaption .ex { display: block; font-size: 13px; color: var(--gray); margin-top: 4px; }
+.looks .more { display: flex; gap: 8px; margin-top: 10px; }
+.looks .more a { width: 72px; filter: var(--shadow-s); }
+
+/* ヘッダーとフッターの「トップへ」 */
+.hd-r { display: flex; align-items: center; gap: 8px; }
+.cta-o { display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 18px; border: 1px solid var(--ink); color: var(--ink); font-weight: 600; font-size: var(--fs-small); text-decoration: none; white-space: nowrap; }
+.cta-o:hover { background: var(--ink); color: var(--bg); }
+.pc-only { display: none; } @media (min-width: 960px) { .pc-only { display: inline; } }
+footer .back { margin: 0 0 40px; }
+footer .back .bt { display: inline; line-height: 1; }
+footer .back .nyb-i { vertical-align: -.24em; }
+/* トップへ戻る：ヘッダーの「トップへ」と同じ、背景なし・黒い線（11/11 本人） */
+footer .back .btn { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+footer .back .btn .nyb-i { filter: none; }
+footer .back .btn:hover, footer .back .btn:focus-visible { background: var(--ink); color: var(--bg); }
+footer .back .btn:hover .nyb-i, footer .back .btn:focus-visible .nyb-i { filter: invert(1); }
+@media (max-width: 959px) {
+  .top .mark-title { width: 26vw !important; max-width: 120px; }
+  .top .mark { gap: 6px; }
+  .cta-o { height: 34px; padding: 0 11px; font-size: 14px; }
+  .top .cta-s { height: 34px; padding: 0 13px; font-size: 14px; }
+}
+footer { border-top: 1px solid var(--ink); }
+
+/* 料金と割引 */
+.hook { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: end; margin: 8px 0 8px; padding: 18px 0 28px; border-bottom: 1px solid var(--ink); }
+.hook .hk { font-size: clamp(22px, 2.7vw, 38px); font-weight: 900; line-height: 1.35; margin: 0; letter-spacing: .01em; }
+.hook .mx { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hook .mx > div { border-top: 3px solid var(--mark); padding-top: 8px; }
+.hook .mx .k { display: block; font-size: var(--fs-small); font-weight: 700; }
+.hook .mx b { display: block; font-family: var(--en); font-weight: 600; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: -.04em; color: var(--mark); }
+.hook .mx b small { font-size: .5em; margin-left: 2px; }
+.hook .mx b em { font-style: normal; font-size: .46em; margin-left: .22em; letter-spacing: .02em; }
+@media (min-width: 900px) { .hook { grid-template-columns: 1.6fr 1fr; gap: 36px; } }
+.rcs { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 900px) { .rcs { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+.rc { position: relative; background: var(--paper); border-top: 4px solid var(--ink); padding: 18px 20px; }
+.rc .tag { position: absolute; top: -4px; right: 16px; background: var(--mark); color: #fff; font-size: 13px; font-weight: 700; padding: 3px 10px; }
+.rc .pl { font-size: var(--fs-h4); font-weight: 900; margin: 0; }
+.rc .pl span { display: inline-block; margin-left: 12px; font-size: 22px; font-weight: 900; }  /* 11/11 本人：札をやめて大きめの文字に */
+.rc .tot { margin: 10px 0 0; font-weight: 700; }
+.rc .tot b { font-family: var(--en); font-weight: 600; font-size: 40px; letter-spacing: -.03em; }
+.rc .tot small { display: block; font-size: 13px; color: var(--gray); font-weight: 500; }
+.rc .sv { margin: 6px 0 0; color: #B23A1E; font-weight: 900; font-size: var(--fs-h4); }
+.rc .ds { margin: 8px 0 0; font-size: var(--fs-small); }
+.rc .wh { margin: 6px 0 0; font-size: 13px; color: var(--gray); font-weight: 700; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pth { font-size: var(--fs-h4); font-weight: 900; margin: 30px 0 10px; }
+.pts { display: grid; grid-template-columns: 1fr; gap: 22px; }
+.pts .ptable { font-size: 14px; } .pts .ptable th, .pts .ptable td { padding: 8px 4px; }
+.ptw { min-width: 520px; }
+@media (min-width: 900px) { .pts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; } .pts .ptable th, .pts .ptable td { padding: 8px 5px; } }
+.pt-h { font-size: var(--fs-h4); font-weight: 900; margin: 0 0 4px; }
+.pt-h small { font-size: 13px; color: var(--gray); font-weight: 700; margin-left: 8px; }
+.ptable th[scope], .ptable tbody th { text-align: left; font-weight: 700; }
+.ptable td.sv, .ptable small.sv { color: #B23A1E; font-weight: 700; }
+.ptable td.sv small { display: block; font-size: 12px; }
+.ptable td.sv0, .ptable small.sv0 { color: var(--gray); }
+.ptw td small { display: block; font-size: 12px; }
+.ptable { margin-top: 6px; }
+
+/* 空き枠 */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: var(--fs-small); font-weight: 700; margin: 18px 0 0; }
+.legend b { font-family: var(--jp); font-weight: 500; font-size: 1.15em; margin-right: 4px; }
+.cal-head { font-size: var(--fs-h3); font-weight: 900; margin: 26px 0 8px; }
+.cal-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.cal { width: 100%; min-width: 560px; border-collapse: collapse; background: var(--paper); }
+.cal th, .cal td { border: 1px solid var(--lgray); text-align: center; padding: 0; }
+.cal thead th { padding: 10px 6px; font-weight: 700; font-size: var(--fs-small); line-height: 1.4; }
+.cal thead th small { display: block; font-weight: 500; color: var(--gray); font-size: 13px; }
+.cal tbody th { text-align: left; padding: 10px 12px; font-weight: 700; font-size: var(--fs-small); white-space: nowrap; line-height: 1.4; }
+.cal tbody th small { display: block; font-weight: 500; color: var(--gray); font-size: 13px; }
+.cal td button { width: 100%; min-height: 56px; border: 0; background: transparent; font-family: var(--jp); color: var(--ink); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 6px 2px; }
+.cal td button .s { font-family: var(--jp); font-weight: 500; font-size: 22px; line-height: 1; }
+.cal td button .r { font-size: 13px; font-weight: 700; }
+.cal td button:hover:not(:disabled) { background: #EEF0F1; }
+.cal td button:disabled { cursor: default; color: var(--lgray); }
+.cal td button.sel { background: var(--ink); color: var(--paper); }
+.cal td button.sel .r { color: var(--paper); }
+.cal td.tri button .r { color: #B23A1E; }
+.cal td.tri button.sel .r { color: var(--paper); }
+
+/* 期間でまとめて申し込む */
+.term { margin-top: 26px; background: var(--paper); border-top: 3px solid var(--ink); padding: 16px 18px; }
+.term-h { font-size: var(--fs-h4); font-weight: 900; margin: 0 0 10px; }
+.term-row { display: grid; grid-template-columns: 1fr; gap: 10px; align-items: end; }
+@media (min-width: 900px) { .term-row { grid-template-columns: 1.2fr 1fr 1fr auto; gap: 14px; } }
+.term label { display: grid; gap: 4px; font-size: 13px; font-weight: 700; color: var(--gray); }
+.term select { font: inherit; font-size: var(--fs-small); font-weight: 700; color: var(--ink); padding: 10px 12px; border: 1px solid var(--ink); border-radius: 6px; background: var(--paper); }
+.btn-s { display: inline-flex; justify-content: center; align-items: center; height: 44px; padding: 0 22px; border-radius: 22px; background: var(--ink); color: var(--bg); border: 1px solid var(--ink); font-family: var(--jp); font-weight: 700; font-size: 15px; cursor: pointer; white-space: nowrap; }
+.btn-s:hover { background: var(--bg); color: var(--ink); }
+.term .small-note.ok { color: #1E7A4F; font-weight: 700; }
+.term .small-note.ng { color: #B23A1E; font-weight: 700; }
+.rc { display: flex; flex-direction: column; }
+.rc .rec-go { margin-top: auto; width: 100%; }
+.rc .wh { margin-bottom: 14px; }
+
+/* 選んだ枠 */
+.cart { margin-top: 26px; border-top: 2px solid var(--ink); padding-top: 14px; }
+.cart h3 { font-size: var(--fs-h4); font-weight: 900; margin: 0 0 8px; }
+.cart ul { list-style: none; margin: 0; padding: 0; }
+.cart li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--lgray); font-size: var(--fs-small); }
+.cart li button { border: 0; background: none; color: var(--link); cursor: pointer; font-family: var(--jp); font-size: var(--fs-small); padding: 0; }
+.cart .empty { color: var(--gray); font-size: var(--fs-small); }
+.cart .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 14px; font-weight: 900; }
+.cart .tv { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+.cart .off { color: #B23A1E; font-weight: 900; font-size: var(--fs-h4); }
+.cart .bd { margin-top: 14px; } .cart .bd td.sv { color: #B23A1E; font-weight: 700; } .cart .bd td small { display: block; font-size: 12px; color: var(--gray); }
+.cart li .m { font-size: 12px; color: var(--gray); margin-left: 6px; }
+.cart .total .v { font-family: var(--en); font-weight: 600; font-size: 34px; letter-spacing: -.03em; }
+.cart .btn { margin-top: 16px; }
+
+/* 割引・流れ・基準 */
+.rows3 { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--lgray); }
+.rows3 > div { padding: 16px 0; border-bottom: 1px solid var(--lgray); }
+.rows3 h3 { font-size: var(--fs-h4); font-weight: 900; margin: 0 0 6px; }
+.rows3 p, .rows3 ul { margin: 0; font-size: var(--fs-small); }
+.rows3 ul { padding-left: 1.2em; }
+@media (min-width: 900px) { .rows3 { grid-template-columns: repeat(3, 1fr); } .rows3 > div { padding: 18px 24px; border-bottom: 0; border-left: 1px solid var(--lgray); } .rows3 > div:first-child { padding-left: 0; border-left: 0; } }
+/* 申込みの流れ：1本の矢印がつながって進む。色は左（上）から右（下）へ濃くなる（11/11 本人「シームレスに、パワポっぽくなく」） */
+.flow { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; counter-reset: f; }
+.flow::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 44px;
+  background: linear-gradient(180deg, #FFE6DF 0%, #FFB6A4 45%, #FF5A3C 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), 50% 100%, 0 calc(100% - 18px)); }
+.flow li { position: relative; counter-increment: f; padding: 14px 0 22px 64px; font-size: var(--fs-small); }
+.flow li:last-child { padding-bottom: 34px; }
+.flow li b { display: block; font-size: 19px; font-weight: 900; line-height: 1.5; }
+.flow li b::before { content: counter(f); position: absolute; left: 0; top: 11px; width: 44px; text-align: center; font-family: var(--en); font-weight: 600; font-size: 26px; line-height: 1.2; }
+.flow li p { margin: 4px 0 0; }
+@media (min-width: 900px) {
+  .flow { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .flow::before { right: 0; bottom: auto; width: auto; height: 68px;
+    background: linear-gradient(90deg, #FFE6DF 0%, #FFB6A4 45%, #FF5A3C 100%);
+    clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 50%, calc(100% - 34px) 100%, 0 100%); }
+  .flow li, .flow li:last-child { padding: 0 28px 0 0; }
+  .flow li b { display: flex; align-items: center; gap: 14px; height: 68px; padding: 0 0 0 24px; font-size: 23px; line-height: 1.2; }
+  .flow li b::before { position: static; width: auto; font-size: 34px; line-height: 1; }
+  .flow li p { margin: 18px 0 0 24px; }
+}
+.ng { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr; column-gap: 32px; border-top: 1px solid var(--lgray); }
+.ng li { padding: 10px 0; border-bottom: 1px solid var(--lgray); font-weight: 500; font-size: var(--fs-small); }
+.ngd summary { cursor: pointer; font-weight: 700; padding: 6px 0 12px; }
+@media (min-width: 900px) { .ng { grid-template-columns: 1fr 1fr; } }
+details.card-all { margin-top: 18px; border-top: 1px solid var(--lgray); padding-top: 10px; }
+details.card-all summary { cursor: pointer; font-weight: 700; }
+.ptable { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: var(--fs-small); background: var(--paper); }
+.ptable th, .ptable td { border-bottom: 1px solid var(--lgray); padding: 8px 10px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ptable th:first-child, .ptable td:first-child { text-align: left; }
+.ptable thead th { border-bottom: 1px solid var(--ink); }
+
+/* 最初の画面：右に掲載の見本を扇に重ねる（LP の見本号の入口と同じ考え方） */
+.sp-top { display: grid; grid-template-columns: minmax(0,1fr); gap: 28px; align-items: center; }
+.sp-cta { margin: 22px 0 0; }
+.sp-fan { position: relative; display: block; height: 290px; max-width: 330px; justify-self: center; width: 100%; text-decoration: none; }
+.sp-fan img { position: absolute; top: 0; width: 160px; height: auto; filter: var(--shadow-s); background: var(--paper); transition: transform .35s var(--ease); }
+.sp-fan img:nth-child(1) { left: 162px; transform: rotate(8deg); top: 16px; }
+.sp-fan img:nth-child(2) { left: 82px; transform: rotate(-1deg); top: 4px; }
+.sp-fan img:nth-child(3) { left: 6px; transform: rotate(-8deg); top: 22px; }
+@media (hover: hover) { .sp-fan:hover img:nth-child(1) { transform: rotate(12deg) translateX(14px); } }
+@media (hover: hover) { .sp-fan:hover img:nth-child(3) { transform: rotate(-12deg) translateX(-10px); } }
+.sp-fan .cap { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; font-size: 13px; color: var(--gray); font-weight: 700; }
+@media (min-width: 960px) {
+  .sp-top { grid-template-columns: minmax(0,1fr) 520px; gap: 40px; }
+  .sp-fan { height: 470px; max-width: 520px; }
+  .sp-fan img { width: 280px; }
+  .sp-fan img:nth-child(1) { left: 235px; } .sp-fan img:nth-child(2) { left: 120px; } .sp-fan img:nth-child(3) { left: 0; }
+}
+
+/* こんな会社・お店に（業種ごとの写真を背景に。11/11 本人「黒地とカードは AI 感が強い」） */
+.fit { margin-top: 52px; }
+.fit h3 { font-size: clamp(26px, 3.2vw, 42px); font-weight: 900; line-height: 1.35; margin: 0; letter-spacing: .01em; }
+.fit-l { margin: 12px 0 24px; font-size: var(--fs-small); line-height: 1.8; }
+.fits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 600px) { .fits { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .fits { grid-template-columns: repeat(4, 1fr); gap: 12px; } }
+.fits li { position: relative; min-height: 300px; background-size: cover; background-position: center; color: #fff; display: flex; align-items: flex-start; overflow: hidden; }
+.fits li::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,13,13,.9) 0%, rgba(12,13,13,.72) 45%, rgba(12,13,13,.2) 100%); transition: background .3s var(--ease); }
+.fits li:hover::before { background: linear-gradient(180deg, rgba(12,13,13,.92) 0%, rgba(12,13,13,.8) 55%, rgba(12,13,13,.4) 100%); }
+.fits .fc { position: relative; padding: 20px 18px 18px; }
+.fits .ft { display: block; font-size: var(--fs-h4); font-weight: 900; line-height: 1.4; color: #DCEBE2; } /* ZINE（for カフェ）の「35.7%」と同じ淡い緑 */
+.fits .fe { display: block; font-size: 13px; color: #E4E6E7; line-height: 1.6; margin-top: 4px; }
+@media (min-width: 1000px) { .fits .fe { min-height: 4.8em; } }
+.fits .fs { display: block; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.45); font-size: 14px; font-weight: 700; line-height: 1.6; }
+.fits .fs i { display: table; font-style: normal; font-size: 12px; font-weight: 700; color: #fff; background: var(--mark); padding: 1px 8px; margin-bottom: 6px; }
+.fit-b { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px 20px; margin-top: 20px; }
+.fit-b p { margin: 0; font-size: var(--fs-h4); font-weight: 900; line-height: 1.5; }
+.fit-go { display: inline-flex; align-items: center; gap: 8px; height: 52px; padding: 0 28px; border-radius: 26px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; border: 1px solid var(--ink); }
+.fit-go:hover { background: var(--bg); color: var(--ink); }
+.fit-cr { margin: 10px 0 0; font-size: 12px; color: var(--gray); }
+
+/* スポンサーになると */
+.why { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--lgray); counter-reset: w; }
+.why li { counter-increment: w; padding: 18px 0; border-bottom: 1px solid var(--lgray); font-size: var(--fs-small); }
+.why li::before { content: counter(w, decimal-leading-zero); display: block; font-family: var(--en); font-weight: 600; font-size: 15px; color: var(--gray); }
+.why li b { display: block; font-size: var(--fs-h4); font-weight: 900; line-height: 1.5; margin: 4px 0 6px; }
+@media (min-width: 900px) { .why { grid-template-columns: repeat(3, 1fr); column-gap: 40px; } }
+
+/* 申請 */
+.form { display: grid; gap: 16px; max-width: 720px; }
+.form label { display: grid; gap: 6px; font-weight: 700; font-size: var(--fs-small); }
+.form label small { font-weight: 500; color: var(--gray); }
+.form input[type=text], .form input[type=email], .form input[type=tel], .form textarea, .form select { font: inherit; font-weight: 500; padding: 12px 14px; border: 1px solid var(--ink); border-radius: 6px; background: var(--paper); color: var(--ink); }
+.form textarea { min-height: 96px; }
+.form .agree { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; }
+.form .agree input { margin-top: .45em; }
+.form .sent { font-weight: 700; line-height: 1.8; margin: 0 0 8px; }
+dialog.sent-card { width: min(440px, calc(100vw - 32px)); padding: 36px 28px 28px; border: 1px solid var(--ink); border-radius: 6px; background: var(--paper); color: var(--ink); text-align: center; }
+dialog.sent-card::backdrop { background: rgba(12, 13, 13, .45); }
+.sent-card h3 { font-size: var(--fs-h3); font-weight: 900; margin: 0 0 16px; }
+.sent-card p { font-size: var(--fs-text); line-height: 1.8; margin: 0; }
+.sent-card .small-note { margin-top: 12px; }
+.sent-card .btn { margin-top: 24px; font-family: var(--jp); cursor: pointer; }
+.form .picked { background: var(--paper); border: 1px solid var(--lgray); border-radius: 6px; padding: 12px 14px; font-size: var(--fs-small); white-space: pre-line; }
+</style>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://onex-ri.jp/newyaibeen/sponsor.html">
+</head>
+<body>
+<div class="demo-bar">これは○△×の表示の見本です。実際の空きではありません。</div>
+<header class="top"><div class="wrap"><a class="mark" href="index.html"><img class="mark-logo" src="img/logo_nyb_120.png" width="40" height="40" alt=""><img class="mark-title" src="img/title_new-yai-been.svg" width="582" height="108" alt="new yai been"></a><div class="hd-r"><a class="cta-o" href="index.html"><span class="pc-only"><img class="nyb-i" src="img/title_new-yai-been.svg" width="582" height="108" alt="new yai been"> の</span>トップへ</a><a class="cta-s" href="#apply"><span class="pc-only">スポンサーを</span>申し込む</a></div></div></header>
+
+<main class="sp"><div class="wrap">
+  <div class="sp-top">
+    <div>
+      <h1>スポンサー募集</h1>
+      <p class="lead-hl"><span class="hl">沖縄のお店と会社に届ける、</span><br><span class="hl">新しいカタチのメディア。</span><br><span class="hl">ZINE スタイルの「<img class="nyb-i" src="img/title_new-yai-been.svg" width="582" height="108" alt="new yai been">」。</span></p>
+      <p class="lead">一緒に支えてくださるスポンサーを募集しています。<br class="pc">業種や会社の規模は問いません。<br class="pc">載せる版（業種）・号・プランを選んで申請してください。内容を確認後、お支払いのご案内をお送りします。</p>
+      <p class="sp-cta"><a class="btn" href="#plans">掲載イメージを見る</a></p>
+    </div>
+    <a class="sp-fan" href="#plans" aria-label="掲載イメージへ"><img src="img/sponsor/page_s.jpg" alt="" width="900" height="1272"><img src="img/sponsor/page_m05.jpg" alt="" width="900" height="1272"><img src="img/sponsor/page_l.jpg" alt="" width="900" height="1272"><span class="cap">掲載の見本（会社・数字は架空）</span></a>
+  </div>
+
+  <section id="why">
+    <h2><span class="no">01</span>スポンサーになると</h2>
+    <p class="catch">答えを探しているお店の、すぐそばに。</p>
+    <ol class="why">
+      <li><b>その業種の人に、ダイレクトに届く</b>ZINE は業種ごとに1冊ずつ作り、申し込んだ人のメールに毎月届きます。介護の事業所に届けたいなら for 介護・福祉、飲食店なら for カフェ や for 居酒屋 のように、版を選んで載せられます。</li>
+      <li><b>困りごとを解決したいお店や会社に届く</b>読む人は、お金を払ってでも数字と制度を知り、自分から手を打ちたいと申し込んだお店や会社です。Mプランは、経営のモヤモヤ、おすすめの記事、セミナーと締切のページの下に載ります。</li>
+      <li><b>埋もれない</b>どのページも1社まで。Sプランも1号に4社までなので、たくさんの名前の中に並ぶことはありません。</li>
+      <li><b>沖縄のお店を支える会社として、名前が届く</b>数字と制度を毎月届ける冊子を、一緒に支える会社として紹介します。冊子は PDF で、読む人の手元に残ります。</li>
+      <li><b>手間なく、小さく始められる</b>3,900円の1号から申し込めます。Lプランの原稿とデザインはこちらで作ります。合うかどうかを確かめてから続けられます。</li>
+      <li><b>届けた人数をお知らせ</b>載せた号を届けた人数を、版ごとに毎月メールでお知らせします（配信日のあと）。</li>
+    </ol>
+    <div class="fit" id="fit">
+      <h3>業種別だから、届けたい相手に<br class="pc">ダイレクトにアプローチ</h3>
+      <p class="fit-l">購読者は、沖縄でお店や会社を営む人たち（経営者・店長・フリーランスなど）。<br class="pc">毎月、数字と制度を見ながら「次の一手」を考えています。そのそばに、あなたの商品やサービスを届けませんか。</p>
+      <ul class="fits"><li style="background-image:url(img/sponsor/fit_saas.webp)"><div class="fc"><b class="ft">会計・人事のクラウド</b><span class="fe">会計ソフト、給与計算・勤怠、人事労務の SaaS</span><span class="fs">最低賃金が上がる号のそばに。給与や勤怠の見直しを考えるお店へ。</span></div></li><li style="background-image:url(img/sponsor/fit_pos.webp)"><div class="fc"><b class="ft">レジ・予約・決済</b><span class="fe">POS レジ、予約システム、キャッシュレス決済、モバイルオーダー</span><span class="fs">値上げや新メニューを考える号のそばに。売り方を変えたいお店へ。</span></div></li><li style="background-image:url(img/sponsor/fit_bank.webp)"><div class="fc"><b class="ft">銀行・信用金庫・士業</b><span class="fe">銀行・信用金庫、税理士・社労士・行政書士、保険</span><span class="fs">補助金や助成金の締切が並ぶページのそばに。資金や手続きを考えるお店へ。</span></div></li><li style="background-image:url(img/sponsor/fit_web.webp)"><div class="fc"><b class="ft">Web・SNS・デザイン</b><span class="fe">Web 制作、SNS 運用、広告、ブランディング、印刷・看板</span><span class="fs">「SNS、続けたいけど手がまわらない」と考えるお店へ。</span></div></li><li style="background-image:url(img/sponsor/fit_hr.webp)"><div class="fc"><b class="ft">求人・人材・研修</b><span class="fe">求人媒体、人材紹介、研修・人材育成</span><span class="fs">人が集まりにくい、を数字で知ったお店へ。</span></div></li><li style="background-image:url(img/sponsor/fit_supply.webp)"><div class="fc"><b class="ft">仕入れ・設備・内装</b><span class="fe">食材・卸、厨房機器、内装・リフォーム、省エネ設備</span><span class="fs">材料の値段や、設備の更新を考えるお店へ。</span></div></li><li style="background-image:url(img/sponsor/fit_local.webp)"><div class="fc"><b class="ft">地域・不動産・観光</b><span class="fe">不動産、観光・イベント、商店街・地域の団体</span><span class="fs">出店や移転、地域とのつながりを考えるお店へ。</span></div></li><li style="background-image:url(img/sponsor/fit_shop.webp)"><div class="fc"><b class="ft">お店どうし</b><span class="fe">近くのお店、同じ業界の仲間のお店</span><span class="fs">たとえば、カフェの版にパン屋さん。お客さまが重なるお店へ。</span></div></li></ul>
+      <div class="fit-b"><p>ここにない業種ももちろんお受けいたします。お気軽にご相談ください。</p><a class="fit-go" href="#slots">空き枠を見る <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <h2><span class="no">02</span>スポンサープラン</h2>
+    <p class="sub">金額は1冊の版（業種）・1号あたり、税込です。画像は 11月号 for カフェ（見本号）に載せた例で、会社・数字はすべて架空です。サンプルページをクリックすると大きく表示されます。</p>
+    <div class="adplans" id="look">
+      <div class="adplan">
+        <div class="adimg"><a class="pg2" href="img/sponsor/look_s.webp" target="_blank" rel="noopener"><img src="img/sponsor/look_s.webp" width="1000" height="1232" alt="最後のページの下の帯に、Sプランの4社が並んだ見本。帯を色の線で囲み、拡大して重ねている" loading="lazy"></a></div>
+        <p class="adname">Sプラン<small>名前とロゴのみ</small></p>
+        <p class="adfig">3,900<span>円／号</span></p>
+        <dl><dt>掲載内容</dt><dd>会社の名前とロゴ</dd><dt>掲載場所</dt><dd>最後のページの下の帯</dd><dt>各号の枠</dt><dd>4社まで</dd></dl>
+      </div>
+      <div class="adplan">
+        <div class="adimg"><a class="pg2" href="img/sponsor/look_m.webp" target="_blank" rel="noopener"><img src="img/sponsor/look_m.webp" width="1000" height="1232" alt="05 モヤモヤと数字でゆんたく。の下の帯に、Mプランが載った見本。帯を色の線で囲み、拡大して重ねている" loading="lazy"></a></div>
+        <p class="adname">Mプラン<small>名前とロゴ＋紹介</small></p>
+        <p class="adfig">13,900<span>円／号</span></p>
+        <dl><dt>掲載内容</dt><dd>名前とロゴ、紹介（2行・40字まで）、<br>QR コードかリンク1つ</dd><dt>掲載場所</dt><dd>05 モヤモヤと数字でゆんたく。<br>06 読んでおきたい3本<br>07 要チェックやいびん！<br>の下の帯から1つ</dd><dt>各号の枠</dt><dd>各ページ1社まで</dd></dl>
+      </div>
+      <div class="adplan">
+        <div class="adimg"><a class="pg2" href="img/sponsor/page_l.jpg" target="_blank" rel="noopener"><img src="img/sponsor/look_l.webp" width="1000" height="1232" alt="Webマーケティングの会社（架空）の1ページの見本" loading="lazy"></a></div>
+        <p class="adname">Lプラン<small>1ページ</small></p>
+        <p class="adfig">39,000<span>円／号</span></p>
+        <dl><dt>掲載内容</dt><dd>1ページ<br>（会社の紹介か事例）</dd><dt>作り方</dt><dd>ロゴ・写真・伝えたいことをいただき、<br>原稿とデザインはこちらで作ります。<br>デザイン案はオンラインで共有し、<br>修正のご要望をいただきます（1回）。<br>ご希望があれば、取材にも伺います<br>（料金に含みます。沖縄本島内は訪問、<br>離島・県外はオンライン）。</dd><dt>掲載場所</dt><dd>来月号の予告の前</dd><dt>各号の枠</dt><dd>1社まで</dd></dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="discount">
+    <h2><span class="no">03</span><span class="tt">料金とお得な割引プラン</span></h2>
+    <div class="hook"><p class="hk"><span class="nw">続けて載せるほど、</span><br><span class="nw">たくさんの版に載せるほど、</span><br><span class="nw">1号あたりの料金が下がります。</span></p>
+      <div class="mx"><div><span class="k">続けて載せると、最大</span><b>30<small>%</small><em>OFF</em></b><span class="k">12か月のとき</span></div><div><span class="k">たくさんの版に載せると</span><b>50<small>%</small><em>OFF</em></b><span class="k">5冊目の版から</span></div></div></div>
+    <h3 class="pth">各プランのおすすめ</h3>
+    <div class="rcs"><div class="rc"><span class="tag">おすすめ</span><p class="pl">Sプラン<span><i>12</i>か月</span></p><p class="tot"><b>32,400</b>円<small>12か月の合計・税込（1冊の版・1号あたり 2,700円）</small></p><p class="sv">定価より −14,400円</p><p class="ds">名前とロゴを、1年間毎号に。</p><p class="wh">2027年4月号から</p><button type="button" class="btn-s rec-go" data-row="S" data-n="12" data-start="2027-04">このプランで申し込む</button></div><div class="rc"><span class="tag">おすすめ</span><p class="pl">Mプラン<span><i>6</i>か月</span></p><p class="tot"><b>66,600</b>円<small>6か月の合計・税込（1冊の版・1号あたり 11,100円）</small></p><p class="sv">定価より −16,800円</p><p class="ds">同じ場所に続けて載ると、覚えてもらいやすくなります。</p><p class="wh">2027年4月号から</p><button type="button" class="btn-s rec-go" data-row="M05" data-n="6" data-start="2027-04">このプランで申し込む</button></div><div class="rc"><span class="tag">おすすめ</span><p class="pl">Lプラン<span><i>3</i>か月</span></p><p class="tot"><b>105,300</b>円<small>3か月の合計・税込（1冊の版・1号あたり 35,100円）</small></p><p class="sv">定価より −11,700円</p><p class="ds">まずは3号、続けて紹介。</p><p class="wh">2027年1月号から選べます</p><button type="button" class="btn-s rec-go" data-row="L" data-n="3" data-start="2027-01">このプランで申し込む</button></div></div>
+    <div class="rows3">
+      <div><h3>期間の割引</h3><ul><li>3か月：1割引</li><li>6か月：2割引</li><li>12か月：3割引</li></ul><p style="margin-top:6px">期間の分はまとめて前払いです。</p></div>
+      <div><h3>版の数の割引</h3><p>同じ号で、4冊の版までは1冊ごとに定価、5冊目の版からは1冊ごとに半額です。</p></div>
+      <div><h3>選べる時期</h3><ul><li>12月号：1号ずつ</li><li>2027年1〜3月号：1号ずつか「1月から3か月」</li><li>2027年4月号から：6か月・12か月も（申込みは2月から）</li></ul></div>
+    </div>
+    <h3 class="pth">期間で選ぶ（1冊の版）</h3>
+    <div class="pts"><div class="pt"><p class="pt-h">Sプラン</p><table class="ptable"><thead><tr><th>期間</th><th>1号あたり</th><th>期間の合計</th><th><span class="vh">割引</span></th></tr></thead><tbody><tr><th>1号ずつ</th><td>3,900円</td><td>3,900円</td><td class="sv0">―</td></tr><tr><th>3か月</th><td>3,500円</td><td>10,500円</td><td class="sv">−1,200円<small>（1割引）</small></td></tr><tr><th>6か月</th><td>3,100円</td><td>18,600円</td><td class="sv">−4,800円<small>（2割引）</small></td></tr><tr><th>12か月</th><td>2,700円</td><td>32,400円</td><td class="sv">−14,400円<small>（3割引）</small></td></tr></tbody></table></div><div class="pt"><p class="pt-h">Mプラン</p><table class="ptable"><thead><tr><th>期間</th><th>1号あたり</th><th>期間の合計</th><th><span class="vh">割引</span></th></tr></thead><tbody><tr><th>1号ずつ</th><td>13,900円</td><td>13,900円</td><td class="sv0">―</td></tr><tr><th>3か月</th><td>12,500円</td><td>37,500円</td><td class="sv">−4,200円<small>（1割引）</small></td></tr><tr><th>6か月</th><td>11,100円</td><td>66,600円</td><td class="sv">−16,800円<small>（2割引）</small></td></tr><tr><th>12か月</th><td>9,700円</td><td>116,400円</td><td class="sv">−50,400円<small>（3割引）</small></td></tr></tbody></table></div><div class="pt"><p class="pt-h">Lプラン</p><table class="ptable"><thead><tr><th>期間</th><th>1号あたり</th><th>期間の合計</th><th><span class="vh">割引</span></th></tr></thead><tbody><tr><th>1号ずつ</th><td>39,000円</td><td>39,000円</td><td class="sv0">―</td></tr><tr><th>3か月</th><td>35,100円</td><td>105,300円</td><td class="sv">−11,700円<small>（1割引）</small></td></tr><tr><th>6か月</th><td>31,200円</td><td>187,200円</td><td class="sv">−46,800円<small>（2割引）</small></td></tr><tr><th>12か月</th><td>27,300円</td><td>327,600円</td><td class="sv">−140,400円<small>（3割引）</small></td></tr></tbody></table></div></div>
+    <h3 class="pth">版の数で選ぶ（1号あたり）</h3>
+    <div class="cal-wrap"><table class="ptable ptw"><thead><tr><th>プラン</th><th>4冊の版</th><th>5冊の版</th><th>8冊の版</th><th>14冊の版（全部）</th></tr></thead><tbody><tr><th>Sプラン</th><td>15,600円<small class="sv0">定価</small></td><td>17,500円<small class="sv">−2,000円（約10%）</small></td><td>23,400円<small class="sv">−7,800円（約25%）</small></td><td>35,100円<small class="sv">−19,500円（約36%）</small></td></tr><tr><th>Mプラン</th><td>55,600円<small class="sv0">定価</small></td><td>62,500円<small class="sv">−7,000円（約10%）</small></td><td>83,400円<small class="sv">−27,800円（約25%）</small></td><td>125,100円<small class="sv">−69,500円（約36%）</small></td></tr><tr><th>Lプラン</th><td>156,000円<small class="sv0">定価</small></td><td>175,500円<small class="sv">−19,500円（約10%）</small></td><td>234,000円<small class="sv">−78,000円（約25%）</small></td><td>351,000円<small class="sv">−195,000円（約36%）</small></td></tr></tbody></table></div>
+    <p class="small-note">金額は税込。1号あたりの金額の100円未満は切り捨てです。−の金額は、定価で同じ号数・同じ版の数を載せた場合との差です。前払いの期間の途中でおやめになっても、返金はありません。休刊などこちらの都合で載せられない号は返金します。ONE-X は免税事業者のため、インボイス（適格請求書）は発行できません。</p>
+  </section>
+
+  <section id="flow">
+    <h2><span class="no">04</span>申込みの流れ</h2>
+    <p class="sub">先に申請していただき、こちらで確かめてからお支払いに進みます。</p>
+    <ol class="flow">
+      <li><b>申請</b><p>版・号・プランを選び、会社の情報と載せたい内容を送ってください。この時点ではお金はかかりません。</p></li>
+      <li><b>確認</b><p>下の「お受けできないケース」に当たらないかを確かめ、結果をメールでお知らせします。</p></li>
+      <li><b>お支払い</b><p>確認が通った場合だけ、お支払いのリンクか請求書をお送りします。お支払いで枠が確定します。</p></li>
+      <li><b>掲載</b><p>ロゴ・紹介文・QR などをいただき、締切までにそろえます。Lプランはこちらでページを作り、1回まで直せます。</p></li>
+    </ol>
+    <h3 class="pth" id="ng">お受けできないケース</h3>
+    <details class="ngd"><summary>お受けできないケースを見る</summary>
+    <ul class="ng">
+      <li>暴力団などの反社会的勢力と、その関係がある会社</li>
+      <li>法律に反するもの、必要な許可や登録がない事業</li>
+      <li>性風俗に関わる営業</li>
+      <li>効き目や成果を言い過ぎるもの、他社やお店を下げるもの</li>
+      <li>マルチ商法、「必ずもうかる」をうたう投資や情報商材</li>
+      <li>宗教・政治の勧誘</li>
+      <li>「必ず採択」「自己負担なし」をうたう補助金・助成金の業者</li>
+      <li>そのほか、読む人の信頼を損なうとこちらが判断したもの</li>
+    </ul>
+    <p class="small-note">載せられるかどうかは、発行元の ONE-X が判断します。掲載不可の場合、理由をお伝えしかねますのでご了承ください。<br>スポンサーの枠には「PR」と書き、線で記事と分けます。データのページ（02〜04）には載せません。</p>
+    </details>
+  </section>
+
+  <section id="slots">
+    <h2><span class="no">05</span>空き枠を調べる</h2>
+    <p class="sub">版（業種）を選ぶと、号ごとの空きが出ます。1号ずつなら、空いているマスを押してください。<br class="pc">続けて載せるときは、下の「期間でまとめて申し込む」からどうぞ。<br class="pc">枠を選ぶと、下に「申請する枠」と「この枠で申請する」ボタンが出ます。ボタンを押すと、申請フォームに選んだ枠が入ります（まだ申請は送られません）。</p>
+    <div class="chips" role="group" aria-label="版を選ぶ" id="eds"></div>
+    <div class="legend"><span><b>○</b>空きあり</span><span><b>△</b>残りわずか</span><span><b>×</b>空き枠なし</span><span><b>―</b>受付前・受付終了</span></div>
+    <p class="cal-head" id="calTitle"></p>
+    <div class="cal-wrap"><table class="cal" id="cal"></table></div>
+    <p class="small-note">申込みの締切は、載せる号の前の月の20日です（案。創刊の12月号だけ 11/26）。申請から確認が終わるまでは、その枠を仮に押さえます。</p>
+
+    <div class="term" id="term">
+      <p class="term-h">期間でまとめて申し込む</p>
+      <div class="term-row">
+        <label>プラン<select id="tRow"></select></label>
+        <label>期間<select id="tN"><option value="3">3か月（1割引）</option><option value="6">6か月（2割引）</option><option value="12" selected>12か月（3割引）</option></select></label>
+        <label>はじめる号<select id="tStart"></select></label>
+        <button type="button" class="btn-s" id="tAdd">入れる</button>
+      </div>
+      <p class="small-note" id="tMsg">3か月は「2027年1月号から」か、4月号から。6か月・12か月は 2027年4月号から選べます。</p>
+    </div>
+
+    <div class="cart" id="cart">
+      <h3>申請する枠</h3>
+      <ul id="cartList"></ul>
+      <div class="cal-wrap"><table class="ptable bd" id="cartBd"></table></div>
+      <div class="total"><span>合計（税込）</span><span class="tv"><span class="v" id="cartTotal">0円</span><span class="off" id="cartOff"></span></span></div>
+      <p class="small-note" id="cartNote">割引（5冊目の版から半額・期間の割引・100円未満の切り捨て）は、自動で入っています。最終の金額は、確認のメールでお知らせします。</p>
+      <a class="btn" href="#apply">この枠で申請する</a>
+    </div>
+  </section>
+
+  <section id="apply">
+    <h2><span class="no">06</span>申請フォーム</h2>
+    <form class="form" id="applyForm">
+      <label>申請する枠<div class="picked" id="picked">まだ選ばれていません。上の「空き枠」からご希望のプランを選択してください。</div></label>
+      <label>会社名・屋号<input type="text" name="company" required></label>
+      <label>事業内容<input type="text" name="biz" required></label>
+      <label>メールアドレス<input type="email" name="email" required></label>
+      <label>電話番号<small>任意</small><input type="tel" name="tel"></label>
+     <label>載せたい内容<small>Mプランは紹介の文（2行・40字まで）、Lプランは伝えたいこと</small><textarea name="msg"></textarea></label>
+      <label class="agree"><input type="checkbox" name="agree" required><span>「お受けできないケース」を確認しました。掲載をお受けするかどうかは、発行元の ONE-X が判断することに同意します。</span></label>
+      <button class="btn" type="submit">申請を送る</button>
+      <p class="small-note">送っていただいた内容を確かめ、メールでご連絡します。</p>
+    </form>
+  </section>
+
+</div></main>
+<footer>
+  <div class="wrap">
+    <p class="back"><a class="btn" href="index.html"><span class="bt"><img class="nyb-i" src="img/title_new-yai-been.svg" width="582" height="108" alt="new yai been"> のトップへ戻る</span></a></p>
+    <ul class="links">
+      <li><a href="promise.html">編集方針</a></li>
+      <li><a href="tokushoho.html">特定商取引法にもとづく表記</a></li>
+      <li><a href="terms.html">利用規約</a></li>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzzQALPMLMif_6Ae6ZZeHYJS2Xz97iLXHHQRvFEMeT5nF1wg/viewform" target="_blank" rel="noopener">お問い合わせ</a></li>
+    </ul>
+    <div class="brand">
+      <div class="foot-id"><img class="foot-logo" src="img/logo_nyb_480.png" width="480" height="480" alt="new yai beenのロゴ"><div><p class="foot-copy">沖縄のお店と会社に届ける、新しいカタチのメディア。<br>ZINE スタイルの「<img class="nyb-i" src="img/title_new-yai-been.svg" width="582" height="108" alt="new yai been">」。</p><div class="svc">発行　<span class="nw">おまかせリサーチ しら<span class="bell">Bell</span></span></div><small>© 2026 ONE-X</small></div></div>
+      <div class="onex" aria-label="one-x">one<span class="dash">-</span>x</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* 版・号・枠のデータ。
+   SLOTS の数字は「残りの枠の数」。申込みが確定・仮押さえになったら、ここを書きかえて公開し直す。
+   いまは申込みがないので、すべて空き。?demo=1 のときだけ、表示の見本の数字を使う。 */
+const EDS = ["カフェ","居酒屋","沖縄そば","美容室","サロン","整骨院・鍼灸院","介護・福祉","建設・リフォーム","習いごと","宿泊施設","フィットネス","土産・特産品","IT・Web","フリーランス"];
+const ISSUES = [
+  {k:"2026-12", note:"締切 11/26", open:true},
+  {k:"2027-01", note:"締切 12/20", open:true},
+  {k:"2027-02", note:"締切 1/20", open:true},
+  {k:"2027-03", note:"締切 2/20", open:true},
+  {k:"2027-04", note:"受付は2月から", open:false}
+];
+const ROWS = [
+  {k:"L",   plan:"L", name:"Lプラン", sub:"1ページ", cap:1, price:39000},
+  {k:"M05", plan:"M", name:"Mプラン", sub:"05 モヤモヤと数字でゆんたく。", cap:1, price:13900},
+  {k:"M06", plan:"M", name:"Mプラン", sub:"06 読んでおきたい3本", cap:1, price:13900},
+  {k:"M07", plan:"M", name:"Mプラン", sub:"07 要チェックやいびん！", cap:1, price:13900},
+  {k:"S",   plan:"S", name:"Sプラン", sub:"名前とロゴのみ", cap:4, price:3900}
+];
+const RATE = {1:1, 3:.9, 6:.8, 12:.7};
+const OFFW = {3:"1割引", 6:"2割引", 12:"3割引"};
+const SLOTS = {}; // 例：SLOTS["カフェ"]={"2026-12":{L:0,S:3}}（書いていない所は満杯の空き）
+const DEMO = {
+  "カフェ":{"2026-12":{L:0,M06:0,S:2},"2027-01":{S:1},"2027-02":{M05:0}},
+  "居酒屋":{"2026-12":{S:0},"2027-01":{L:0}},
+  "沖縄そば":{"2026-12":{M07:0,S:3}}
+};
+const demo = new URLSearchParams(location.search).has("demo");
+if (demo) document.body.classList.add("demo");
+const data = demo ? DEMO : SLOTS;
+const rowOf = k => ROWS.find(r => r.k === k);
+const left = (ed, is, row) => { const v = ((data[ed]||{})[is]||{})[row.k]; return v === undefined ? row.cap : v; };
+const MON = k => { const [y,m] = k.split("-").map(Number); return `${y}年${m}月号`; };
+const MONS = k => { const [y,m] = k.split("-").map(Number); return `${m}月号`; };
+const addM = (k, i) => { let [y,m] = k.split("-").map(Number); m += i; y += Math.floor((m-1)/12); m = ((m-1)%12+12)%12+1; return `${y}-${String(m).padStart(2,"0")}`; };
+const inTerm = (p, k) => { for (let i = 0; i < p.n; i++) if (addM(p.start, i) === k) return true; return false; };
+const yen = n => n.toLocaleString("ja-JP") + "円";
+
+let cur = 0;
+const picks = []; // {ed, row, start, n}  n=1 は1号ずつ
+
+function coverIdx(ed, k, rk) { return picks.findIndex(p => p.ed === ed && p.row === rk && inTerm(p, k)); }
+function chips() {
+  const box = document.getElementById("eds");
+  box.innerHTML = EDS.map((e,i)=>`<button type="button" data-i="${i}" class="${i===cur?'on':''}">for ${e}</button>`).join("");
+  box.querySelectorAll("button").forEach(b=>b.onclick=()=>{cur=+b.dataset.i;chips();table();tLabel();});
+}
+function cell(ed, is, row) {
+  const on = coverIdx(ed, is.k, row.k) >= 0;
+  if (!is.open) return on
+    ? `<td><button type="button" class="sel" disabled aria-label="申請する枠（期間）"><span class="s">○</span><span class="r">期間</span></button></td>`
+    : `<td><button type="button" disabled aria-label="受付前"><span class="s">―</span></button></td>`;
+  const n = left(ed, is.k, row);
+  if (n <= 0 && !on) return `<td><button type="button" disabled aria-label="空き枠なし"><span class="s">×</span></button></td>`;
+  const few = row.cap > 1 && n <= 2;
+  const r = row.cap > 1 ? `残り${n}枠` : "";
+  return `<td class="${few?'tri':''}"><button type="button" class="${on?'sel':''}" data-is="${is.k}" data-row="${row.k}" aria-pressed="${on}"><span class="s">${few?"△":"○"}</span>${r?`<span class="r">${r}</span>`:""}</button></td>`;
+}
+function table() {
+  const ed = EDS[cur];
+  document.getElementById("calTitle").textContent = `for ${ed} のスポンサー枠の空き`;
+  const head = `<thead><tr><th scope="col">プラン</th>${ISSUES.map(i=>`<th scope="col">${MONS(i.k)}<small>${i.note}</small></th>`).join("")}</tr></thead>`;
+  const body = ROWS.map(r=>`<tr><th scope="row">${r.name}<small>${r.sub}</small></th>${ISSUES.map(i=>cell(ed,i,r)).join("")}</tr>`).join("");
+  const t = document.getElementById("cal");
+  t.innerHTML = head + `<tbody>${body}</tbody>`;
+  t.querySelectorAll("button[data-is]").forEach(b=>b.onclick=()=>toggle(ed,b.dataset.is,b.dataset.row));
+}
+function dropOverlap(ed, rk, start, n) {
+  // 同じ版で重なる号の枠を外す。Mプランは同じ号に1つだけ（別のページを選んだら入れかえ）
+  const row = rowOf(rk);
+  for (let i = picks.length - 1; i >= 0; i--) {
+    const p = picks[i];
+    if (p.ed !== ed) continue;
+    const same = p.row === rk || (row.plan === "M" && rowOf(p.row).plan === "M");
+    if (!same) continue;
+    let hit = false;
+    for (let j = 0; j < n; j++) if (inTerm(p, addM(start, j))) hit = true;
+    if (hit) picks.splice(i, 1);
+  }
+}
+function toggle(ed, is, rk) {
+  const ci = coverIdx(ed, is, rk);
+  if (ci >= 0) picks.splice(ci, 1);
+  else { dropOverlap(ed, rk, is, 1); picks.push({ed, row:rk, start:is, n:1}); }
+  table(); cart();
+}
+function addTerm(ed, rk, n, start) {
+  const row = rowOf(rk);
+  for (let i = 0; i < n; i++) {
+    const k = addM(start, i);
+    if (left(ed, k, row) <= 0) return msg(`${MON(k)}の for ${ed}・${row.name}${row.plan==="M"?"（"+row.sub+"）":""}は空き枠なしです。はじめる号を変えてください。`, "ng");
+  }
+  dropOverlap(ed, rk, start, n);
+  picks.push({ed, row:rk, start, n});
+  table(); cart();
+  msg(`for ${ed} に、${row.name} ${n}か月（${MON(start)}〜${MON(addM(start,n-1))}）を入れました。ほかの版にも入れるときは、上で版を選んで「入れる」を押してください。`, "ok");
+}
+function msg(s, c) { const e = document.getElementById("tMsg"); e.textContent = s; e.className = "small-note " + c; }
+function starts(n) {
+  const out = [];
+  for (let i = 0; i < 12; i++) { const k = addM("2027-01", i); if (n === 3 ? (k === "2027-01" || k >= "2027-04") : k >= "2027-04") out.push(k); }
+  return out;
+}
+function tFill() {
+  const n = +document.getElementById("tN").value;
+  const s = document.getElementById("tStart"); const keep = s.value;
+  s.innerHTML = starts(n).map(k=>`<option value="${k}">${MON(k)}から</option>`).join("");
+  if ([...s.options].some(o=>o.value===keep)) s.value = keep;
+}
+function tLabel() { document.getElementById("tAdd").textContent = `for ${EDS[cur]} に入れる`; }
+function base(p, c) { return p*Math.min(c,4) + p/2*Math.max(c-4,0); }
+function groups() {
+  // 号×プラン（1号ずつ）、または 期間×はじめる号×プラン ごとに版の数を数える
+  const g = {};
+  picks.forEach(p => {
+    const row = rowOf(p.row);
+    const key = `${p.n}|${p.start}|${row.plan}`;
+    (g[key] = g[key] || {n:p.n, start:p.start, plan:row.plan, name:row.name, price:row.price, c:0}).c++;
+  });
+  return Object.values(g).map(x => {
+    const per = Math.floor(base(x.price, x.c) * RATE[x.n] / 100) * 100;
+    const tot = per * x.n, list = x.price * x.c * x.n;
+    return {...x, per, tot, list, off: list - tot};
+  }).sort((a,b)=> a.start < b.start ? -1 : a.start > b.start ? 1 : a.plan < b.plan ? -1 : 1);
+}
+function label(p) {
+  const row = rowOf(p.row);
+  const nm = row.name + (row.plan === "M" ? `（${row.sub}）` : "");
+  return p.n === 1 ? `for ${p.ed}　${MON(p.start)}　${nm}` : `for ${p.ed}　${nm}　${p.n}か月（${MON(p.start)}〜${MON(addM(p.start,p.n-1))}）`;
+}
+function cart() {
+  const ul = document.getElementById("cartList");
+  ul.innerHTML = picks.length ? picks.map((p,i)=>`<li><span>${label(p)}</span><button type="button" data-i="${i}">外す</button></li>`).join("") : `<li class="empty">まだ選ばれていません。</li>`;
+  ul.querySelectorAll("button").forEach(b=>b.onclick=()=>{picks.splice(+b.dataset.i,1);table();cart();});
+  const gs = groups();
+  const bd = document.getElementById("cartBd");
+  bd.innerHTML = gs.length ? `<thead><tr><th>内訳</th><th>定価</th><th>割引のあと</th><th>おトク</th></tr></thead><tbody>` + gs.map(x => {
+    const w = x.n === 1 ? `${MON(x.start)}` : `${x.n}か月（${MON(x.start)}〜）`;
+    const why = [x.n > 1 ? OFFW[x.n] : "", x.c >= 5 ? "5冊目の版から半額" : ""].filter(Boolean).join("・");
+    return `<tr><td>${x.name}　${w}<small>${x.c}冊の版${x.n>1?"・1号あたり "+yen(x.per):""}</small></td><td>${yen(x.list)}</td><td>${yen(x.tot)}</td>`
+         + (x.off > 0 ? `<td class="sv">−${yen(x.off)}<small>${why}</small></td>` : `<td>―</td>`) + `</tr>`;
+  }).join("") + `</tbody>` : "";
+  const tot = gs.reduce((s,x)=>s+x.tot,0), list = gs.reduce((s,x)=>s+x.list,0), off = list - tot;
+  document.getElementById("cartTotal").textContent = yen(tot);
+  document.getElementById("cartOff").textContent = off > 0 ? `−${yen(off)}（${Math.round(off/list*100)}%オフ）` : "";
+  const later = picks.some(p => p.n > 1 && p.start >= "2027-04");
+  document.getElementById("cartNote").textContent = "割引（5冊目の版から半額・期間の割引・100円未満の切り捨て）は、自動で入っています。最終の金額は、確認のメールでお知らせします。"
+    + (later ? "　4月号からの期間の申込みは、2月から受け付けます。いま申請された分は、2月にこちらからご連絡します。" : "");
+  document.getElementById("picked").textContent = picks.length ? picks.map(label).join("\n") + `\n合計（税込）：${yen(tot)}` + (off > 0 ? `（定価より −${yen(off)}）` : "") : "まだ選ばれていません。上の「空き枠」からご希望のプランを選択してください。";
+}
+document.getElementById("tRow").innerHTML = ROWS.map(r=>`<option value="${r.k}">${r.name}${r.plan==="M"?"（"+r.sub+"）":""}</option>`).join("");
+document.getElementById("tN").onchange = tFill;
+document.getElementById("tAdd").onclick = () => addTerm(EDS[cur], document.getElementById("tRow").value, +document.getElementById("tN").value, document.getElementById("tStart").value);
+document.querySelectorAll(".rec-go").forEach(b => b.onclick = () => {
+  document.getElementById("tRow").value = b.dataset.row;
+  document.getElementById("tN").value = b.dataset.n; tFill();
+  document.getElementById("tStart").value = b.dataset.start;
+  addTerm(EDS[cur], b.dataset.row, +b.dataset.n, b.dataset.start);
+  document.getElementById("slots").scrollIntoView({behavior:"smooth"});
+});
+/* 申請の送り先：newyaibeen@gmail.com の Google フォーム「スポンサーの申請」（しくみ/new_yai_been_フォーム.gs で作成）。
+   届くと、スプレッドシートの「掲載の一覧」に 号×版×プラン の1行ずつで入り、相手に受付のメールが自動で届く。 */
+const FORM_POST = "https://docs.google.com/forms/d/e/1FAIpQLSf4fSTfhwYHTJJ6BkdBGy9U0CNjQu-RBAY3sYITSrtnttLIdQ/formResponse";
+const ENTRY = {slots:"entry.702549395", company:"entry.1526612114", name:"entry.1762565815", email:"entry.309806219", tel:"entry.1909997803", biz:"entry.1277298211", msg:"entry.136499102", agree:"entry.1869391377", data:"entry.547057916"};
+const AGREE = "「お受けできないケース」と、お受けするかどうかはこちらで判断することに同意します。";
+document.getElementById("applyForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const f = e.target;
+  if (!picks.length) {
+    alert("上の「空き枠」で、申請する枠を選んでください。");
+    document.getElementById("slots").scrollIntoView({behavior:"smooth"});
+    return;
+  }
+  const vals = [[ENTRY.slots, document.getElementById("picked").textContent]];
+  ["company","name","email","tel","biz","msg"].forEach(k => vals.push([ENTRY[k], f.elements[k].value.trim()]));
+  vals.push([ENTRY.agree, AGREE], [ENTRY.data, JSON.stringify(picks)]);
+  const btn = f.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = "送っています…";
+  try {
+    // 見えない窓に向けて、ふつうのフォームとして送る（ブラウザの決まりで止められにくい形）
+    await new Promise(done => {
+      const sink = document.createElement("iframe");
+      sink.name = "gf_sink"; sink.hidden = true;
+      document.body.appendChild(sink);
+      const g = document.createElement("form");
+      g.method = "POST"; g.action = FORM_POST; g.target = "gf_sink"; g.hidden = true;
+      vals.forEach(([n, v]) => { const i = document.createElement("input"); i.type = "hidden"; i.name = n; i.value = v; g.appendChild(i); });
+      document.body.appendChild(g);
+      let fin = false; const end = () => { if (!fin) { fin = true; done(); } };
+      sink.addEventListener("load", end);
+      setTimeout(end, 5000);
+      g.submit();
+    });
+  } catch (err) {
+    btn.disabled = false; btn.textContent = "申請を送る";
+    alert("送れませんでした。時間をおいて、もう一度お試しください。うまくいかないときは newyaibeen@gmail.com までご連絡ください。");
+    return;
+  }
+  // 送れたあとの表示（申請する枠の欄 #picked はフォームの中にあるので、フォームを書きかえる前に選んだ枠を空にする）
+  picks.length = 0; table(); cart();
+  f.innerHTML = '<p class="sent">申請を受け付けました。受付のメールをご確認ください。</p>';
+  {
+    const d = document.createElement("dialog");
+    d.className = "sent-card";
+    d.innerHTML = '<h3>申請を受け付けました</h3>'
+      + '<p>ご入力のメールアドレスに、<br>受付のメールをお送りします。<br>内容を確認のうえ、<br>あらためてご案内いたします。</p>'
+      + '<p class="small-note">受付のメールが届かない場合は、<br>newyaibeen@gmail.com まで<br>ご連絡ください。</p>'
+      + '<button type="button" class="btn">閉じる</button>';
+    document.body.appendChild(d);
+    d.querySelector("button").onclick = () => d.close();
+    d.addEventListener("close", () => d.remove());
+    d.showModal();
+  }
+});
+chips(); table(); tFill(); tLabel(); cart();
+</script>
+</body>
+</html>
