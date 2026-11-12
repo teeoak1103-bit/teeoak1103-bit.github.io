@@ -20,8 +20,10 @@
 <link rel="stylesheet" href="style_v0.4_add.css">
 <style>
 .soon { position: relative; display: inline-block; vertical-align: middle; width: max-content; max-width: 100%; justify-self: start; align-self: flex-start; }
-.soon > .btn { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
-.soon > .btn[disabled] { opacity: 1; }
+.soon > .btn, .soon > .btn-s { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
+.soon > .btn[disabled], .soon > .btn-s[disabled] { opacity: 1; }
+.rc .soon { display: block; width: 100%; margin-top: auto; }
+.rc .soon > .rec-go { width: 100%; }
 .soon .tape { position: absolute; left: 50%; top: 50%; width: calc(100% + 28px); height: 40px;
   display: flex; align-items: center; justify-content: center; transform: translate(-50%,-50%) rotate(-2.5deg);
   background: rgba(255,90,60,.82); color: #fff; font-family: "Red Hat Display", sans-serif; font-weight: 900;

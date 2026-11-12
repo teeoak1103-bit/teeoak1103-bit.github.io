@@ -110,6 +110,7 @@ footer { border-top: 1px solid var(--ink); }
 .rc .tag { position: absolute; top: -4px; right: 16px; background: var(--mark); color: #fff; font-size: 13px; font-weight: 700; padding: 3px 10px; }
 .rc .pl { font-size: var(--fs-h4); font-weight: 900; margin: 0; }
 .rc .pl span { display: inline-block; margin-left: 12px; font-size: 22px; font-weight: 900; }  /* 11/11 本人：札をやめて大きめの文字に */
+.rc .pl span i { font-style: normal; font-family: var(--en); font-weight: 600; font-size: 26px; letter-spacing: -.03em; margin-right: 2px; }  /* 11/12 本人：斜めにしない・金額と同じ字 */
 .rc .tot { margin: 10px 0 0; font-weight: 700; }
 .rc .tot b { font-family: var(--en); font-weight: 600; font-size: 40px; letter-spacing: -.03em; }
 .rc .tot small { display: block; font-size: 13px; color: var(--gray); font-weight: 500; }
@@ -294,8 +295,10 @@ dialog.zoom .zoom-x:hover, dialog.zoom .zoom-x:focus-visible { background: var(-
 </style>
 <style>
 .soon { position: relative; display: inline-block; vertical-align: middle; width: max-content; max-width: 100%; justify-self: start; align-self: flex-start; }
-.soon > .btn { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
-.soon > .btn[disabled] { opacity: 1; }
+.soon > .btn, .soon > .btn-s { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
+.soon > .btn[disabled], .soon > .btn-s[disabled] { opacity: 1; }
+.rc .soon { display: block; width: 100%; margin-top: auto; }
+.rc .soon > .rec-go { width: 100%; }
 .soon .tape { position: absolute; left: 50%; top: 50%; width: calc(100% + 28px); height: 40px;
   display: flex; align-items: center; justify-content: center; transform: translate(-50%,-50%) rotate(-2.5deg);
   background: rgba(255,90,60,.82); color: #fff; font-family: "Red Hat Display", sans-serif; font-weight: 900;
@@ -372,7 +375,7 @@ dialog.zoom .zoom-x:hover, dialog.zoom .zoom-x:focus-visible { background: var(-
     <div class="hook"><p class="hk"><span class="nw">続けて載せるほど、</span><br><span class="nw">たくさんの版に載せるほど、</span><br><span class="nw">1号あたりの料金が下がります。</span></p>
       <div class="mx"><div><span class="k">続けて載せると、最大</span><b>30<small>%</small><em>OFF</em></b><span class="k">12か月のとき</span></div><div><span class="k">たくさんの版に載せると</span><b>50<small>%</small><em>OFF</em></b><span class="k">5冊目の版から</span></div></div></div>
     <h3 class="pth">各プランのおすすめ</h3>
-    <div class="rcs"><div class="rc"><span class="tag">おすすめ</span><p class="pl">Sプラン<span><i>12</i>か月</span></p><p class="tot"><b>32,400</b>円<small>12か月の合計・税込（1冊の版・1号あたり 2,700円）</small></p><p class="sv">定価より −14,400円</p><p class="ds">名前とロゴを、1年間毎号に。</p><p class="wh">2027年4月号から</p><button type="button" class="btn-s rec-go" data-row="S" data-n="12" data-start="2027-04">このプランで申し込む</button></div><div class="rc"><span class="tag">おすすめ</span><p class="pl">Mプラン<span><i>6</i>か月</span></p><p class="tot"><b>66,600</b>円<small>6か月の合計・税込（1冊の版・1号あたり 11,100円）</small></p><p class="sv">定価より −16,800円</p><p class="ds">同じ場所に続けて載ると、覚えてもらいやすくなります。</p><p class="wh">2027年4月号から</p><button type="button" class="btn-s rec-go" data-row="M05" data-n="6" data-start="2027-04">このプランで申し込む</button></div><div class="rc"><span class="tag">おすすめ</span><p class="pl">Lプラン<span><i>3</i>か月</span></p><p class="tot"><b>105,300</b>円<small>3か月の合計・税込（1冊の版・1号あたり 35,100円）</small></p><p class="sv">定価より −11,700円</p><p class="ds">まずは3号、続けて紹介。</p><p class="wh">2027年1月号から選べます</p><button type="button" class="btn-s rec-go" data-row="L" data-n="3" data-start="2027-01">このプランで申し込む</button></div></div>
+    <div class="rcs"><div class="rc"><span class="tag">おすすめ</span><p class="pl">Sプラン<span><i>12</i>か月</span></p><p class="tot"><b>32,400</b>円<small>12か月の合計・税込（1冊の版・1号あたり 2,700円）</small></p><p class="sv">定価より −14,400円</p><p class="ds">名前とロゴを、1年間毎号に。</p><p class="wh">2027年4月号から</p><span class="soon"><button type="button" class="btn-s rec-go" data-row="S" data-n="12" data-start="2027-04" disabled>このプランで申し込む</button><span class="tape">Coming Soon !!</span></span></div><div class="rc"><span class="tag">おすすめ</span><p class="pl">Mプラン<span><i>6</i>か月</span></p><p class="tot"><b>66,600</b>円<small>6か月の合計・税込（1冊の版・1号あたり 11,100円）</small></p><p class="sv">定価より −16,800円</p><p class="ds">同じ場所に続けて載ると、覚えてもらいやすくなります。</p><p class="wh">2027年4月号から</p><span class="soon"><button type="button" class="btn-s rec-go" data-row="M05" data-n="6" data-start="2027-04" disabled>このプランで申し込む</button><span class="tape">Coming Soon !!</span></span></div><div class="rc"><span class="tag">おすすめ</span><p class="pl">Lプラン<span><i>3</i>か月</span></p><p class="tot"><b>105,300</b>円<small>3か月の合計・税込（1冊の版・1号あたり 35,100円）</small></p><p class="sv">定価より −11,700円</p><p class="ds">まずは3号、続けて紹介。</p><p class="wh">2027年1月号から選べます</p><span class="soon"><button type="button" class="btn-s rec-go" data-row="L" data-n="3" data-start="2027-01" disabled>このプランで申し込む</button><span class="tape">Coming Soon !!</span></span></div></div>
     <div class="rows3">
       <div><h3>期間の割引</h3><ul><li>3か月：1割引</li><li>6か月：2割引</li><li>12か月：3割引</li></ul><p style="margin-top:6px">期間の分はまとめて前払いです。</p></div>
       <div><h3>版の数の割引</h3><p>同じ号で、4冊の版までは1冊ごとに定価、5冊目の版からは1冊ごとに半額です。</p></div>
