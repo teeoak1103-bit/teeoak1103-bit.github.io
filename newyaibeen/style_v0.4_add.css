@@ -6,11 +6,11 @@
 .head h2 { font-size: var(--fs-h2); font-weight: 900; line-height: 1.3; }
 .head h2 .no { font-size: 1.5em; line-height: 1; letter-spacing: -.04em; }
 .sec-lead { margin: 0 0 28px; font-size: 18px; max-width: 36em; }
-/* 01 ZINEの種類：for ○○ は6個ずつ2段。入りきらない幅では横に動かせる */
+/* 01 ZINEの種類：スマホは 14個が画面の中に収まるように折り返す（角丸 6・文字 13px。11/12 本人「丸角にこだわらない、14ジャンル見えるように」）。PC は6個ずつ2段 */
 .band .sec-lead { margin-bottom: 0; }
-.band .chips { display: grid; grid-template-columns: repeat(6, max-content); gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 20px -16px 0; padding: 0 16px 4px; }
-.band .chips::-webkit-scrollbar { display: none; }
-.band .chips button { white-space: nowrap; }
+.band .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 0; padding: 0; }
+.band .chips button { white-space: nowrap; height: 32px; padding: 0 10px; font-size: 13px; border-radius: 6px; letter-spacing: 0; }
+.ann .wrap { white-space: nowrap; }
 .band .stage { margin: 16px -16px 0; overflow: hidden; }
 .band .track { padding: 28px 16px 24px; scroll-padding-inline: 16px; }
 .band .ctrl { margin-top: 8px; }
@@ -22,8 +22,8 @@
   .head .stick h2 .no { display: block; font-size: 1.5em; line-height: 1; margin-bottom: 10px; }
   .sec-lead { font-size: 20px; margin-bottom: 36px; }
   .band .sec-lead { margin-bottom: 0; }
-  .band .chips { grid-template-columns: repeat(6, minmax(0, 1fr)); overflow: visible; margin: 24px 0 0; padding: 0; }
-  .band .chips button { width: 100%; padding: 0 8px; font-size: 14px; }
+  .band .chips { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; overflow: visible; margin: 24px 0 0; padding: 0; }
+  .band .chips button { width: 100%; height: 40px; padding: 0 8px; font-size: 14px; border-radius: 20px; letter-spacing: .02em; }
   .band .stage { margin: 24px -32px 0 0; }
   .band .track { padding: 40px 32px 32px 0; gap: 4vw; scroll-padding-inline: 0; }
   .band .track li { width: min(26vw, 400px); }
