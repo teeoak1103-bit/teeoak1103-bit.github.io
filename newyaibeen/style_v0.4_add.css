@@ -12,8 +12,15 @@
 .band .chips button { white-space: nowrap; height: 32px; padding: 0 10px; font-size: 13px; border-radius: 6px; letter-spacing: 0; }
 .ann .wrap { white-space: nowrap; }
 .band .stage { margin: 16px -16px 0; overflow: hidden; }
-.band .track { padding: 28px 16px 24px; scroll-padding-inline: 16px; }
-.band .ctrl { margin-top: 8px; }
+.band .track { padding: 28px 16px 24px; scroll-padding-inline: 16px; gap: 6vw; }
+/* 表紙は少し小さく、右に次の表紙がのぞくように（11/12 本人「左右に動かせると分かるように」） */
+.band .track li { width: 62vw; }
+.band .ctrl { margin-top: 4px; display: block; }
+.band .ctrl .swipe { margin: 0 0 6px; font-weight: 700; font-size: 14px; }
+/* 矢印は表紙の左右の真ん中に重ねる。端まで来たら、その側を消す */
+.band .stage .arrows { position: absolute; z-index: 2; left: 8px; right: 8px; top: calc(28px + 62vw * .7077); transform: translateY(-50%); display: flex; justify-content: space-between; gap: 0; pointer-events: none; }
+.band .stage .arrows button { pointer-events: auto; width: 44px; height: 44px; border-radius: 22px; border: 0; background: var(--ink); color: var(--bg); font-size: 18px; box-shadow: 0 2px 10px #0000004d; transition: opacity .2s var(--ease); }
+.band .stage .arrows button:disabled { opacity: 0; pointer-events: none; }
 @media (min-width: 960px) {
   section.block > .wrap { display: grid; grid-template-columns: minmax(0, 22%) minmax(0, 1fr); column-gap: 56px; align-items: start; }
   /* 左の列の番号とタイトルは、そのセクションを読み終えるまで画面の上に止まってついてくる（AI shikumi LAB. と同じ。11/11 本人） */
@@ -27,6 +34,8 @@
   .band .stage { margin: 24px -32px 0 0; }
   .band .track { padding: 40px 32px 32px 0; gap: 4vw; scroll-padding-inline: 0; }
   .band .track li { width: min(26vw, 400px); }
+  .band .stage .arrows { left: 0; right: 40px; top: calc(40px + min(26vw, 400px) * .7077); }
+  .band .stage .arrows button { width: 48px; height: 48px; border-radius: 24px; }
   .band .bgtext { font-size: 13vw; }
   .toc { border-top: 1px solid var(--ink); }
   /* 05 申込みの流れ：v0.4 は右の列がせまいので、ボタンは流れの下に置く */

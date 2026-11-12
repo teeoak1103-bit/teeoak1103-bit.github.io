@@ -124,10 +124,11 @@
       <li><img src="img/vol00_it_cover.jpg" width="992" height="1404" alt="for IT・Web の表紙" draggable="false" loading="lazy"><p class="cap"><b>for IT・Web</b>システム開発・Web制作・Webマーケティング</p></li>
       <li><img src="img/vol00_freelance_cover.jpg" width="992" height="1404" alt="for フリーランス の表紙" draggable="false" loading="lazy"><p class="cap"><b>for フリーランス</b>個人事業主・ひとりで仕事をする人（業種は問わない）</p></li>
     </ul>
+    <div class="arrows"><button type="button" class="prev" aria-label="前の表紙へ">←</button><button type="button" class="next" aria-label="次の表紙へ">→</button></div>
   </div>
       <div class="ctrl">
+    <p class="swipe">← 左右に動かして、ほかの業種へ →</p>
     <p class="small">ご希望の業種がありましたら、お問い合わせからお知らせください。</p>
-    <div class="arrows"><button type="button" class="prev" aria-label="前の表紙へ">←</button><button type="button" class="next" aria-label="次の表紙へ">→</button></div>
       </div>
     </div>
   </div>
@@ -321,6 +322,12 @@
   });
   d.addEventListener('click', function () { d.close(); });
 })();
+// 表紙の帯をなめらかに動かす。動かしている間だけ「1枚ずつ止まる」設定を外す（iPhone の Safari で、止まる設定と動きがぶつかって戻ってしまうのを防ぐ。11/12）
+window.nybScrollTo = function (t, left) {
+  t.style.scrollSnapType = 'none';
+  t.scrollTo({ left: left, behavior: 'smooth' });
+  clearTimeout(t._snapT); t._snapT = setTimeout(function () { t.style.scrollSnapType = ''; }, 700);
+};
 // for ○○ のボタン：押すとその表紙へ。いま見えている表紙のボタンを黒く
 (function () {
   var t = document.querySelector('.track'); var bs = document.querySelectorAll('.chips button'); if (!t || !bs.length) return;
@@ -329,7 +336,7 @@
   var sp = document.createElement('li'); sp.className = 'spacer'; sp.setAttribute('aria-hidden', 'true'); t.appendChild(sp);
   var fit = function () { var last = lis[lis.length - 1]; var gap = parseFloat(getComputedStyle(t).columnGap) || 0; sp.style.width = Math.max(0, t.clientWidth - pad() - last.offsetWidth - gap) + 'px'; };
   fit(); addEventListener('resize', fit);
-  bs.forEach(function (b) { b.addEventListener('click', function () { var li = lis[+b.dataset.i]; t.scrollTo({ left: li.offsetLeft - pad(), behavior: 'smooth' }); }); });
+  bs.forEach(function (b) { b.addEventListener('click', function () { var li = lis[+b.dataset.i]; nybScrollTo(t, li.offsetLeft - pad()); }); });
   var tick = false;
   t.addEventListener('scroll', function () { if (tick) return; tick = true; requestAnimationFrame(function () {
     tick = false; var x = t.scrollLeft + pad(), best = 0, d = 1e9;
@@ -340,9 +347,16 @@
 // 表紙の帯：左右の矢印と、マウスでつかんで動かす（自前のコード）
 (function () {
   var t = document.querySelector('.track'); if (!t) return;
-  var step = function () { var li = t.querySelector('li'); return li ? li.getBoundingClientRect().width + parseFloat(getComputedStyle(t).columnGap || 0) : 300; };
-  document.querySelector('.prev').addEventListener('click', function () { t.scrollBy({ left: -step(), behavior: 'smooth' }); });
-  document.querySelector('.next').addEventListener('click', function () { t.scrollBy({ left: step(), behavior: 'smooth' }); });
+  // 矢印：いまの表紙の1つ前・1つ後ろへ。端では、その側の矢印を消す
+  var cards = Array.prototype.filter.call(t.querySelectorAll('li'), function (li) { return !li.classList.contains('spacer'); });
+  var pad = function () { return parseFloat(getComputedStyle(t).scrollPaddingLeft) || 0; };
+  var cur = function () { var x = t.scrollLeft + pad(), best = 0, d = 1e9; cards.forEach(function (li, k) { var dd = Math.abs(li.offsetLeft - x); if (dd < d) { d = dd; best = k; } }); return best; };
+  var go = function (k) { k = Math.max(0, Math.min(cards.length - 1, k)); nybScrollTo(t, cards[k].offsetLeft - pad()); };
+  var pv = document.querySelector('.prev'), nx = document.querySelector('.next');
+  pv.addEventListener('click', function () { go(cur() - 1); });
+  nx.addEventListener('click', function () { go(cur() + 1); });
+  var ends = function () { var k = cur(); pv.disabled = k === 0; nx.disabled = k === cards.length - 1; };
+  t.addEventListener('scroll', function () { requestAnimationFrame(ends); }); ends();
   var down = false, x0 = 0, s0 = 0, moved = false;
   t.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') return; down = true; moved = false; x0 = e.clientX; s0 = t.scrollLeft; t.classList.add('drag'); });
   window.addEventListener('pointermove', function (e) { if (!down) return; var dx = e.clientX - x0; if (Math.abs(dx) > 4) moved = true; t.scrollLeft = s0 - dx; });
