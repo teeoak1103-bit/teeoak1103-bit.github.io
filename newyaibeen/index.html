@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter+Tight:wght@500;600&family=Noto+Sans+JP:wght@500;700;900&family=Red+Hat+Display:wght@900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=79c6dbeb">
-<link rel="stylesheet" href="style_v0.4_add.css?v=156cb3be">
+<link rel="stylesheet" href="style_v0.4_add.css?v=57d32051">
 <style>
 .soon { position: relative; display: inline-block; vertical-align: middle; width: max-content; max-width: 100%; justify-self: start; align-self: flex-start; }
 .soon > .btn, .soon > .btn-s { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
@@ -127,7 +127,6 @@
     <div class="arrows"><button type="button" class="prev" aria-label="前の表紙へ">←</button><button type="button" class="next" aria-label="次の表紙へ">→</button></div>
   </div>
       <div class="ctrl">
-    <p class="swipe">← 左右に動かして、ほかの業種へ →</p>
     <p class="small">ご希望の業種がありましたら、<span class="nw">お問い合わせから</span>お知らせください。</p>
       </div>
     </div>
@@ -158,14 +157,14 @@
     <div class="head"><div class="stick"><h2><span class="no">03</span>見本号</h2></div></div>
     <div class="body">
       <p class="sec-lead">沖縄のお店と会社に届ける、新しいカタチのメディア。<br class="pc">ZINE スタイルの<span class="nw">「<img class="nyb-i" src="img/title_new-yai-been.svg" width="582" height="108" alt="new yai been">」。</span><br><small class="smp-note">2026年11月号（Vol.00）は創刊前の見本です。ページを押すと、大きく表示します。</small></p>
-    <a class="try" href="sample/new_yai_been_vol00_cafe.pdf" target="_blank" rel="noopener">
+    <a class="try" href="sample/vol00_cafe.html" data-pdf="sample/new_yai_been_vol00_cafe.pdf">
       <span class="fan" aria-hidden="true"><img src="img/vol00_cafe_p01.jpg" alt="" width="992" height="1404" loading="lazy"><img src="img/vol00_cafe_p3t.jpg" alt="" width="992" height="1404" loading="lazy"><img src="img/vol00_cafe_cover.jpg" alt="" width="992" height="1403" loading="lazy"></span>
       <span class="txt">
         <span class="kick">for カフェ　2026年11月号　Vol.00</span>
         <span class="h"><span class="nw">まずは、見本号で</span><br><span class="nw">試し読み！</span></span>
         <span class="p">表紙から最後のページまで、全11ページをそのまま公開しています。登録は不要です。</span>
         <span class="go">見本号を読む<span class="ar">→</span></span>
-        <span class="meta">PDF・約6MB・スマホでもパソコンでも読めます</span>
+        <span class="meta">スマホでもパソコンでも読めます（パソコンは PDF・約8MB）</span>
       </span>
     </a>
     <div class="shelf">
@@ -321,6 +320,14 @@
     f.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
   });
   d.addEventListener('click', function () { d.close(); });
+})();
+// 見本号を読む：スマホは Web のページ（右下に「サイトに戻る」）、パソコンは冊子の PDF を新しいタブで（11/12 本人）
+(function () {
+  var a = document.querySelector('a.try[data-pdf]'); if (!a) return;
+  var set = function () { var pc = matchMedia('(min-width: 960px)').matches;
+    a.href = pc ? a.dataset.pdf : 'sample/vol00_cafe.html';
+    if (pc) { a.target = '_blank'; a.rel = 'noopener'; } else { a.removeAttribute('target'); a.removeAttribute('rel'); } };
+  set(); addEventListener('resize', set);
 })();
 // 表紙の帯をなめらかに動かす。動かしている間だけ「1枚ずつ止まる」設定を外す（iPhone の Safari で、止まる設定と動きがぶつかって戻ってしまうのを防ぐ。11/12）
 window.nybScrollTo = function (t, left) {

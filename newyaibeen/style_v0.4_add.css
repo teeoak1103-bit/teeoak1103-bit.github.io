@@ -16,7 +16,6 @@
 /* 表紙は少し小さく、右に次の表紙がのぞくように（11/12 本人「左右に動かせると分かるように」） */
 .band .track li { width: 62vw; }
 .band .ctrl { margin-top: 4px; display: block; }
-.band .ctrl .swipe { margin: 0 0 6px; font-weight: 700; font-size: 14px; }
 /* 矢印は表紙の左右の真ん中に重ねる。端まで来たら、その側を消す */
 .band .stage .arrows { position: absolute; z-index: 2; left: 8px; right: 8px; top: calc(28px + 62vw * .7077); transform: translateY(-50%); display: flex; justify-content: space-between; gap: 0; pointer-events: none; }
 .band .stage .arrows button { pointer-events: auto; width: 44px; height: 44px; border-radius: 22px; border: 0; background: var(--ink); color: var(--bg); font-size: 18px; box-shadow: 0 2px 10px #0000004d; transition: opacity .2s var(--ease); }
