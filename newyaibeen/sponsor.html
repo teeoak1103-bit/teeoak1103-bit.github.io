@@ -284,6 +284,19 @@ dialog.sent-card::backdrop { background: rgba(12, 13, 13, .45); }
 .sent-card .btn { margin-top: 24px; font-family: var(--jp); cursor: pointer; }
 .form .picked { background: var(--paper); border: 1px solid var(--lgray); border-radius: 6px; padding: 12px 14px; font-size: var(--fs-small); white-space: pre-line; }
 </style>
+<style>
+.soon { position: relative; display: inline-block; vertical-align: middle; width: max-content; max-width: 100%; justify-self: start; align-self: flex-start; }
+.soon > .btn { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
+.soon > .btn[disabled] { opacity: 1; }
+.soon .tape { position: absolute; left: 50%; top: 50%; width: calc(100% + 28px); height: 40px;
+  display: flex; align-items: center; justify-content: center; transform: translate(-50%,-50%) rotate(-2.5deg);
+  background: rgba(255,90,60,.82); color: #fff; font-family: "Red Hat Display", sans-serif; font-weight: 900;
+  font-size: 18px; letter-spacing: .02em; white-space: nowrap; pointer-events: none;
+  filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.2)); }
+.soon .btn-xl + .tape { height: 48px; font-size: 22px; width: calc(100% + 32px); }
+.cart .soon { margin-top: 16px; }
+@media (max-width: 767px) { .flow-cta .soon { display: block; width: 100%; } .flow-cta .soon .btn-xl { width: 100%; } }
+</style>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://onex-ri.jp/newyaibeen/sponsor.html">
 </head>
@@ -415,7 +428,7 @@ dialog.sent-card::backdrop { background: rgba(12, 13, 13, .45); }
       <div class="cal-wrap"><table class="ptable bd" id="cartBd"></table></div>
       <div class="total"><span>合計（税込）</span><span class="tv"><span class="v" id="cartTotal">0円</span><span class="off" id="cartOff"></span></span></div>
       <p class="small-note" id="cartNote">割引（5冊目の版から半額・期間の割引・100円未満の切り捨て）は、自動で入っています。最終の金額は、確認のメールでお知らせします。</p>
-      <a class="btn" href="#apply">この枠で申請する</a>
+      <span class="soon"><a class="btn" aria-disabled="true" tabindex="-1">この枠で申請する</a><span class="tape">Coming Soon!</span></span>
     </div>
   </section>
 
@@ -429,8 +442,8 @@ dialog.sent-card::backdrop { background: rgba(12, 13, 13, .45); }
       <label>電話番号<small>任意</small><input type="tel" name="tel"></label>
      <label>載せたい内容<small>Mプランは紹介の文（2行・40字まで）、Lプランは伝えたいこと</small><textarea name="msg"></textarea></label>
       <label class="agree"><input type="checkbox" name="agree" required><span>「お受けできないケース」を確認しました。掲載をお受けするかどうかは、発行元の ONE-X が判断することに同意します。</span></label>
-      <button class="btn" type="submit">申請を送る</button>
-      <p class="small-note">送っていただいた内容を確かめ、メールでご連絡します。</p>
+      <span class="soon"><button class="btn" type="submit" disabled>申請を送る</button><span class="tape">Coming Soon!</span></span>
+      <p class="small-note">申請の受付は、準備ができしだい始めます。それまでのご相談は、ページの下の「お問い合わせ」からどうぞ。</p>
     </form>
   </section>
 
@@ -667,6 +680,15 @@ document.getElementById("applyForm").addEventListener("submit", async e=>{
   }
 });
 chips(); table(); tFill(); tLabel(); cart();
+</script>
+<script>document.getElementById("applyForm").addEventListener("submit", e => { e.preventDefault(); e.stopImmediatePropagation(); }, true);</script>
+<script>
+document.querySelectorAll('.soon .tape').forEach(el => {
+  const n = 9, p = [], j = () => (Math.random() * 7).toFixed(1);
+  for (let i = 0; i <= n; i++) p.push('calc(100% - ' + j() + 'px) ' + (i / n * 100).toFixed(1) + '%');
+  for (let i = n; i >= 0; i--) p.push(j() + 'px ' + (i / n * 100).toFixed(1) + '%');
+  el.style.clipPath = 'polygon(' + p.join(',') + ')';
+});
 </script>
 </body>
 </html>

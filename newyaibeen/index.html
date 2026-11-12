@@ -18,6 +18,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter+Tight:wght@500;600&family=Noto+Sans+JP:wght@500;700;900&family=Red+Hat+Display:wght@900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="style_v0.4_add.css">
+<style>
+.soon { position: relative; display: inline-block; vertical-align: middle; width: max-content; max-width: 100%; justify-self: start; align-self: flex-start; }
+.soon > .btn { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
+.soon > .btn[disabled] { opacity: 1; }
+.soon .tape { position: absolute; left: 50%; top: 50%; width: calc(100% + 28px); height: 40px;
+  display: flex; align-items: center; justify-content: center; transform: translate(-50%,-50%) rotate(-2.5deg);
+  background: rgba(255,90,60,.82); color: #fff; font-family: "Red Hat Display", sans-serif; font-weight: 900;
+  font-size: 18px; letter-spacing: .02em; white-space: nowrap; pointer-events: none;
+  filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.2)); }
+.soon .btn-xl + .tape { height: 48px; font-size: 22px; width: calc(100% + 32px); }
+.cart .soon { margin-top: 16px; }
+@media (max-width: 767px) { .flow-cta .soon { display: block; width: 100%; } .flow-cta .soon .btn-xl { width: 100%; } }
+</style>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://onex-ri.jp/newyaibeen/">
 </head>
@@ -63,7 +76,7 @@
       </div>
       <p class="lead">データの集計や調べものまで、<span class="nw">手がまわらない。</span><br>そんな経営者のために、業種に関わる<span class="nw">沖縄の数字と、</span><br><span class="nw">国・県・市町村</span>の制度やセミナーの情報を、<span class="nw">毎月1冊に</span><span class="nw">まとめて届けます。</span><br>メールで届いて、<span class="nw">ZINE のような手軽さを。</span></p>
       <div class="act">
-        <a class="btn" aria-disabled="true" style="cursor:default">まもなく申込み開始</a>
+        <span class="soon"><a class="btn" aria-disabled="true" tabindex="-1">定期購読の申し込み</a><span class="tape">Coming Soon!</span></span>
         <p><a href="#sample">まずは、見本号を試し読み →</a></p>
       </div>
     </div>
@@ -247,7 +260,7 @@
       <li><b>毎月8日</b><p>新しい号をお届けします。12月8日が創刊号（Vol.01）となります。</p></li>
     </ol>
     <div class="flow-cta">
-      <a class="btn btn-xl" aria-disabled="true" style="cursor:default">まもなく申込み開始</a>
+      <span class="soon"><a class="btn btn-xl" aria-disabled="true" tabindex="-1">定期購読の申し込み<span class="ar" aria-hidden="true">→</span></a><span class="tape">Coming Soon!</span></span>
       <p class="small"><b>いつでも解約できます。</b>解約は、届いたメールのリンクからご自身で。</p>
     </div>
     </div>
@@ -342,6 +355,14 @@
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -15% 0px' });
   hs.forEach(function (h) { io.observe(h); });
 })();
+</script>
+<script>
+document.querySelectorAll('.soon .tape').forEach(el => {
+  const n = 9, p = [], j = () => (Math.random() * 7).toFixed(1);
+  for (let i = 0; i <= n; i++) p.push('calc(100% - ' + j() + 'px) ' + (i / n * 100).toFixed(1) + '%');
+  for (let i = n; i >= 0; i--) p.push(j() + 'px ' + (i / n * 100).toFixed(1) + '%');
+  el.style.clipPath = 'polygon(' + p.join(',') + ')';
+});
 </script>
 </body>
 </html>
