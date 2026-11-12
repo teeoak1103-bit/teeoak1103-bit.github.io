@@ -278,6 +278,14 @@ details.card-all summary { cursor: pointer; font-weight: 700; }
 .form .sent { font-weight: 700; line-height: 1.8; margin: 0 0 8px; }
 dialog.sent-card { width: min(440px, calc(100vw - 32px)); padding: 36px 28px 28px; border: 1px solid var(--ink); border-radius: 6px; background: var(--paper); color: var(--ink); text-align: center; }
 dialog.sent-card::backdrop { background: rgba(12, 13, 13, .45); }
+/* 見本の拡大（11/12 本人：画面いっぱいから2段小さく・右上に × CLOSE） */
+dialog.zoom { padding: 0; border: 0; background: transparent; overflow: visible; max-width: none; max-height: none; }
+dialog.zoom::backdrop { background: rgba(12, 13, 13, .72); }
+dialog.zoom .zoom-in { position: relative; padding-top: 52px; }
+dialog.zoom img { display: block; height: min(72vh, 1000px); width: auto; max-width: 88vw; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+dialog.zoom .zoom-x { position: absolute; top: 0; right: 0; height: 40px; padding: 0 18px; border-radius: 20px; border: 1px solid var(--paper); background: var(--ink); color: var(--paper); font-family: "Red Hat Display", sans-serif; font-weight: 900; font-size: 15px; letter-spacing: .04em; cursor: pointer; }
+dialog.zoom .zoom-x:hover, dialog.zoom .zoom-x:focus-visible { background: var(--paper); color: var(--ink); }
+@media (max-width: 767px) { dialog.zoom img { height: auto; max-height: 72vh; width: 88vw; } }
 .sent-card h3 { font-size: var(--fs-h3); font-weight: 900; margin: 0 0 16px; }
 .sent-card p { font-size: var(--fs-text); line-height: 1.8; margin: 0; }
 .sent-card .small-note { margin-top: 12px; }
@@ -680,6 +688,24 @@ document.getElementById("applyForm").addEventListener("submit", async e=>{
   }
 });
 chips(); table(); tFill(); tLabel(); cart();
+
+// 見本を押したら、同じページの上に重ねて拡大する（× CLOSE・背景を押す・Esc で閉じる）
+document.querySelectorAll('a.pg2').forEach(a => {
+  if (!/\.(webp|jpe?g|png)$/i.test(a.getAttribute("href"))) return;
+  a.addEventListener("click", e => {
+    e.preventDefault();
+    const d = document.createElement("dialog");
+    d.className = "zoom";
+    const alt = (a.querySelector("img") || {}).alt || "";
+    d.innerHTML = '<div class="zoom-in"><button type="button" class="zoom-x" aria-label="閉じる">× CLOSE</button><img alt=""></div>';
+    const im = d.querySelector("img"); im.src = a.getAttribute("href"); im.alt = alt;
+    document.body.appendChild(d);
+    d.querySelector(".zoom-x").onclick = () => d.close();
+    d.addEventListener("click", ev => { if (ev.target === d) d.close(); });
+    d.addEventListener("close", () => d.remove());
+    d.showModal();
+  });
+});
 </script>
 <script>document.getElementById("applyForm").addEventListener("submit", e => { e.preventDefault(); e.stopImmediatePropagation(); }, true);</script>
 <script>
