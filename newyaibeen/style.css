@@ -302,6 +302,19 @@ footer small { display: block; margin-top: 12px; color: var(--gray); font-size: 
 .foot-id { display: flex; align-items: center; gap: 20px; }
 .foot-copy { margin: 0 0 10px; font-weight: 900; font-size: clamp(18px, 1.7vw, 22px); line-height: 1.6; }
 .smp-note { display: inline-block; margin-top: 6px; font-size: var(--fs-small); color: var(--gray); font-weight: 500; }
+/* 03 見本号：for カフェ／for 営業職 の切りかえ（11/18） */
+.smp-tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin: 8px 0 20px; }
+.smp-tabs .lb2 { font-weight: 700; font-size: 16px; margin-right: 4px; }
+.smp-tabs button { height: 48px; padding: 0 24px; border-radius: 24px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-family: var(--jp); font-weight: 700; font-size: 16px; cursor: pointer; }
+.smp-tabs button small { font-weight: 500; font-size: 14px; margin-left: 8px; }
+.smp-tabs button:hover { background: #D3D6D8; }
+.smp-tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.smp-set[hidden] { display: none; }
+@media (max-width: 959px) {
+  .smp-tabs .lb2 { flex-basis: 100%; }
+  .smp-tabs button { flex: 1 1 0; height: 64px; padding: 0 10px; border-radius: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.35; }
+  .smp-tabs button small { margin-left: 0; }
+}
 .foot-logo { width: 120px; height: 120px; }
 @media (min-width: 960px) { .foot-logo { width: 160px; height: 160px; } }
 

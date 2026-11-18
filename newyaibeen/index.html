@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter+Tight:wght@500;600&family=Noto+Sans+JP:wght@500;700;900&family=Red+Hat+Display:wght@900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=c7373d69">
+<link rel="stylesheet" href="style.css?v=6a386a28">
 <link rel="stylesheet" href="style_v0.4_add.css?v=626b12b6">
 <style>
 /* 01 ZINEの種類：8つの入口から選ぶ（gate_editions.py。11/18） */
@@ -176,7 +176,13 @@
     <div class="head"><div class="stick"><h2><span class="no">03</span>見本号</h2></div></div>
     <div class="body">
       <p class="sec-lead">沖縄のお店と会社に届ける、新しいカタチのメディア。<br class="pc">ZINE スタイルの<span class="nw">「<img class="nyb-i" src="img/title_new-yai-been.svg" width="582" height="108" alt="new yai been">」。</span><br><small class="smp-note">2026年11月号（Vol.00）は創刊前の見本です。ページを押すと、大きく表示します。</small></p>
-    <a class="try" href="sample/vol00_cafe.html" data-pdf="sample/new_yai_been_vol00_cafe.pdf">
+    <div class="smp-tabs" role="tablist" aria-label="見本号の版">
+      <span class="lb2">見本号は2冊</span>
+      <button type="button" role="tab" id="smp-t-cafe" aria-controls="smp-cafe" aria-selected="true">for カフェ<small>全12ページ</small></button>
+      <button type="button" role="tab" id="smp-t-eigyo" aria-controls="smp-eigyo" aria-selected="false">for 営業職<small>抜粋版・10ページ</small></button>
+    </div>
+    <div class="smp-set" id="smp-cafe" role="tabpanel" aria-labelledby="smp-t-cafe">
+    <a class="try" href="sample/vol00_cafe.html" data-sp="sample/vol00_cafe.html" data-pdf="sample/new_yai_been_vol00_cafe.pdf">
       <span class="fan" aria-hidden="true"><img src="img/vol00_cafe_p01.jpg" alt="" width="992" height="1404" loading="lazy"><img src="img/vol00_cafe_p3t.jpg" alt="" width="992" height="1404" loading="lazy"><img src="img/vol00_cafe_cover.jpg" alt="" width="992" height="1403" loading="lazy"></span>
       <span class="txt">
         <span class="kick">for カフェ　2026年11月号　Vol.00</span>
@@ -191,6 +197,25 @@
       <figure><img src="img/vol00_cafe_p3t.jpg" width="992" height="1404" loading="lazy" alt="見逃せない3TOPICS のページ。11月30日・12月2日・12月4日の3つ"><figcaption>見逃せない3TOPICS</figcaption></figure>
       <figure><img src="img/vol00_cafe_p01.jpg" width="992" height="1404" loading="lazy" alt="01 特集のページ。最低賃金の12年の推移と、働く時間ごとに月いくら増えるかの表"><figcaption>01 特集</figcaption></figure>
       <figure><img src="img/vol00_cafe_p07.jpg" width="992" height="1404" loading="lazy" alt="07 要チェックやいびん！のページ。今月・来月の締切とセミナーの日付"><figcaption>07 要チェックやいびん！</figcaption></figure>
+    </div>
+    </div>
+    <div class="smp-set" id="smp-eigyo" role="tabpanel" aria-labelledby="smp-t-eigyo" hidden>
+    <a class="try" href="sample/vol00_eigyo.html" data-sp="sample/vol00_eigyo.html" data-pdf="sample/new_yai_been_vol00_eigyo.pdf">
+      <span class="fan" aria-hidden="true"><img src="img/vol00_eigyo_p05.jpg" alt="" width="992" height="1404" loading="lazy"><img src="img/vol00_eigyo_p3t.jpg" alt="" width="992" height="1404" loading="lazy"><img src="img/vol00_eigyo_cover.jpg" alt="" width="992" height="1403" loading="lazy"></span>
+      <span class="txt">
+        <span class="kick">for 営業職　2026年11月号　Vol.00（抜粋版）</span>
+        <span class="h"><span class="nw">まずは、見本号で</span><br><span class="nw">試し読み！</span></span>
+        <span class="p">いろいろな業種のお客さまと会う方のための版です。全業種の今月の数字と話のきっかけを、抜粋版の10ページで公開しています。登録は不要です。</span>
+        <span class="go">見本号を読む<span class="ar">→</span></span>
+        <span class="meta">スマホでもパソコンでも読めます（パソコンは PDF・約5MB）</span>
+      </span>
+    </a>
+    <div class="shelf">
+      <figure><img src="img/vol00_eigyo_cover.jpg" width="992" height="1403" loading="lazy" alt="for 営業職の表紙"><figcaption>表紙</figcaption></figure>
+      <figure><img src="img/vol00_eigyo_p3t.jpg" width="992" height="1404" loading="lazy" alt="見逃せない3TOPICS のページ"><figcaption>見逃せない3TOPICS</figcaption></figure>
+      <figure><img src="img/vol00_eigyo_p02b.jpg" width="992" height="1404" loading="lazy" alt="02 マンスリー定点観測のページ。飲食店・観光・美容・介護・建設・仕事ごとの今月の数字"><figcaption>02 業種ごとの動き</figcaption></figure>
+      <figure><img src="img/vol00_eigyo_p05.jpg" width="992" height="1404" loading="lazy" alt="05 今月の話のきっかけのページ。7つの業種ごとに今月の数字と話のきっかけの例"><figcaption>05 今月の話のきっかけ</figcaption></figure>
+    </div>
     </div>
     </div>
   </div>
@@ -344,11 +369,19 @@
 })();
 // 見本号を読む：スマホは Web のページ（右下に「サイトに戻る」）、パソコンは冊子の PDF を新しいタブで（11/12 本人）
 (function () {
-  var a = document.querySelector('a.try[data-pdf]'); if (!a) return;
+  var as = document.querySelectorAll('a.try[data-pdf]'); if (!as.length) return;
   var set = function () { var pc = matchMedia('(min-width: 960px)').matches;
-    a.href = pc ? a.dataset.pdf : 'sample/vol00_cafe.html';
-    if (pc) { a.target = '_blank'; a.rel = 'noopener'; } else { a.removeAttribute('target'); a.removeAttribute('rel'); } };
+    as.forEach(function (a) { a.href = pc ? a.dataset.pdf : a.dataset.sp;
+      if (pc) { a.target = '_blank'; a.rel = 'noopener'; } else { a.removeAttribute('target'); a.removeAttribute('rel'); } }); };
   set(); addEventListener('resize', set);
+})();
+// 03 見本号：for カフェ／for 営業職 の切りかえ（11/18）。#sample-eigyo で来たら営業職を開く
+(function () {
+  var bs = document.querySelectorAll('.smp-tabs [role="tab"]'); if (!bs.length) return;
+  var show = function (b) { bs.forEach(function (x) { var on = x === b; x.setAttribute('aria-selected', on ? 'true' : 'false');
+    document.getElementById(x.getAttribute('aria-controls')).hidden = !on; }); };
+  bs.forEach(function (b) { b.addEventListener('click', function () { show(b); }); });
+  if (location.hash === '#sample-eigyo') { show(document.getElementById('smp-t-eigyo')); document.getElementById('sample').scrollIntoView(); }
 })();
 // 表紙の帯をなめらかに動かす。動かしている間だけ「1枚ずつ止まる」設定を外す（iPhone の Safari で、止まる設定と動きがぶつかって戻ってしまうのを防ぐ。11/12）
 window.nybScrollTo = function (t, left) {
