@@ -16,8 +16,71 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter+Tight:wght@500;600&family=Noto+Sans+JP:wght@500;700;900&family=Red+Hat+Display:wght@900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=79c6dbeb">
-<link rel="stylesheet" href="style_v0.4_add.css?v=57d32051">
+<link rel="stylesheet" href="style.css?v=c7373d69">
+<link rel="stylesheet" href="style_v0.4_add.css?v=626b12b6">
+<style>
+/* 01 ZINEの種類：8つの入口から選ぶ（gate_editions.py。11/18） */
+#editions { position: relative; overflow: hidden; }
+.pickhead { display: grid; grid-template-columns: minmax(0, 1fr) 84px; column-gap: 12px; align-items: start; }
+.pickhead .ask { grid-column: 1; margin: 0; font-size: var(--fs-h3); font-weight: 900; line-height: 1.4; }
+.pickhead .spot { grid-column: 2; grid-row: 1; width: 84px; aspect-ratio: 992 / 1404; margin-bottom: 8px; }
+.gates { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+@media (min-width: 768px) {
+  .pickhead { grid-template-columns: minmax(0, 1fr) 150px; column-gap: 40px; }
+  .pickhead .spot { grid-row: 1 / span 2; width: 150px; margin: 0; }
+  .gates { grid-column: 1; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 20px; }
+}
+.gates button { display: flex; justify-content: center; align-items: center; height: 44px; padding: 0 8px; border: 1px solid var(--ink); border-radius: 22px; background: transparent; color: var(--ink);
+  font-family: var(--jp); font-weight: 700; font-size: 15px; letter-spacing: .02em; cursor: pointer; transition: background .2s var(--ease), color .2s var(--ease); }
+.gates button i { font-style: normal; font-weight: 500; }
+.gates button:hover { background: #D3D6D8; }
+.gates button.on { background: var(--ink); color: var(--bg); }
+@media (min-width: 768px) { .gates button { height: 48px; border-radius: 24px; font-size: 16px; } }
+
+.table { position: relative; height: 340px; margin-top: 16px; transition: height .4s var(--ease); }
+@media (min-width: 768px) { .table { height: 540px; margin-top: 0; } }
+@media (min-width: 960px) { .deal .info { padding-top: var(--cardtop, 20px); } .deal { display: grid; grid-template-columns: 280px minmax(0, 1fr); column-gap: 32px; align-items: start; margin-top: 28px; } .deal .info { margin-top: 0; } }
+/* 3×5 の棚（PC だけ）。スマホは見出しの横の山 */
+.shelf15 { display: none; }
+@media (min-width: 960px) {
+  .shelf15 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px 12px; margin-top: 28px; max-width: 270px; }
+  .shelf15 i { display: block; aspect-ratio: 992 / 1404; }
+  section.block#editions .head { position: relative; top: auto; }   /* 左の列が画面についてくると、棚の札とずれるので止める */
+  .pickhead { grid-template-columns: minmax(0, 1fr); }
+  .pickhead .spot { display: none; }
+  .gates { grid-column: 1; }
+}
+.cards { position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 5; }
+.card { --w: 210px; position: absolute; left: 0; top: 0; width: var(--w); transform-origin: 0 0;
+  transition: transform .6s cubic-bezier(.2, .85, .25, 1); cursor: pointer; will-change: transform; }
+@media (min-width: 768px) { .card { --w: 340px; } }
+.card img, .card .ph { width: 100%; aspect-ratio: 992 / 1404; height: auto; display: block; user-select: none; -webkit-user-drag: none;
+  box-shadow: 0 0 0 .5px #00000026, 1px 1px 2px #0000002e; }
+.card .ph { display: flex; flex-direction: column; justify-content: space-between; background: var(--paper); padding: 10% 9%; box-sizing: border-box; }
+.card .ph .pt { font-family: var(--rh); font-weight: 900; font-size: calc(var(--w) * .085); letter-spacing: -.03em; }
+.card .ph .pf { font-weight: 900; font-size: calc(var(--w) * .11); }
+.card .ph .pm { font-size: calc(var(--w) * .055); color: var(--gray); line-height: 1.6; }
+.card.dealt img, .card.dealt .ph { box-shadow: 8px 12px 28px #00000055; transition: box-shadow .4s; }
+
+.info { margin-top: 8px; min-height: 120px; }
+.info .grp { margin: 0; font-size: 30px; font-weight: 900; line-height: 1.25; color: var(--ink); letter-spacing: .02em; }
+.info .eds { list-style: none; margin: 16px 0 0; padding: 0; transition: opacity .2s var(--ease); }
+.info.swap .eds, .info.swap .grp { opacity: 0; }
+.info .grp { transition: opacity .2s var(--ease); }
+.info .eds li { padding: 10px 0; border-top: 1px solid #A1A6AA80; }
+.info .eds li:last-child { border-bottom: 1px solid #A1A6AA80; }
+.info .eds b { display: block; font-family: var(--en); font-weight: 600; font-size: 22px; line-height: 1.35; }
+.info .eds span { display: block; margin-top: 2px; font-size: 15px; line-height: 1.6; color: var(--ink); }
+.info .eds a { display: inline-block; margin-top: 6px; font-size: 15px; font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+.info .eds.one li { border: 0; padding: 0; }
+.info .eds.one b { font-size: 30px; }
+.info .eds.one span { font-size: 18px; }
+@media (min-width: 768px) { .info .grp { font-size: 44px; } .info .eds b { font-size: 24px; } .info .eds.one b { font-size: 40px; } .info .eds.one span { font-size: 20px; } }
+.card.dealt { cursor: default; }
+.miss { margin: 12px 0 0; padding-top: 14px; border-top: 1px solid var(--lgray); font-size: var(--fs-small); color: var(--gray); }
+.miss a { color: var(--ink); font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+</style>
 <style>
 .soon { position: relative; display: inline-block; vertical-align: middle; width: max-content; max-width: 100%; justify-self: start; align-self: flex-start; }
 .soon > .btn, .soon > .btn-s { margin: 0; pointer-events: none; cursor: default; color: rgba(228,230,231,.4); }
@@ -31,6 +94,7 @@
   filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.2)); }
 .soon .btn-xl + .tape { height: 48px; font-size: 22px; width: calc(100% + 32px); }
 .cart .soon { margin-top: 16px; }
+.flow-cta .soon { display: block; width: 100%; } .flow-cta .soon .btn-xl { width: 100%; }
 @media (max-width: 767px) { .flow-cta .soon { display: block; width: 100%; } .flow-cta .soon .btn-xl { width: 100%; } }
 </style>
 <meta name="robots" content="noindex">
@@ -87,50 +151,21 @@
 
 <section class="block band" id="editions">
   <div class="wrap">
-    <div class="head"><div class="stick"><h2><span class="no">01</span>ZINEの種類</h2></div></div>
+    <div class="head"><div class="stick"><h2><span class="no">01</span>ZINEの種類</h2><div class="shelf15" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
     <div class="body">
-      <p class="sec-lead">数字も制度も業種で変わるので、<span class="nw">業種ごとに1冊ずつ作ります。</span><br class="pc"><span class="nw">創刊は14冊。</span><span class="nw">申込みのときに、</span><span class="nw">1冊からいくつでも選べます。</span></p>
-    <div class="chips" role="group" aria-label="表紙へ移る">
-      <button type="button" data-i="0" class="on">for カフェ</button>
-      <button type="button" data-i="1">for 居酒屋</button>
-      <button type="button" data-i="2">for 沖縄そば</button>
-      <button type="button" data-i="3">for 美容室</button>
-      <button type="button" data-i="4">for サロン</button>
-      <button type="button" data-i="5">for 整骨院・鍼灸院</button>
-      <button type="button" data-i="6">for 介護・福祉</button>
-      <button type="button" data-i="7">for 建設・リフォーム</button>
-      <button type="button" data-i="8">for 習いごと</button>
-      <button type="button" data-i="9">for 宿泊施設</button>
-      <button type="button" data-i="10">for フィットネス</button>
-      <button type="button" data-i="11">for 土産・特産品</button>
-      <button type="button" data-i="12">for IT・Web</button>
-      <button type="button" data-i="13">for フリーランス</button>
-    </div>
-  <div class="stage">
-    <p class="bgtext" aria-hidden="true">Monthly ZINE</p>
-    <ul class="track" tabindex="0" aria-label="業種ごとの表紙。左右に動かせます">
-      <li><img src="img/vol00_cafe_cover.jpg" width="992" height="1404" alt="for カフェ の表紙" draggable="false" loading="lazy"><p class="cap"><b>for カフェ</b>カフェ・喫茶店・パン屋・ケーキ屋</p></li>
-      <li><img src="img/vol00_izakaya_cover.jpg" width="992" height="1404" alt="for 居酒屋 の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 居酒屋</b>居酒屋・バー・スナック</p></li>
-      <li><img src="img/vol00_soba_cover.jpg" width="992" height="1404" alt="for 沖縄そば の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 沖縄そば</b>沖縄そば・食堂・弁当</p></li>
-      <li><img src="img/vol00_biyoushitsu_cover.jpg" width="992" height="1404" alt="for 美容室 の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 美容室</b>美容室・理容室・まつげエクステ</p></li>
-      <li><img src="img/vol00_salon_cover.jpg" width="992" height="1404" alt="for サロン の表紙" draggable="false" loading="lazy"><p class="cap"><b>for サロン</b>ネイル・エステ・脱毛・リラクゼーション</p></li>
-      <li><img src="img/vol00_chiryoin_cover.jpg" width="992" height="1404" alt="for 整骨院・鍼灸院 の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 整骨院・鍼灸院</b>整骨院・接骨院・鍼灸院・マッサージ・訪問</p></li>
-      <li><img src="img/vol00_kaigo_cover.jpg" width="992" height="1404" alt="for 介護・福祉 の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 介護・福祉</b>訪問介護・デイサービス・障がい福祉・保育</p></li>
-      <li><img src="img/vol00_reform_cover.jpg" width="992" height="1404" alt="for 建設・リフォーム の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 建設・リフォーム</b>建設会社・工務店・リフォーム・塗装・防水・設備</p></li>
-      <li><img src="img/vol00_kyoushitsu_cover.jpg" width="992" height="1404" alt="for 習いごと の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 習いごと</b>学習塾・音楽・ダンス・スポーツ・英会話</p></li>
-      <li><img src="img/vol00_yado_cover.jpg" width="992" height="1404" alt="for 宿泊施設 の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 宿泊施設</b>ホテル・民宿・ゲストハウス・民泊</p></li>
-      <li><img src="img/vol00_gym_cover.jpg" width="992" height="1404" alt="for フィットネス の表紙" draggable="false" loading="lazy"><p class="cap"><b>for フィットネス</b>ジム・パーソナル・ヨガ・ピラティス</p></li>
-      <li><img src="img/vol00_miyage_cover.jpg" width="992" height="1404" alt="for 土産・特産品 の表紙" draggable="false" loading="lazy"><p class="cap"><b>for 土産・特産品</b>土産店・特産品・泡盛</p></li>
-      <li><img src="img/vol00_it_cover.jpg" width="992" height="1404" alt="for IT・Web の表紙" draggable="false" loading="lazy"><p class="cap"><b>for IT・Web</b>システム開発・Web制作・Webマーケティング</p></li>
-      <li><img src="img/vol00_freelance_cover.jpg" width="992" height="1404" alt="for フリーランス の表紙" draggable="false" loading="lazy"><p class="cap"><b>for フリーランス</b>個人事業主・ひとりで仕事をする人（業種は問わない）</p></li>
-    </ul>
-    <div class="arrows"><button type="button" class="prev" aria-label="前の表紙へ">←</button><button type="button" class="next" aria-label="次の表紙へ">→</button></div>
-  </div>
-      <div class="ctrl">
-    <p class="small">ご希望の業種がありましたら、<span class="nw">お問い合わせから</span>お知らせください。</p>
+      <div class="pickhead">
+        <p class="ask">あなたのお仕事を、<span class="nw">お選びください。</span></p>
+        <div class="spot" aria-hidden="true"></div>
+        <div class="gates" role="group" aria-label="お仕事を選ぶ"><button type="button" data-g="0" class="on" aria-pressed="true">営業職<i>（1）</i></button><button type="button" data-g="1" aria-pressed="false">飲食店<i>（3）</i></button><button type="button" data-g="2" aria-pressed="false">観光・宿泊<i>（2）</i></button><button type="button" data-g="3" aria-pressed="false">美容・健康<i>（4）</i></button><button type="button" data-g="4" aria-pressed="false">福祉・教育<i>（2）</i></button><button type="button" data-g="5" aria-pressed="false">建設業<i>（1）</i></button><button type="button" data-g="6" aria-pressed="false">IT<i>（1）</i></button><button type="button" data-g="7" aria-pressed="false">個人事業<i>（1）</i></button></div>
       </div>
+      <div class="deal">
+        <div class="info" aria-live="polite"><p class="grp"></p><ul class="eds"></ul></div>
+        <div class="table"></div>
+      </div>
+      <p class="miss">業種をまたいで読むなら、全業種をまとめた <a href="#" data-goto="0">for 営業職</a>。<span class="nw">新しい業種のご希望は、</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzzQALPMLMif_6Ae6ZZeHYJS2Xz97iLXHHQRvFEMeT5nF1wg/viewform" target="_blank" rel="noopener">お問い合わせ</a>から。</p>
     </div>
   </div>
+  <div class="cards"><div class="card" data-g="0" data-n="for 営業職" data-d="全業種の今月の数字と話題を1冊に" data-s=""><img src="img/vol00_eigyo_cover.jpg" width="992" height="1404" alt="for 営業職 の表紙" draggable="false"></div><div class="card" data-g="1" data-n="for カフェ" data-d="カフェ・喫茶店・パン屋さん・ケーキ屋さん" data-s="sample/vol00_cafe.html"><img src="img/vol00_cafe_cover.jpg" width="992" height="1404" alt="for カフェ の表紙" draggable="false"></div><div class="card" data-g="1" data-n="for 居酒屋" data-d="居酒屋・バー・スナック" data-s=""><img src="img/vol00_izakaya_cover.jpg" width="992" height="1404" alt="for 居酒屋 の表紙" draggable="false"></div><div class="card" data-g="1" data-n="for 沖縄そば・ラーメン" data-d="沖縄そば・ラーメン・食堂・弁当" data-s=""><img src="img/vol00_soba_cover.jpg" width="992" height="1404" alt="for 沖縄そば・ラーメン の表紙" draggable="false"></div><div class="card" data-g="2" data-n="for 宿泊施設" data-d="ホテル・民宿・ゲストハウス・民泊" data-s=""><img src="img/vol00_yado_cover.jpg" width="992" height="1404" alt="for 宿泊施設 の表紙" draggable="false"></div><div class="card" data-g="2" data-n="for 土産・特産品" data-d="土産店・特産品・泡盛" data-s=""><img src="img/vol00_miyage_cover.jpg" width="992" height="1404" alt="for 土産・特産品 の表紙" draggable="false"></div><div class="card" data-g="3" data-n="for 美容室" data-d="美容室・理容室・まつげエクステ" data-s=""><img src="img/vol00_biyoushitsu_cover.jpg" width="992" height="1404" alt="for 美容室 の表紙" draggable="false"></div><div class="card" data-g="3" data-n="for サロン" data-d="ネイル・エステ・脱毛・リラクゼーション" data-s=""><img src="img/vol00_salon_cover.jpg" width="992" height="1404" alt="for サロン の表紙" draggable="false"></div><div class="card" data-g="3" data-n="for 整骨院・鍼灸院" data-d="整骨院・接骨院・鍼灸院・マッサージ・訪問" data-s=""><img src="img/vol00_chiryoin_cover.jpg" width="992" height="1404" alt="for 整骨院・鍼灸院 の表紙" draggable="false"></div><div class="card" data-g="3" data-n="for フィットネス" data-d="ジム・パーソナル・ヨガ・ピラティス" data-s=""><img src="img/vol00_gym_cover.jpg" width="992" height="1404" alt="for フィットネス の表紙" draggable="false"></div><div class="card" data-g="4" data-n="for 介護・福祉" data-d="訪問介護・デイサービス・障がい福祉・保育" data-s=""><img src="img/vol00_kaigo_cover.jpg" width="992" height="1404" alt="for 介護・福祉 の表紙" draggable="false"></div><div class="card" data-g="4" data-n="for 教室・スクール" data-d="学習塾・音楽・ダンス・スポーツ・英会話" data-s=""><img src="img/vol00_kyoushitsu_cover.jpg" width="992" height="1404" alt="for 教室・スクール の表紙" draggable="false"></div><div class="card" data-g="5" data-n="for 建設・リフォーム" data-d="建設会社・工務店・リフォーム・塗装・防水・設備" data-s=""><img src="img/vol00_reform_cover.jpg" width="992" height="1404" alt="for 建設・リフォーム の表紙" draggable="false"></div><div class="card" data-g="6" data-n="for IT・Web" data-d="システム開発・Web制作・Webマーケティング" data-s=""><img src="img/vol00_it_cover.jpg" width="992" height="1404" alt="for IT・Web の表紙" draggable="false"></div><div class="card" data-g="7" data-n="for フリーランス" data-d="個人事業主・ひとりで仕事をする人（業種は問わない）" data-s=""><img src="img/vol00_freelance_cover.jpg" width="992" height="1404" alt="for フリーランス の表紙" draggable="false"></div></div>
 </section>
 
 <section class="block" id="what">
@@ -200,7 +235,7 @@
         <p class="tbig">4,980<span>円</span></p>
         <p class="tc">上限なしで全ジャンル読み放題！<small>10冊以上読むなら、こちらがおトクです。</small></p>
       </div>
-      <p class="tiers-note">金額は税込価格。1冊＝1つの業種の版です。</p>
+      <p class="tiers-note">金額は税込価格。1冊＝1つの版（業種ごとの14冊と for 営業職）です。</p>
     </div>
     <details class="sim">
       <summary>買い方ごとの金額の詳細はこちら</summary>
@@ -243,9 +278,10 @@
     <dl class="pinfo">
         <div><dt>お支払い</dt><dd>申込みの日に初回を、以後は毎月同じ日に自動で更新します。無料の期間はありません。中身は見本号でまるごと確かめられます。</dd></div>
         <div><dt>解約</dt><dd>いつでも解約できます。お届けするメールのリンクから、お手続きいただけます。わからないときは、お問い合わせからご連絡ください。</dd></div>
+        <div><dt>返金</dt><dd>初回のお支払いから7日以内にご連絡いただければ、初回分を返金します。創刊前のお申込みは、創刊号が届いてから7日以内です。</dd></div>
         <div><dt>お支払い方法</dt><dd>クレジットカード。カードの情報は決済会社（Stripe）が扱い、こちらでは預かりません。</dd></div>
         <div><dt>届き方</dt><dd>毎月8日に、ご登録のメールアドレスへ、ZINE を開くリンクをお届けします。PDF なので、スマホ・パソコンの標準の機能で開けます（アプリは要りません）。</dd></div>
-        <div><dt>1年まとめ購入</dt><dd>1年分をまとめて買うと、10か月分の金額で12か月読めます（2か月分お得）。創刊から選べます。</dd></div>
+        <div><dt>1年まとめ購入</dt><dd>1年分をまとめて買うと、10か月分の金額で12か月読めます（2か月分お得）。1年ごとに自動で更新します。途中で解約しても、お支払い済みの料金は返金しません（初回の返金は上のとおりです）。</dd></div>
     </dl>
     </div>
   </div>
@@ -257,13 +293,14 @@
     <div class="body">
     <div class="flow-row">
     <ol class="steps">
-      <li><b>申込み</b><p>メールアドレスとご希望のZINEの業種（いくつでも）を入れて、カードを登録します。</p></li>
-      <li><b>すぐに届く</b><p>いまの号（創刊前は見本号）から、ご登録いただいたメールアドレス宛にお届けします。</p></li>
+      <li><b>申込み</b><p>メールアドレスとカードを登録し、続けてご希望のZINEの業種（いくつでも）を選びます。</p></li>
+      <li><b>最初の号</b><p>いまの号から、ご登録いただいたメールアドレス宛にお届けします。創刊前のお申込みは、12月8日の創刊号からのお届けです。</p></li>
       <li><b>毎月8日</b><p>新しい号をお届けします。12月8日が創刊号（Vol.01）となります。</p></li>
     </ol>
     <div class="flow-cta">
-      <span class="soon"><a class="btn btn-xl" aria-disabled="true" tabindex="-1">定期購読の申し込み<span class="ar" aria-hidden="true">→</span></a><span class="tape">Coming Soon !!</span></span>
-      <p class="small"><b>いつでも解約できます。</b>お届けするメールのリンクから、お手続きいただけます。わからないときは、お問い合わせからご連絡ください。</p>
+      <span class="soon"><a class="btn btn-xl" aria-disabled="true" tabindex="-1">月払いで申し込む<span class="ar" aria-hidden="true">→</span></a><span class="tape">Coming Soon !!</span></span>
+      <span class="soon"><a class="btn btn-xl btn-alt" aria-disabled="true" tabindex="-1">1年まとめで申し込む<span class="ar" aria-hidden="true">→</span></a><span class="tape">Coming Soon !!</span></span>
+      <p class="small"><b>いつでも解約できます。</b>お届けするメールのリンクから、お手続きいただけます。1年まとめ購入は、途中で解約しても返金はありません。わからないときは、お問い合わせからご連絡ください。</p>
     </div>
     </div>
     </div>
@@ -275,8 +312,8 @@
     <div class="head"><div class="stick"><h2><span class="no">06</span>よくある質問</h2></div></div>
     <div class="body">
     <div class="list">
-      <details><summary>どんな人に向けた冊子ですか？</summary><p>沖縄でお店や会社を営んでいて、調べものに時間をとれない方です。その業界の沖縄の市場を知りたい会社の方や、これから始める方も読めます。</p></details>
-      <details><summary>自分の業種、または読みたい業種がありません。</summary><p>創刊のときは14の版からはじめ、順に増やします。お問い合わせから、読みたい業種を教えてください。</p></details>
+      <details><summary>どんな人に向けた冊子ですか？</summary><p>沖縄でお店や会社を営んでいて、調べものに時間をとれない方です。その業界の沖縄の市場を知りたい会社の方や、これから始める方も読めます。いろいろな業種のお客さまと話す営業の方には、全業種の今月の数字と話題をまとめた「for 営業職」があります。</p></details>
+      <details><summary>自分の業種、または読みたい業種がありません。</summary><p>創刊のときは15の版からはじめ、順に増やします。お問い合わせから、読みたい業種を教えてください。</p></details>
       <details><summary>購入後、お店の従業員の中で回し読みしてもいいですか？</summary><p>ご契約のお店・会社の中で読むのはかまいません。PDF やページの画像をそのまま外へ配ったり、Web・SNS に載せたりするのはご遠慮ください。感想の投稿や、new yai been の投稿のシェア・リポストは大歓迎です。</p></details>
       <details><summary>解約したら、すぐ読めなくなりますか？</summary><p>お支払い済みの期間の終わりまでは、届いた号を読めます。次の更新日からは料金がかかりません。</p></details>
       <details><summary>どのような形で届きますか？</summary><p>届いたメールのリンクを押すと、PDF が開きます。iPhone・Android・Windows・Mac の標準の機能で読めて、アプリは要りません。開けないときは、お問い合わせからご連絡ください。送り直します。</p></details>
@@ -377,6 +414,106 @@ window.nybScrollTo = function (t, left) {
   var hs = document.querySelectorAll('.head'); if (!('IntersectionObserver' in window)) { hs.forEach(function (h) { h.classList.add('is-in'); }); return; }
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -15% 0px' });
   hs.forEach(function (h) { io.observe(h); });
+})();
+</script>
+<script>
+// 試作 v6：見出しの横の山（角をそろえて重ね、厚みが見える）から、選んだ入口の版をトランプのように配る
+(function () {
+  var sec = document.getElementById('editions'); if (!sec) return;
+  var cards = Array.prototype.slice.call(sec.querySelectorAll('.card'));
+  var gates = Array.prototype.slice.call(sec.querySelectorAll('.gates button'));
+  var spot = sec.querySelector('.spot'), table = sec.querySelector('.table'), info = sec.querySelector('.info');
+  var g = -1, hand = [];
+  function jit(i, k) { var x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453; return x - Math.floor(x) - .5; }
+  function rel(el) { var a = el.getBoundingClientRect(), b = sec.getBoundingClientRect(); return { x: a.left - b.left, y: a.top - b.top, w: a.width, h: a.height }; }
+  var cells = Array.prototype.slice.call(sec.querySelectorAll('.shelf15 i'));
+  function geo() {
+    var W = cards[0].offsetWidth, sp = rel(spot), tb = rel(table), shelf = cells.length && cells[0].offsetWidth > 0;
+    return { W: W, H: W * 1404 / 992, sp: sp, tb: tb, mob: tb.w < 600, shelf: shelf, cells: shelf ? cells.map(rel) : null };
+  }
+  function shelfPos(G, el, i) {   // PC：3×5 の棚。残った札を前から詰めて並べる
+    var c = G.cells[i];
+    return { x: c.x, y: c.y, r: 0, s: c.w / G.W, z: 10 };
+  }
+  function deckPos(G, i, n) {   // 山：角をそろえて重ねる。下の札ほど少し右下にずれて、厚みが見える
+    var s = G.sp.w / G.W, t = (n - 1 - i) * (G.mob ? .9 : 1.3);
+    return { x: G.sp.x + t, y: G.sp.y + t, r: 0, s: s, z: 10 + i };
+  }
+  function fit(n, tw, mob) {   // 枚数と台の幅から、札の幅・間隔・台の高さを決める
+    var hmax = mob ? 330 : 560, wcap = Math.min(mob ? 240 : 400, hmax * 992 / 1404), gap = mob ? 10 : 24, w, step;
+    if (n === 1) { w = Math.min(wcap, tw * (mob ? .7 : .62)); step = 0; }
+    else if (n === 2) { w = Math.min(wcap * .92, (tw - gap) / 2); step = w + gap; }
+    else {
+      w = Math.min(wcap * .82, tw / (1 + (n - 1) * .62));   // 後ろの札も表紙の6割ほどは見える
+      step = Math.min(w + gap, (tw - w) / (n - 1));
+    }
+    return { w: w, step: step, total: w + (n - 1) * step, h: w * 1404 / 992 };
+  }
+  function handPos(G, k, n) {   // 配った札：傾けず、高さをそろえて一列に
+    var L = G.L, x0 = G.tb.x + (G.tb.w - L.total) / 2;
+    if (n === 1 && !G.mob) x0 = G.tb.x + Math.min(48, (G.tb.w - L.total) / 2);   // 1枚は、ページ全体で中央に見えるよう左の名前に寄せる
+    return { x: x0 + k * L.step, y: G.tb.y + (G.tb.h - L.h) / 2, r: 0, s: L.w / G.W, z: 100 + k };
+  }
+  function css(el, p) {
+    el.style.transform = 'translate(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px) rotate(' + p.r.toFixed(1) + 'deg) scale(' + p.s.toFixed(4) + ')';
+    el.style.zIndex = p.z;
+  }
+  function list() {   // 左（スマホは上）に、その入口の版を全部並べる。先に書いてから、札の置き場所を決める
+    info.querySelector('.grp').textContent = gates[g].firstChild.textContent;
+    var ul = info.querySelector('.eds'); ul.classList.toggle('one', hand.length === 1);
+    ul.innerHTML = hand.map(function (el) {
+      return '<li><b>' + el.dataset.n + '</b><span>' + el.dataset.d + '</span>' + (el.dataset.s ? '<a href="' + el.dataset.s + '">見本号を読む →</a>' : '') + '</li>';
+    }).join('');
+    info.classList.add('swap'); requestAnimationFrame(function () { requestAnimationFrame(function () { info.classList.remove('swap'); }); });
+  }
+  function alignHead(G) {   // PC：見出しの字の頭を、手札の上の端にそろえる
+    if (G.mob || !G.L) return;
+    var cardTop = G.tb.y + (G.tb.h - G.L.h) / 2, infoTop = rel(info).y;   // 箱の上の端（上の余白には左右されない）
+    var grp = info.querySelector('.grp'), fs = parseFloat(getComputedStyle(grp).fontSize), lh = parseFloat(getComputedStyle(grp).lineHeight) || fs * 1.25;
+    var inner = (lh - fs) / 2 + fs * .08;   // 行の上の余白と、字の上の小さなすき間
+    info.style.setProperty('--cardtop', Math.max(0, cardTop - infoTop - inner).toFixed(1) + 'px');
+  }
+  function settle() {   // 位置を測り直して、ずれがあれば静かに合わせる
+    var G = geo(); G.L = fit(hand.length, table.clientWidth, table.clientWidth < 600); G.tb.h = table.clientHeight;
+    var rest = cards.filter(function (el) { return hand.indexOf(el) < 0; });
+    rest.forEach(function (el, i) { css(el, G.shelf ? shelfPos(G, el, i) : deckPos(G, i, rest.length)); });
+    hand.forEach(function (el, k) { css(el, handPos(G, k, hand.length)); });
+  }
+  function deal(ng, quick) {
+    if (ng === g && !quick) return;
+    g = ng;
+    gates.forEach(function (b, k) { b.classList.toggle('on', k === ng); b.setAttribute('aria-pressed', k === ng); });
+    var rest = cards.filter(function (el) { return +el.dataset.g !== ng; });
+    hand = cards.filter(function (el) { return +el.dataset.g === ng; });
+    list();
+    var mob = table.clientWidth < 600, L = fit(hand.length, table.clientWidth, mob);
+    table.style.transition = 'none'; table.style.height = Math.round(L.h + (mob ? 24 : 40)) + 'px';   // 高さはすぐ切りかえる（変わる途中に棚の位置を測ると、ずれる）
+    var G = geo(); G.L = L; G.tb.h = L.h + (mob ? 24 : 40); alignHead(G);
+    // 前の手札は山へ戻し、山をそろえ直す
+    rest.forEach(function (el, i) { el.style.transitionDelay = '0ms'; el.classList.remove('dealt'); css(el, G.shelf ? shelfPos(G, el, i) : deckPos(G, i, rest.length)); });
+    // 選んだ版は、山のいちばん上から1枚ずつ配る
+    // 棚（PC）：いまの場所からそのまま飛ぶ。山（スマホ）：山のいちばん上から
+    hand.forEach(function (el) { el.style.zIndex = 300; if (G.shelf && el.style.transform) return; el.style.transition = 'none'; var p = G.shelf ? shelfPos(G, el, cards.indexOf(el)) : deckPos(G, rest.length, rest.length + 1); p.z = 300; css(el, p); });
+    void sec.offsetWidth;
+    hand.forEach(function (el, k) {
+      el.style.transition = ''; el.style.transitionDelay = (quick ? 0 : 250 + k * 150) + 'ms'; el.classList.add('dealt');
+      css(el, handPos(G, k, hand.length));
+    });
+    setTimeout(function () { hand.forEach(function (el) { el.style.transitionDelay = '0ms'; }); settle(); }, quick ? 30 : 250 + hand.length * 150 + 450);
+  }
+  gates.forEach(function (b, k) { b.addEventListener('click', function () {
+    deal(k);
+    var r = table.getBoundingClientRect(), vh = (window.visualViewport && visualViewport.height) || innerHeight;
+    if (r.top > vh * .55) scrollBy({ top: r.top - vh * .3, behavior: 'smooth' });
+  }); });
+  cards.forEach(function (el) { el.addEventListener('click', function () {
+    if (hand.indexOf(el) < 0) deal(+el.dataset.g);   // 配った札は押しても何もしない。棚・山の札は、その入口を開く
+  }); });
+  sec.querySelectorAll('[data-goto]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); deal(+a.dataset.goto); table.scrollIntoView({ behavior: 'smooth', block: 'center' }); }); });
+  var rt; addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { deal(g, true); }, 150); });
+  // 文字や画像が読み込まれて位置が決まってから配る
+  function start() { deal(0); }
+  if (document.readyState === 'complete') start(); else addEventListener('load', start);
 })();
 </script>
 <script>

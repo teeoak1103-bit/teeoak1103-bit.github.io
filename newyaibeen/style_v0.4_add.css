@@ -40,5 +40,6 @@
   /* 05 申込みの流れ：v0.4 は右の列がせまいので、ボタンは流れの下に置く */
   .flow-row { display: block; }
   .flow-row .steps { max-width: 880px; margin-bottom: 32px; }
-  .flow-cta .btn-xl { width: auto; }
+  .flow-cta { max-width: 440px; }
+  .flow-cta .btn-xl { width: 100%; }
 }

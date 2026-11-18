@@ -365,6 +365,9 @@ footer small { display: block; margin-top: 12px; color: var(--gray); font-size: 
 
 /* 05 申込みの流れ：右の空きに、大きな申込みボタン（11/11 本人） */
 .flow-cta .small { margin-top: 12px; }
+/* 月払い・1年まとめの2つのボタン（11/17）：決定の黒は月払い、1年まとめは線だけ */
+.flow-cta { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+.flow-cta .btn-alt { background: transparent; color: var(--ink); }
 .btn-xl { height: 72px; padding: 0 40px; border-radius: 36px; font-size: clamp(18px, 1.6vw, 22px); font-weight: 900; gap: 14px; }
 .btn-xl .ar { font-family: var(--en); transition: transform .3s var(--ease); }
 .btn-xl:hover .ar { transform: translateX(6px); }
